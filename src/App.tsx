@@ -42,6 +42,7 @@ import { GroupExpenseSplitter } from './components/GroupExpenseSplitter';
 import { SharedPhotoAlbumView } from './components/SharedPhotoAlbumView';
 import { PlaceDetailModal } from './components/PlaceDetailModal';
 import { getDaysSinceRomeFoundation, TRIP_DATES_SHORT } from './utils/romanDates';
+import { Analytics } from '@vercel/analytics/react';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -541,6 +542,9 @@ export const App: React.FC = () => {
           </button>
         </div>
       </nav>
+
+      {/* Monitorización de visitas y rendimiento con Vercel Analytics */}
+      <Analytics />
     </div>
   );
 };
