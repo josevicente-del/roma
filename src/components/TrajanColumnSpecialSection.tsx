@@ -45,6 +45,7 @@ import {
 import { Coordinates } from '../types/itinerary';
 import { getGoogleMapsWalkingUrl } from '../utils/maps';
 import { NaturalAudioGuidePlayer } from './NaturalAudioGuidePlayer';
+import { MonumentImage } from './MonumentImage';
 
 interface TrajanColumnSpecialSectionProps {
   userCoords?: Coordinates | null;
@@ -64,6 +65,7 @@ interface SceneDetail {
   historicalSignificance: string;
   whatToLookFor: string;
   imageUrl: string;
+  fallbackImageUrl: string;
   imageAlt: string;
   imageCaption: string;
   bandPosition: string;
@@ -79,9 +81,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'En el nacimiento exacto del friso en la base de la columna, el río Danubio está personificado como un anciano titán con espesa barba y torso desnudo que emerge de una gruta rocosa. Contempla asombrado a las legiones romanas de Trajano cruzando la frontera del imperio sobre un puente de barcas unidas con tablones de madera.',
     historicalSignificance: 'Simboliza que las fuerzas salvajes de la naturaleza no combaten a Roma, sino que se someten voluntariamente ante el destino civilizador del emperador.',
     whatToLookFor: 'Fijaos en la mano izquierda del dios Danubio apoyada en la orilla mientras con su brazo derecho parece calmar la corriente para que las barcazas no zozobren.',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Danubius_-_Trajan_Column.jpg/800px-Danubius_-_Trajan_Column.jpg',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/001_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_I.jpg/960px-001_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_I.jpg',
+    fallbackImageUrl: 'https://images.unsplash.com/photo-1588614959060-4d144f28b207?q=80&w=960&auto=format&fit=crop',
     imageAlt: 'El dios fluvial Danubius en el inicio del friso de la Columna',
-    imageCaption: 'Escena I: Danubius emerge de la cueva mirando a las legiones cruzar el puente de barcazas',
+    imageCaption: 'Escena I: Danubius emerge de la cueva mirando a las legiones cruzar el puente de barcazas (Lámina I Cichorius)',
     bandPosition: 'Vuelta 1 (base inferior del fuste, mirando al suroeste)'
   },
   {
@@ -93,9 +96,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'National Geographic destaca que más de un tercio de la columna no muestra combates, sino obras de ingeniería. Se observan legionarios talando robles milenarios, desmochando troncos, excavando fosos defensivos y levantando campamentos fortificados de sillería y estacas con sus armaduras puestas.',
     historicalSignificance: 'Refleja la estricta disciplina del ejército romano: un soldado de Trajano era antes un zapador e ingeniero de caminos que un combatiente.',
     whatToLookFor: 'Mirad cómo los legionarios apilan los bloques de madera con poleas y cómo los soldados transportan cestas de tierra sobre los hombros para nivelar el terreno.',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Roman_soldiers_building_a_fort_-_Trajan%27s_Column.jpg/800px-Roman_soldiers_building_a_fort_-_Trajan%27s_Column.jpg',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/012_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_XII.jpg/960px-012_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_XII.jpg',
+    fallbackImageUrl: 'https://images.unsplash.com/photo-1543429776-2782fc8e1acd?q=80&w=960&auto=format&fit=crop',
     imageAlt: 'Soldados romanos talando árboles y construyendo un fuerte',
-    imageCaption: 'Escena XII: Zapadores legionarios talando robles y levantando un castrum de sillería',
+    imageCaption: 'Escena XII: Zapadores legionarios talando robles y levantando un castrum de sillería (Lámina XII Cichorius)',
     bandPosition: 'Vueltas 2–3 (primer tercio inferior de la columna)'
   },
   {
@@ -107,9 +111,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'Violento combate cuerpo a cuerpo en el bosque de Tapae (101 d.C.). Los dacios empuñan la temida falx, una espada curva a dos manos capaz de seccionar brazos y partir los cascos de bronce tradicionales.',
     historicalSignificance: 'Esta batalla obligó a los ingenieros militares de Trajano a incorporar barras cruzadas de hierro reforzado en los cascos legionarios y grebas protectoras en las piernas.',
     whatToLookFor: 'En el relieve se ve a los dioses Júpiter Tonante arrojando rayos desde el cielo en apoyo de las legiones mientras la caballería romana envuelve los flancos dacios.',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Trajan%27s_column_battle_scene.jpg/800px-Trajan%27s_column_battle_scene.jpg',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/018_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_XVIII.jpg/960px-018_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_XVIII.jpg',
+    fallbackImageUrl: 'https://images.unsplash.com/photo-1555992828-ca4dbe41d294?q=80&w=960&auto=format&fit=crop',
     imageAlt: 'Combate entre legionarios romanos y guerreros dacios con falx',
-    imageCaption: 'Escena XXIV: Feroz combate en Tapae con la temida falx dacia y Júpiter en el cielo',
+    imageCaption: 'Escena XXIV: Feroz combate en Tapae con la temida falx dacia y Júpiter en el cielo (Lámina XVIII Cichorius)',
     bandPosition: 'Vueltas 4–5 (cara noreste de la columna)'
   },
   {
@@ -121,9 +126,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'Diseñado por el arquitecto Apolodoro de Damasco en Drobeta (105 d.C.). Medía 1.135 metros de longitud y 19 metros de altura sobre las aguas, sostenido por 20 gigantescos pilares de sillería de piedra levantados desviando el cauce con ataguías.',
     historicalSignificance: 'Permitió cruzar al ejército entero con caballos, piezas de artillería (catapultas y balistas) y víveres en cuestión de horas, sellando el destino de Dacia.',
     whatToLookFor: 'Trajano aparece en el centro vertiendo una libación de vino sobre un altar en la orilla mientras las tropas desfilan sobre los arcos de madera de roble del puente.',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bridge_of_Trajan_on_Trajan%27s_Column.jpg/800px-Bridge_of_Trajan_on_Trajan%27s_Column.jpg',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Largest_Arches_02.jpg/960px-Largest_Arches_02.jpg',
+    fallbackImageUrl: 'https://images.unsplash.com/photo-1531572753322-ad063cecc140?q=80&w=960&auto=format&fit=crop',
     imageAlt: 'El puente de barcas y arcos sobre el Danubio de Apolodoro',
-    imageCaption: 'Escena LXXV: El colosal puente de Drobeta sobre el Danubio (1.135 m de longitud)',
+    imageCaption: 'Escena LXXV: El colosal puente de Drobeta sobre el Danubio de Apolodoro de Damasco',
     bandPosition: 'Vuelta 11 (mitad exacta de la columna, sobre la Victoria alada)'
   },
   {
@@ -135,9 +141,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'Mujeres dacias desnudas de cintura para arriba aplican antorchas encendidas y tizones sobre los cuerpos desarmados y atados de soldados romanos capturados.',
     historicalSignificance: 'Es una muestra insólita de realismo y sufrimiento en un monumento triunfal: los escultores no ocultaron la crueldad de la guerra ni el dolor infligido a sus propios legionarios.',
     whatToLookFor: 'La expresión de agonía de los rostros de los prisioneros romanos y la determinación furiosa de las matronas dacias defendiendo su territorio.',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Torture_of_Roman_prisoners_-_Trajan_Column.jpg/800px-Torture_of_Roman_prisoners_-_Trajan_Column.jpg',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/09_colonna_traiana_da_nord_02%2C_Jupiter.jpg',
+    fallbackImageUrl: 'https://images.unsplash.com/photo-1588614959060-4d144f28b207?q=80&w=960&auto=format&fit=crop',
     imageAlt: 'Mujeres dacias torturando a prisioneros romanos',
-    imageCaption: 'Escena XLV: Matronas dacias aplicando fuego a legionarios capturados sin armadura',
+    imageCaption: 'Escena XLV: Relieve original en el fuste este con los prisioneros y guerreros',
     bandPosition: 'Vuelta 7 (cara este, tercio medio-inferior)'
   },
   {
@@ -149,9 +156,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'En el año 106 d.C., las legiones cercan la capital fortificada en los Cárpatos y cortan los acueductos subterráneos de agua potable. Ante la sed y la derrota inminente, los aristócratas dacios se reúnen en torno a un gran caldero comunitario de veneno para morir libres antes de ser reducidos a la esclavitud.',
     historicalSignificance: 'Trajano quiso dejar constancia del coraje y la dignidad de su enemigo: no eran simples bárbaros incivilizados, sino guerreros de formidable honor.',
     whatToLookFor: 'Un noble dacio repartiendo la copa de cicuta mientras varios cadáveres yacen ya en el suelo sostenidos por sus compañeros con gestos de resignación estoica.',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Dacians_drinking_poison_-_Trajan_Column.jpg/800px-Dacians_drinking_poison_-_Trajan_Column.jpg',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Traj_col_suicide.jpg/960px-Traj_col_suicide.jpg',
+    fallbackImageUrl: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?q=80&w=960&auto=format&fit=crop',
     imageAlt: 'Nobles dacios bebiendo veneno en Sarmizegetusa',
-    imageCaption: 'Escena CXXX: La agonía de Sarmizegetusa: nobles dacios bebiendo la copa comunitaria de veneno',
+    imageCaption: 'Escena CXXX: La agonía de Sarmizegetusa y la caída final del reino dacio',
     bandPosition: 'Vuelta 19 (tercio superior, cerca de la cima)'
   },
   {
@@ -163,7 +171,8 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'Acorralado en lo profundo del bosque sagrado por el explorador de caballería Tiberio Claudio Máximo, el rey Decébalo cae de rodillas al pie de un roble centenario y utiliza su propia daga curva (sica) para rebanarse la garganta antes de permitir que lo exhiban encadenado en Roma.',
     historicalSignificance: 'Es la escena cumbre de toda la columna. Su cabeza y su mano derecha fueron cortadas y llevadas a Roma para ser arrojadas por las Escaleras Gemonias.',
     whatToLookFor: 'La mano de Decébalo empuñando la daga en su cuello mientras un soldado romano a caballo extiende el brazo intentando atraparlo con vida antes de que expire.',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Traj_col_suicide.jpg/800px-Traj_col_suicide.jpg',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Traj_col_suicide.jpg/960px-Traj_col_suicide.jpg',
+    fallbackImageUrl: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=960&auto=format&fit=crop',
     imageAlt: 'Suicidio del rey Decébalo bajo el árbol ante la caballería romana',
     imageCaption: 'Escena CXLV: Decébalo rebanándose la garganta con su espada curva antes de ser capturado',
     bandPosition: 'Vuelta 22 (penúltima vuelta del friso, justo bajo el capitel dórico)'
@@ -177,9 +186,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'Antes de morir, Decébalo desvió el curso del río Sargetia con esclavos, enterró en el lecho su legendario tesoro de lingotes y vajillas, lo cubrió con rocas y mandó ejecutar a todos los obreros. Un noble dacio delató el secreto a Trajano. En la columna se ve a mulas y bueyes cargados con alforjas repletas de recipientes de oro cruzando hacia Roma.',
     historicalSignificance: 'Este botín colosal salvó a Roma de la bancarrota: financió la construcción de este Foro, los Mercados, el acueducto Aqua Traiana y 123 días de juegos en el Coliseo.',
     whatToLookFor: 'Familias dacias enteras con niños en brazos y rebaños de ovejas iniciando la deportación hacia nuevas tierras del Imperio.',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Dacian_treasure_taken_by_Romans_-_Trajan_Column.jpg/800px-Dacian_treasure_taken_by_Romans_-_Trajan_Column.jpg',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Trajan%27s_Column_HD.jpg/960px-Trajan%27s_Column_HD.jpg',
+    fallbackImageUrl: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=960&auto=format&fit=crop',
     imageAlt: 'Mulas cargadas con el tesoro de oro dacio hacia Roma',
-    imageCaption: 'Escena CLI: El convoy de mulas transportando 165 toneladas de oro hacia Roma',
+    imageCaption: 'Escena CLI: El remate superior de la Columna narrando la marcha del botín imperial',
     bandPosition: 'Vuelta 23 (última vuelta en la cúspide de la columna)'
   }
 ];
@@ -282,17 +292,20 @@ export const TrajanColumnSpecialSection: React.FC<TrajanColumnSpecialSectionProp
           {/* FOTO HERO MONUMENTAL & GUÍA ANATÓMICA DE LA COLUMNA */}
           <div className="rounded-2xl border border-roman-border overflow-hidden bg-roman-surface shadow-soft">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
-              <div className="relative group md:col-span-5 bg-stone-900 min-h-[320px] flex items-center justify-center overflow-hidden">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Trajan%27s_Column_%28Colonna_Traiana%29_Rome.jpg/800px-Trajan%27s_Column_%28Colonna_Traiana%29_Rome.jpg"
+              <div className="relative group md:col-span-5 bg-stone-800 min-h-[320px] flex items-center justify-center overflow-hidden">
+                <MonumentImage
+                  src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Trajan%27s_Column_HD.jpg/960px-Trajan%27s_Column_HD.jpg"
+                  fallbackSrc="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=960&auto=format&fit=crop"
                   alt="Columna de Trajano completa en el Foro de Trajano de Roma"
-                  loading="lazy"
+                  icon="🏛️"
+                  title="Columna de Trajano (113 d.C.)"
+                  caption="Monumento de 38,4 m erigido por Apolodoro de Damasco"
                   className="w-full h-full max-h-[440px] object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <button
                   onClick={() =>
                     setExpandedImage({
-                      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Trajan%27s_Column_%28Colonna_Traiana%29_Rome.jpg/800px-Trajan%27s_Column_%28Colonna_Traiana%29_Rome.jpg',
+                      url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Trajan%27s_Column_HD.jpg/960px-Trajan%27s_Column_HD.jpg',
                       title: 'La Columna de Trajano (113 d.C.)',
                       caption: 'Vista frontal del monumento de 38,4 m de altura erigido por Apolodoro de Damasco entre las dos bibliotecas imperiales.'
                     })
@@ -499,9 +512,12 @@ export const TrajanColumnSpecialSection: React.FC<TrajanColumnSpecialSectionProp
                       src={scene.imageUrl}
                       alt={scene.imageAlt}
                       loading="lazy"
-                      className="w-10 h-10 rounded-lg object-cover border border-roman-border shrink-0 bg-stone-200"
+                      referrerPolicy="no-referrer"
+                      className="w-10 h-10 rounded-lg object-cover border border-roman-border shrink-0 bg-stone-700"
                       onError={(e) => {
-                        (e.target as HTMLElement).style.display = 'none';
+                        if (e.currentTarget.src !== scene.fallbackImageUrl) {
+                          e.currentTarget.src = scene.fallbackImageUrl;
+                        }
                       }}
                     />
                     <div className="min-w-0">
@@ -535,11 +551,14 @@ export const TrajanColumnSpecialSection: React.FC<TrajanColumnSpecialSectionProp
 
             {/* FOTO DEL RELIEVE SEGÚN NATIONAL GEOGRAPHIC + UBICACIÓN EN LA COLUMNA */}
             <div className="rounded-2xl border border-roman-border overflow-hidden bg-roman-elevated shadow-sm">
-              <div className="relative group max-h-72 overflow-hidden bg-stone-900">
-                <img
+              <div className="relative group max-h-72 overflow-hidden bg-stone-800">
+                <MonumentImage
                   src={currentScene.imageUrl}
+                  fallbackSrc={currentScene.fallbackImageUrl}
                   alt={currentScene.imageAlt}
-                  loading="lazy"
+                  icon={currentScene.icon}
+                  title={`${currentScene.numberRoman} · ${currentScene.title}`}
+                  caption={currentScene.imageCaption}
                   className="w-full h-56 sm:h-72 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <button
@@ -738,10 +757,11 @@ export const TrajanColumnSpecialSection: React.FC<TrajanColumnSpecialSectionProp
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="flex-1 overflow-auto p-2 bg-black flex items-center justify-center">
+            <div className="flex-1 overflow-auto p-2 bg-stone-950 flex items-center justify-center">
               <img
                 src={expandedImage.url}
                 alt={expandedImage.title}
+                referrerPolicy="no-referrer"
                 className="max-h-[70vh] w-auto object-contain rounded-lg shadow-lg"
               />
             </div>
