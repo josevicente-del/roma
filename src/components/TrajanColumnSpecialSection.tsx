@@ -82,7 +82,7 @@ const NG_SCENES: SceneDetail[] = [
     historicalSignificance: 'Simboliza que las fuerzas salvajes de la naturaleza no combaten a Roma, sino que se someten voluntariamente ante el destino civilizador del emperador.',
     whatToLookFor: 'Fijaos en la mano izquierda del dios Danubio apoyada en la orilla mientras con su brazo derecho parece calmar la corriente para que las barcazas no zozobren.',
     imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/001_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_I.jpg/960px-001_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_I.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1588614959060-4d144f28b207?q=80&w=960&auto=format&fit=crop',
+    fallbackImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/001_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_I.jpg',
     imageAlt: 'El dios fluvial Danubius en el inicio del friso de la Columna',
     imageCaption: 'Escena I: Danubius emerge de la cueva mirando a las legiones cruzar el puente de barcazas (Lámina I Cichorius)',
     bandPosition: 'Vuelta 1 (base inferior del fuste, mirando al suroeste)'
@@ -97,7 +97,7 @@ const NG_SCENES: SceneDetail[] = [
     historicalSignificance: 'Refleja la estricta disciplina del ejército romano: un soldado de Trajano era antes un zapador e ingeniero de caminos que un combatiente.',
     whatToLookFor: 'Mirad cómo los legionarios apilan los bloques de madera con poleas y cómo los soldados transportan cestas de tierra sobre los hombros para nivelar el terreno.',
     imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/012_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_XII.jpg/960px-012_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_XII.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1543429776-2782fc8e1acd?q=80&w=960&auto=format&fit=crop',
+    fallbackImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/012_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_XII.jpg',
     imageAlt: 'Soldados romanos talando árboles y construyendo un fuerte',
     imageCaption: 'Escena XII: Zapadores legionarios talando robles y levantando un castrum de sillería (Lámina XII Cichorius)',
     bandPosition: 'Vueltas 2–3 (primer tercio inferior de la columna)'
@@ -112,7 +112,7 @@ const NG_SCENES: SceneDetail[] = [
     historicalSignificance: 'Esta batalla obligó a los ingenieros militares de Trajano a incorporar barras cruzadas de hierro reforzado en los cascos legionarios y grebas protectoras en las piernas.',
     whatToLookFor: 'En el relieve se ve a los dioses Júpiter Tonante arrojando rayos desde el cielo en apoyo de las legiones mientras la caballería romana envuelve los flancos dacios.',
     imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/018_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_XVIII.jpg/960px-018_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_XVIII.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1555992828-ca4dbe41d294?q=80&w=960&auto=format&fit=crop',
+    fallbackImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/018_Conrad_Cichorius%2C_Die_Reliefs_der_Traianss%C3%A4ule%2C_Tafel_XVIII.jpg',
     imageAlt: 'Combate entre legionarios romanos y guerreros dacios con falx',
     imageCaption: 'Escena XXIV: Feroz combate en Tapae con la temida falx dacia y Júpiter en el cielo (Lámina XVIII Cichorius)',
     bandPosition: 'Vueltas 4–5 (cara noreste de la columna)'
@@ -126,10 +126,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'Diseñado por el arquitecto Apolodoro de Damasco en Drobeta (105 d.C.). Medía 1.135 metros de longitud y 19 metros de altura sobre las aguas, sostenido por 20 gigantescos pilares de sillería de piedra levantados desviando el cauce con ataguías.',
     historicalSignificance: 'Permitió cruzar al ejército entero con caballos, piezas de artillería (catapultas y balistas) y víveres en cuestión de horas, sellando el destino de Dacia.',
     whatToLookFor: 'Trajano aparece en el centro vertiendo una libación de vino sobre un altar en la orilla mientras las tropas desfilan sobre los arcos de madera de roble del puente.',
-    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Largest_Arches_02.jpg/960px-Largest_Arches_02.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1531572753322-ad063cecc140?q=80&w=960&auto=format&fit=crop',
-    imageAlt: 'El puente de barcas y arcos sobre el Danubio de Apolodoro',
-    imageCaption: 'Escena LXXV: El colosal puente de Drobeta sobre el Danubio de Apolodoro de Damasco',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Trajan%27s_Column_-_NMR_-_panel_085_A.jpg/960px-Trajan%27s_Column_-_NMR_-_panel_085_A.jpg',
+    fallbackImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Trajan%27s_Column_-_NMR_-_panel_085_A.jpg',
+    imageAlt: 'Relieve del puente de madera y sillería sobre el Danubio de Apolodoro',
+    imageCaption: 'Escena LXXV: El colosal puente de Drobeta sobre el Danubio de Apolodoro de Damasco (Panel 085A)',
     bandPosition: 'Vuelta 11 (mitad exacta de la columna, sobre la Victoria alada)'
   },
   {
@@ -141,10 +141,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'Mujeres dacias desnudas de cintura para arriba aplican antorchas encendidas y tizones sobre los cuerpos desarmados y atados de soldados romanos capturados.',
     historicalSignificance: 'Es una muestra insólita de realismo y sufrimiento en un monumento triunfal: los escultores no ocultaron la crueldad de la guerra ni el dolor infligido a sus propios legionarios.',
     whatToLookFor: 'La expresión de agonía de los rostros de los prisioneros romanos y la determinación furiosa de las matronas dacias defendiendo su territorio.',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/09_colonna_traiana_da_nord_02%2C_Jupiter.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1588614959060-4d144f28b207?q=80&w=960&auto=format&fit=crop',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Trajan%27s_Column_-_NMR_-_panel_035_A.jpg/960px-Trajan%27s_Column_-_NMR_-_panel_035_A.jpg',
+    fallbackImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ad/Trajan%27s_Column_-_NMR_-_panel_035_A.jpg',
     imageAlt: 'Mujeres dacias torturando a prisioneros romanos',
-    imageCaption: 'Escena XLV: Relieve original en el fuste este con los prisioneros y guerreros',
+    imageCaption: 'Escena XLV: Relieve de mujeres dacias torturando a prisioneros legionarios con antorchas (Panel 035A)',
     bandPosition: 'Vuelta 7 (cara este, tercio medio-inferior)'
   },
   {
@@ -156,10 +156,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'En el año 106 d.C., las legiones cercan la capital fortificada en los Cárpatos y cortan los acueductos subterráneos de agua potable. Ante la sed y la derrota inminente, los aristócratas dacios se reúnen en torno a un gran caldero comunitario de veneno para morir libres antes de ser reducidos a la esclavitud.',
     historicalSignificance: 'Trajano quiso dejar constancia del coraje y la dignidad de su enemigo: no eran simples bárbaros incivilizados, sino guerreros de formidable honor.',
     whatToLookFor: 'Un noble dacio repartiendo la copa de cicuta mientras varios cadáveres yacen ya en el suelo sostenidos por sus compañeros con gestos de resignación estoica.',
-    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Traj_col_suicide.jpg/960px-Traj_col_suicide.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?q=80&w=960&auto=format&fit=crop',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Trajan%27s_Column_-_NMR_-_panel_096_A.jpg/960px-Trajan%27s_Column_-_NMR_-_panel_096_A.jpg',
+    fallbackImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Trajan%27s_Column_-_NMR_-_panel_096_A.jpg',
     imageAlt: 'Nobles dacios bebiendo veneno en Sarmizegetusa',
-    imageCaption: 'Escena CXXX: La agonía de Sarmizegetusa y la caída final del reino dacio',
+    imageCaption: 'Escena CXXX: La agonía de Sarmizegetusa y los nobles dacios tomando veneno comunitario (Panel 096A)',
     bandPosition: 'Vuelta 19 (tercio superior, cerca de la cima)'
   },
   {
@@ -171,10 +171,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'Acorralado en lo profundo del bosque sagrado por el explorador de caballería Tiberio Claudio Máximo, el rey Decébalo cae de rodillas al pie de un roble centenario y utiliza su propia daga curva (sica) para rebanarse la garganta antes de permitir que lo exhiban encadenado en Roma.',
     historicalSignificance: 'Es la escena cumbre de toda la columna. Su cabeza y su mano derecha fueron cortadas y llevadas a Roma para ser arrojadas por las Escaleras Gemonias.',
     whatToLookFor: 'La mano de Decébalo empuñando la daga en su cuello mientras un soldado romano a caballo extiende el brazo intentando atraparlo con vida antes de que expire.',
-    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Traj_col_suicide.jpg/960px-Traj_col_suicide.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=960&auto=format&fit=crop',
-    imageAlt: 'Suicidio del rey Decébalo bajo el árbol ante la caballería romana',
-    imageCaption: 'Escena CXLV: Decébalo rebanándose la garganta con su espada curva antes de ser capturado',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Decebalus_-_Traianus_-_Bucharest.jpg/960px-Decebalus_-_Traianus_-_Bucharest.jpg',
+    fallbackImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Decebalus_-_Traianus_-_Bucharest.jpg',
+    imageAlt: 'Relieve del suicidio del rey Decébalo bajo el roble ante la caballería romana',
+    imageCaption: 'Escena CXLV: Decébalo rebanándose la garganta con su daga curva (sica) bajo el roble',
     bandPosition: 'Vuelta 22 (penúltima vuelta del friso, justo bajo el capitel dórico)'
   },
   {
@@ -186,10 +186,10 @@ const NG_SCENES: SceneDetail[] = [
     ngDetails: 'Antes de morir, Decébalo desvió el curso del río Sargetia con esclavos, enterró en el lecho su legendario tesoro de lingotes y vajillas, lo cubrió con rocas y mandó ejecutar a todos los obreros. Un noble dacio delató el secreto a Trajano. En la columna se ve a mulas y bueyes cargados con alforjas repletas de recipientes de oro cruzando hacia Roma.',
     historicalSignificance: 'Este botín colosal salvó a Roma de la bancarrota: financió la construcción de este Foro, los Mercados, el acueducto Aqua Traiana y 123 días de juegos en el Coliseo.',
     whatToLookFor: 'Familias dacias enteras con niños en brazos y rebaños de ovejas iniciando la deportación hacia nuevas tierras del Imperio.',
-    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Trajan%27s_Column_HD.jpg/960px-Trajan%27s_Column_HD.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=960&auto=format&fit=crop',
-    imageAlt: 'Mulas cargadas con el tesoro de oro dacio hacia Roma',
-    imageCaption: 'Escena CLI: El remate superior de la Columna narrando la marcha del botín imperial',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Trajan%27s_Column_-_NMR_-_panel_112_A.jpg/960px-Trajan%27s_Column_-_NMR_-_panel_112_A.jpg',
+    fallbackImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Trajan%27s_Column_-_NMR_-_panel_112_A.jpg',
+    imageAlt: 'Relieve de animales de carga transportando el tesoro dacio de oro hacia Roma',
+    imageCaption: 'Escena CLI: El transporte del botín de oro del río Sargetia hacia Roma (Panel 112A)',
     bandPosition: 'Vuelta 23 (última vuelta en la cúspide de la columna)'
   }
 ];
@@ -553,6 +553,7 @@ export const TrajanColumnSpecialSection: React.FC<TrajanColumnSpecialSectionProp
             <div className="rounded-2xl border border-roman-border overflow-hidden bg-roman-elevated shadow-sm">
               <div className="relative group max-h-72 overflow-hidden bg-stone-800">
                 <MonumentImage
+                  key={currentScene.id}
                   src={currentScene.imageUrl}
                   fallbackSrc={currentScene.fallbackImageUrl}
                   alt={currentScene.imageAlt}

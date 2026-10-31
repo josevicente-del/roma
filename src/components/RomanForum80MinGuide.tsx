@@ -87,10 +87,10 @@ const FORUM_STOPS: ForumStop[] = [
     secretDetail: 'Mirad el techo interior bajo la bóveda de casetones: esculpe el momento exacto en que Tito asciende al Olimpo a lomos del águila de Júpiter para convertirse en dios. Además, este arco fue el modelo exacto en el que se inspiró Napoleón en 1806 para construir el Arco de Triunfo de París.',
     photoTip: 'Colocaos bajo el intradós del arco mirando hacia arriba para captar con gran angular el relieve del candelabro de 7 brazos (Menorá) recortado contra la bóveda de casetones.',
     audioScript: 'Bienvenidos a la primera estación de nuestro recorrido por el Foro Romano. Estáis bajo el Arco de Tito, erigido en el año ochenta y uno después de Cristo en la cima de la colina Velia. Alzar la vista al interior del arco: en el relieve sur veréis a los soldados romanos desfilando con el colosal candelabro de siete brazos de oro puro, la Menorá, arrancada del Templo de Jerusalén tras su asedio. Con ese inmenso botín de oro se financió precisamente la construcción del Coliseo que acabamos de visitar.',
-    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Arch_Titus%2C_Forum_Romanum%2C_Rome%2C_Italy.jpg/960px-Arch_Titus%2C_Forum_Romanum%2C_Rome%2C_Italy.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=960&auto=format&fit=crop',
-    imageAlt: 'Arco de Tito en la cumbre de la Vía Sacra',
-    imageCaption: 'Vista del Arco de Tito (81 d.C.) en la cumbre de la colina Velia mirando hacia el Foro',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Carrying_off_the_Menorah_from_the_Temple_in_Jerusalem_depicted_on_a_frieze_on_the_Arch_of_Titus_in_the_Forum_Romanum.JPG/960px-Carrying_off_the_Menorah_from_the_Temple_in_Jerusalem_depicted_on_a_frieze_on_the_Arch_of_Titus_in_the_Forum_Romanum.JPG',
+    fallbackImageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Arch_of_Titus_Menorah_22.jpg/960px-Arch_of_Titus_Menorah_22.jpg',
+    imageAlt: 'Relieve de la Menorá en el interior del Arco de Tito',
+    imageCaption: 'Relieve interior del Arco de Tito: soldados romanos portando el botín de la Menorá de Jerusalén',
     locationTipInForum: 'En la cumbre de la colina Velia, justo al acceder al recinto arqueológico desde el Coliseo mirando al oeste hacia la Vía Sacra.'
   },
   {
@@ -112,9 +112,9 @@ const FORUM_STOPS: ForumStop[] = [
     photoTip: 'Poneos en el centro de la Vía Sacra justo enfrente de los 3 arcos gigantes: disparad en vertical para que una persona en primer plano sirva de escala humana ante la inmensidad de las bóvedas.',
     audioScript: 'Avanzando por la Vía Sacra nos encontramos ante la estructura techada más colosal de toda la Antigüedad: la Basílica de Majencio y Constantino. Fijaos en los enormes casetones octogonales tallados en el hormigón de las bóvedas: los ingenieros romanos los vaciaban por dentro para aligerar toneladas de peso sin restar solidez a la estructura. Mil doscientos años después, Donato Bramante y Miguel Ángel se plantaron aquí mismo para estudiar estas tres bóvedas y proyectar la Basílica de San Pedro del Vaticano.',
     imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Largest_Arches_02.jpg/960px-Largest_Arches_02.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1543429776-2782fc8e1acd?q=80&w=960&auto=format&fit=crop',
-    imageAlt: 'Bóvedas de la Basílica de Majencio y Constantino',
-    imageCaption: 'Las 3 bóvedas de hormigón de 35 m de altura conservadas de la nave norte',
+    fallbackImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Largest_Arches_02.jpg',
+    imageAlt: 'Bóvedas colosales con casetones octogonales de la Basílica de Majencio',
+    imageCaption: 'Las 3 bóvedas de hormigón aligerado de 35 m de altura conservadas de la nave norte',
     locationTipInForum: 'En la ladera norte (a tu derecha según bajas la Vía Sacra). Sus 3 arcos colosales son la estructura más alta y voluminosa de todo el recinto.'
   },
   {
@@ -135,10 +135,10 @@ const FORUM_STOPS: ForumStop[] = [
     secretDetail: 'Fijaos bien en las dos hojas de la puerta de bronce verde: son las originales fundidas en el año 307 d.C. Su cerradura de hierro romana con pestillo horizontal sigue operativa y puede cerrarse con su llave antigua tras diecisiete siglos.',
     photoTip: 'Acercaos a la puerta de bronce para fotografiar el detalle de la cerradura romana y el contraste del bronce milenario con las columnas de pórfido.',
     audioScript: 'Deteneos unos instantes frente a este misterioso edificio circular de ladrillo. Es el Templo de Rómulo, mandado construir por el emperador Majencio para divinizar a su hijo pequeño, fallecido a muy corta edad. Pero lo más prodigioso de este rincón es su puerta: esas dos hojas de bronce verde son las originales del año trescientos siete. Tienen más de mil setecientos años y conservan su cerradura romana original, que aún funciona a la perfección.',
-    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/RomaForoRomanoTempioDivoRomolo.JPG/960px-RomaForoRomanoTempioDivoRomolo.JPG',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1531572753322-ad063cecc140?q=80&w=960&auto=format&fit=crop',
-    imageAlt: 'Fachada circular del Templo de Rómulo con puertas de bronce',
-    imageCaption: 'Rotonda de ladrillo del 307 d.C. con las puertas de bronce originales y columnas de pórfido',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Temple_of_%22Romulus%22_%E2%80%93_Bronze_Doors_%2814429528870%29.jpg/960px-Temple_of_%22Romulus%22_%E2%80%93_Bronze_Doors_%2814429528870%29.jpg',
+    fallbackImageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/RomaForoRomanoTempioDivoRomolo.JPG/960px-RomaForoRomanoTempioDivoRomolo.JPG',
+    imageAlt: 'Puertas de bronce originales del 307 d.C. del Templo de Rómulo',
+    imageCaption: 'Detalle de las dos hojas de bronce del 307 d.C. con su cerradura romana original intacta',
     locationTipInForum: 'Edificio circular de ladrillo a tu derecha tras pasar Majencio. Busca sus dos columnas de pórfido rojizo y su gran puerta verde de bronce.'
   },
   {
@@ -159,10 +159,10 @@ const FORUM_STOPS: ForumStop[] = [
     secretDetail: 'Observad las estatuas de mármol de las Vestales Máximas que rodean el jardín: en uno de los pedestales (fechado en el 364 d.C.) el nombre de la vestal fue borrado deliberadamente a golpes de cincel. La leyenda cuenta que se convirtió secretamente a la nueva fe cristiana.',
     photoTip: 'El mejor encuadre es desde el extremo este del patio: alinead la hilera de estatuas de mármol con el templo circular de Vesta y los olivos centenarios.',
     audioScript: 'Entramos ahora en uno de los lugares más sagrados y misteriosos de la civilización romana: la Casa de las Vestales. Aquí vivían las seis únicas sacerdotisas de Roma, elegidas entre niñas de familias nobles cuando tenían entre seis y diez años. Durante treinta años estaban obligadas a mantener encendido el fuego sagrado del Estado romano, que jamás podía extinguirse. A cambio, gozaban de privilegios inauditos para una mujer de su época: administraban sus propias fortunas y tenían el poder de perdonar la vida a cualquier condenado a muerte con solo cruzarse en su camino.',
-    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/House_of_the_Vestal_Virgins%2C_Roman_Forum._Viewed_from_the_Palatine_Hill._Rome._-_Flickr_-_Andy_Montgomery.jpg/960px-House_of_the_Vestal_Virgins%2C_Roman_Forum._Viewed_from_the_Palatine_Hill._Rome._-_Flickr_-_Andy_Montgomery.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?q=80&w=960&auto=format&fit=crop',
-    imageAlt: 'Patio ajardinado de la Casa de las Vestales',
-    imageCaption: 'Atrium Vestae: patio claustral con estanques y estatuas de las sacerdotisas',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Vestal_in_Forum_romanum_Rome_Italy.jpg/960px-Vestal_in_Forum_romanum_Rome_Italy.jpg',
+    fallbackImageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Statue_Maison_des_Vestales_Forum_Romanum_Rome.jpg/960px-Statue_Maison_des_Vestales_Forum_Romanum_Rome.jpg',
+    imageAlt: 'Estatua de mármol de una Vestal Máxima en el Atrium Vestae',
+    imageCaption: 'Estatua de las Vestales Máximas bordeando los estanques del jardín sagrado',
     locationTipInForum: 'A la izquierda (sur) de la Vía Sacra, a los pies de la colina del Palatino. Amplio patio ajardinado con tres estanques alargados y estatuas.'
   },
   {
@@ -183,10 +183,10 @@ const FORUM_STOPS: ForumStop[] = [
     secretDetail: 'Mirad atentamente la parte superior de los fustes de las columnas de mármol: veréis unas profundas incisiones oblicuas. Son los surcos dejados por las cuerdas con las que en la Edad Media intentaron derribar el templo con yuntas de bueyes para saquear el mármol, pero las columnas resistieron firmes.',
     photoTip: 'Haced la foto desde la esquina suroeste para capturar el contraste de las columnas paganas del siglo II con el frontón barroco de la iglesia construida en su interior.',
     audioScript: 'Mirad hacia arriba al Templo de Antonino y Faustina, uno de los edificios mejor conservados del Foro. Fijaos en las seis columnas monolíticas de mármol cipollino de diecisiete metros de altura. Si observáis la parte superior de las columnas, notaréis unas profundas hendiduras diagonales. En la Edad Media, cuando el Foro se usaba como pastizal de vacas, intentaron atar maromas con yuntas de bueyes para tirar las columnas y robar la piedra; pero la ingeniería romana era tan descomunal que las cuerdas se partieron sin mover un milímetro el templo.',
-    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Temple_of_Antoninus_and_Faustina_%28Roma%29.jpg/960px-Temple_of_Antoninus_and_Faustina_%28Roma%29.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1529260830199-42c24126f198?q=80&w=960&auto=format&fit=crop',
-    imageAlt: 'Columnas monolíticas de mármol cipollino de Antonino y Faustina',
-    imageCaption: 'Pronaos imperial del 141 d.C. con columnas de mármol cipollino verde de 17 m',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Colonnade_temple_Antoninus_%26_Faustina_Forum_Romanum_Rome.jpg/960px-Colonnade_temple_Antoninus_%26_Faustina_Forum_Romanum_Rome.jpg',
+    fallbackImageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Temple_of_Antoninus_and_Faustina_%28Roma%29.jpg/960px-Temple_of_Antoninus_and_Faustina_%28Roma%29.jpg',
+    imageAlt: 'Columnas de mármol cipollino verde con surcos de cuerdas',
+    imageCaption: 'Detalle de las 6 columnas monolíticas de mármol cipollino de 17 m con las hendiduras de cuerdas medievales',
     locationTipInForum: 'Frente a las Vestales, en el lado norte de la Vía Sacra. Destaca por sus 6 altas columnas que custodian la iglesia barroca embutida en su interior.'
   },
   {
@@ -207,10 +207,10 @@ const FORUM_STOPS: ForumStop[] = [
     secretDetail: 'El túmulo circular bajo el techado de chapa marca el punto exacto donde el pueblo romano quemó espontáneamente el cadáver de César el 15 de marzo del 44 a.C. tras el discurso de Marco Antonio. A día de hoy, turistas y romanos siguen depositando monedas, poemas y flores frescas cada mañana.',
     photoTip: 'Haced una foto cercana del altar con las flores frescas recién puestas, con los restos de las columnas corintias del templo de fondo.',
     audioScript: 'Estamos ante uno de los lugares más cargados de emoción de la historia universal: el Altar de Julio César. Tras ser asesinado con veintitrés puñaladas en el Teatro de Pompeyo en los Idus de Marzo del año cuarenta y cuatro antes de Cristo, su cuerpo fue traído aquí. Marco Antonio agitó la toga ensangrentada del dictador ante el pueblo enardecido, que improvisó una pira funeraria quemando bancos y maderas para incinerar sus restos. Observad el túmulo de piedra: dos mil sesenta años después, la gente de todo el mundo sigue dejando flores frescas cada día en su memoria.',
-    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Temple_of_Caesar_3D.jpg/960px-Temple_of_Caesar_3D.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1555992828-ca4dbe41d294?q=80&w=960&auto=format&fit=crop',
-    imageAlt: 'Restos del Templo y Altar de Julio César',
-    imageCaption: 'El túmulo funerario donde fue incinerado Julio César tras los Idus de Marzo del 44 a.C.',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Altar_of_julius_caesar.jpg',
+    fallbackImageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Caesar_hh.jpg/960px-Caesar_hh.jpg',
+    imageAlt: 'Túmulo funerario y altar de Julio César con flores y ofrendas',
+    imageCaption: 'El túmulo exacto de la cremación de Julio César, cubierto con flores frescas y monedas',
     locationTipInForum: 'En la cabecera este de la explanada del Foro. Es una estructura de piedra semicircular bajo un techo protector donde siempre verás ofrendas florales.'
   },
   {
@@ -231,10 +231,10 @@ const FORUM_STOPS: ForumStop[] = [
     secretDetail: 'El pavimento de la sala es el original de mármol policromado (opus sectile) pisado por los senadores romanos. Las puertas exteriores de bronce son copias exactas del siglo XVII: las originales de la época imperial fueron trasladadas y colocadas en la Basílica de San Juan de Letrán.',
     photoTip: 'Si está abierta (habitualmente fines de semana), asomaos al umbral para capturar el diseño geométrico del suelo de pórfido y la inmensa altura de 21 metros de sus muros sin columnas.',
     audioScript: 'Llegamos al centro neurálgico del poder del Imperio: la Curia Julia, sede del Senado Romano. En esta sala de veintiún metros de altura se sentaban trescientos senadores para decidir el destino de millones de súbditos, desde Hispania hasta Mesopotamia. Su acústica es tan asombrosa que la voz de un orador se escucha con total claridad en el rincón más alejado sin necesidad de amplificación. Mirad el suelo de mármol con dibujos geométricos de pórfido rojo egipcio y serpentina verde: es el pavimento imperial original del siglo tercero.',
-    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Curia_Iulia_front.jpg/960px-Curia_Iulia_front.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=960&auto=format&fit=crop',
-    imageAlt: 'Fachada monumental de ladrillo de la Curia Julia',
-    imageCaption: 'La Curia Julia (Senado de Roma): edificio intacto de 21,6 m de altura',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Inside_Restored_Senate_House%28Curia%29_FORUM_11Mar2006.JPG/960px-Inside_Restored_Senate_House%28Curia%29_FORUM_11Mar2006.JPG',
+    fallbackImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Curia_Iulia_front.jpg/960px-Curia_Iulia_front.jpg',
+    imageAlt: 'Interior del Senado de Roma (Curia Julia) con suelo de opus sectile',
+    imageCaption: 'Sala de asambleas del Senado Romano con el pavimento imperial de pórfido y serpentina verde',
     locationTipInForum: 'Gran edificio cúbico de ladrillo marrón claro de 21 m de altura con frontón triangular, situado en la esquina noroeste junto al Arco de Severo.'
   },
   {
@@ -255,10 +255,10 @@ const FORUM_STOPS: ForumStop[] = [
     secretDetail: 'Fijaos en la cuarta línea de la inscripción dedicatoria del ático: Caracalla asesinó a su propio hermano Geta en el año 212 d.C. y ordenó borrar su nombre de todos los monumentos de Roma (damnatio memoriae). Si os fijáis bien, todavía se aprecian los orificios de los remaches de bronce donde estaban las letras del nombre de Geta antes de ser raspadas.',
     photoTip: 'Colocaos a los pies de la Rostra con el Arco de Septimio Severo iluminado lateralmente y el Templo de Saturno a vuestra izquierda para la toma clásica de despedida del Foro.',
     audioScript: 'Culminamos nuestros ochenta minutos en el extremo occidental del Foro, frente al Arco de Septimio Severo y la tribuna de oradores de la Rostra. Desde esta tribuna elevada Cicerón pronunció sus famosas Catilinarias y Marco Antonio encandiló al pueblo. Y en el arco de tres vanos de mármol blanco se oculta un drama sangriento: el emperador Caracalla mandó matar a su hermano Geta y ordenó borrar su nombre de la inscripción que tenéis ante vosotros. Mirad hacia la colina: subiendo unos pasos llegaréis a la plaza del Capitolio, broche de oro de nuestra visita.',
-    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Arch_of_Septimius_Severus_East.jpg/960px-Arch_of_Septimius_Severus_East.jpg',
-    fallbackImageUrl: 'https://images.unsplash.com/photo-1531572753322-ad063cecc140?q=80&w=960&auto=format&fit=crop',
-    imageAlt: 'Arco triunfal de Septimio Severo de tres vanos',
-    imageCaption: 'Arco de Septimio Severo (203 d.C.) y restos de la Rostra a los pies del Capitolio',
+    imageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Arch_of_Septimius_Severus_detail_Forum_Romanum_Rome.jpg/960px-Arch_of_Septimius_Severus_detail_Forum_Romanum_Rome.jpg',
+    fallbackImageUrl: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Arch_of_Septimius_Severus_-_%27Edessa%22_Relief_Panel_-_Right_Side_%28East_Facade%29.jpg/960px-Arch_of_Septimius_Severus_-_%27Edessa%22_Relief_Panel_-_Right_Side_%28East_Facade%29.jpg',
+    imageAlt: 'Relieve militar del Arco de Septimio Severo',
+    imageCaption: 'Detalle del relieve triunfal de las campañas en Oriente e inscripción donde Caracalla borró a Geta',
     locationTipInForum: 'Al fondo oeste del Foro, al pie de la colina Capitolina. Majestuoso arco triunfal blanco de tres arcadas junto a la plataforma elevada de la Rostra.'
   }
 ];
@@ -502,6 +502,7 @@ export const RomanForum80MinGuide: React.FC<RomanForum80MinGuideProps> = ({
         <div className="rounded-2xl border border-roman-border overflow-hidden bg-roman-elevated shadow-sm">
           <div className="relative group max-h-72 overflow-hidden bg-stone-800">
             <MonumentImage
+              key={currentStop.id}
               src={currentStop.imageUrl}
               fallbackSrc={currentStop.fallbackImageUrl}
               alt={currentStop.imageAlt}

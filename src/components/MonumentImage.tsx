@@ -8,7 +8,7 @@
  * 4. Fallback ilustrado imperial elegante en caso de modo offline (NUNCA un recuadro negro).
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ImageOff, Sparkles } from 'lucide-react';
 
 interface MonumentImageProps {
@@ -34,6 +34,14 @@ export const MonumentImage: React.FC<MonumentImageProps> = ({
   const [hasTriedFallback, setHasTriedFallback] = useState<boolean>(false);
   const [isFailed, setIsFailed] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  // Sincronizar de inmediato cuando la prop src cambia (por ejemplo al cambiar de viñeta/escena)
+  useEffect(() => {
+    setCurrentSrc(src);
+    setHasTriedFallback(false);
+    setIsFailed(false);
+    setIsLoading(true);
+  }, [src]);
 
   const handleError = () => {
     if (!hasTriedFallback && fallbackSrc && fallbackSrc !== currentSrc) {
