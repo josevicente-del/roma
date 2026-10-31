@@ -20,6 +20,7 @@ import {
   LogOut,
   ChevronDown,
   Download,
+  Layers,
   X
 } from 'lucide-react';
 import rawItineraryData from './data/itinerary.json';
@@ -54,7 +55,7 @@ interface BeforeInstallPromptEvent extends Event {
 
 const itineraryData = rawItineraryData as unknown as ItineraryData;
 
-type ActiveTab = 'hoy' | 'itinerario' | 'mapa' | 'gastos' | 'tiempo' | 'album';
+type ActiveTab = 'hoy' | 'itinerario' | 'mapa' | 'trajano' | 'gastos' | 'tiempo' | 'album';
 
 const AUTH_STORAGE_KEY = 'roma_pwa_auth_session_v1';
 const PROFILE_STORAGE_KEY = 'roma_pwa_active_profile_v1';
@@ -340,7 +341,7 @@ export const App: React.FC = () => {
             onGoToExpenses={() => setActiveTab('gastos')}
             onOpenDiningGuide={() => setShowDiningGuideModal(true)}
             onOpenForumGuide={() => setShowForumGuideModal(true)}
-            onOpenTrajanGuide={() => setShowTrajanModal(true)}
+            onOpenTrajanGuide={() => setActiveTab('trajano')}
             onOpenNavonaGuide={() => setShowNavonaModal(true)}
             onOpenAlbumForPlace={(placeId) => {
               setPreselectedAlbumPlaceId(placeId);
@@ -382,6 +383,15 @@ export const App: React.FC = () => {
           />
         )}
 
+        {activeTab === 'trajano' && (
+          <div className="animate-page pb-28">
+            <TrajanColumnSpecialSection
+              userCoords={userCoords}
+              isStandaloneTab={true}
+            />
+          </div>
+        )}
+
         {activeTab === 'gastos' && (
           <div className="animate-page space-y-6 pb-28">
             <GroupExpenseSplitter />
@@ -418,7 +428,7 @@ export const App: React.FC = () => {
           setActiveTab('album');
         }}
         onOpenDiningGuide={() => setShowDiningGuideModal(true)}
-        onOpenTrajanColumn={() => setShowTrajanModal(true)}
+        onOpenTrajanColumn={() => setActiveTab('trajano')}
         onOpenPiazzaNavona={() => setShowNavonaModal(true)}
         onOpenForumGuide={() => setShowForumGuideModal(true)}
       />
@@ -537,9 +547,9 @@ export const App: React.FC = () => {
         </div>
       )}
 
-      {/* BARRA INFERIOR FIJA CON LAS 6 SECCIONES: HOY, RUTA, MAPA, GASTOS, TIEMPO, ÁLBUM */}
-      <nav className="fixed bottom-0 inset-x-0 z-30 bg-roman-surface/95 backdrop-blur-md border-t border-roman-border px-1.5 py-1.5 safe-area-bottom">
-        <div className="max-w-lg mx-auto grid grid-cols-6 gap-0.5">
+      {/* BARRA INFERIOR FIJA CON LAS 7 SECCIONES: HOY, RUTA, MAPA, TRAJANO, GASTOS, TIEMPO, ÁLBUM */}
+      <nav className="fixed bottom-0 inset-x-0 z-30 bg-roman-surface/95 backdrop-blur-md border-t border-roman-border px-1 py-1.5 safe-area-bottom">
+        <div className="max-w-xl mx-auto grid grid-cols-7 gap-0.5">
           <button
             onClick={() => setActiveTab('hoy')}
             className={`touch-target flex flex-col items-center justify-center py-1 rounded-xl transition ${
@@ -574,6 +584,18 @@ export const App: React.FC = () => {
           >
             <Map className="w-5 h-5 stroke-[1.75]" />
             <span className="text-[10px] mt-0.5">Mapa</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('trajano')}
+            className={`touch-target flex flex-col items-center justify-center py-1 rounded-xl transition ${
+              activeTab === 'trajano'
+                ? 'text-roman-terracotta font-bold'
+                : 'text-roman-muted hover:text-roman-text'
+            }`}
+          >
+            <Layers className="w-5 h-5 stroke-[1.75]" />
+            <span className="text-[10px] mt-0.5">Trajano</span>
           </button>
 
           <button
