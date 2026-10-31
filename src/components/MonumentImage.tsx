@@ -90,3 +90,4 @@ export const MonumentImage: React.FC<MonumentImageProps> = ({
     </div>
   );
 };
+

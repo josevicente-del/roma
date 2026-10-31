@@ -91,3 +91,59 @@ export const TRIP_YEAR = 2026;
 export const TRIP_DATES_LONG = '6 al 8 de Noviembre de 2026';
 export const TRIP_DATES_SHORT = '6–8 Nov 2026';
 
+/**
+ * Información del día y hora real actual en la zona horaria de Roma (Europe/Rome).
+ * Identifica si hoy coincide con una de las jornadas del itinerario (viernes, sábado o domingo).
+ */
+export interface RomeRealTimeInfo {
+  timeStr: string;
+  weekdayName: string;
+  realDayId: 'viernes' | 'sabado' | 'domingo' | null;
+  isTripDay: boolean;
+}
+
+export function getRomeRealTimeAndDay(): RomeRealTimeInfo {
+  try {
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString('es-ES', {
+      timeZone: 'Europe/Rome',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
+
+    const weekdayNameRaw = now.toLocaleDateString('es-ES', {
+      timeZone: 'Europe/Rome',
+      weekday: 'long'
+    }).toLowerCase();
+
+    const normalized = weekdayNameRaw.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    let realDayId: 'viernes' | 'sabado' | 'domingo' | null = null;
+    if (normalized.includes('viernes')) realDayId = 'viernes';
+    else if (normalized.includes('sabado')) realDayId = 'sabado';
+    else if (normalized.includes('domingo')) realDayId = 'domingo';
+
+    const weekdayName = weekdayNameRaw.charAt(0).toUpperCase() + weekdayNameRaw.slice(1);
+
+    return {
+      timeStr,
+      weekdayName,
+      realDayId,
+      isTripDay: realDayId !== null
+    };
+  } catch {
+    const d = new Date();
+    const h = String(d.getHours()).padStart(2, '0');
+    const m = String(d.getMinutes()).padStart(2, '0');
+    const dayIndex = d.getDay();
+    const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    const ids: ('viernes' | 'sabado' | 'domingo' | null)[] = ['domingo', null, null, null, null, 'viernes', 'sabado'];
+    return {
+      timeStr: `${h}:${m}`,
+      weekdayName: dayNames[dayIndex],
+      realDayId: ids[dayIndex],
+      isTripDay: ids[dayIndex] !== null
+    };
+  }
+}
+

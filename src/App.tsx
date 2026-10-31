@@ -47,7 +47,7 @@ import { PlaceDetailModal } from './components/PlaceDetailModal';
 import { TrajanColumnSpecialSection } from './components/TrajanColumnSpecialSection';
 import { PiazzaNavonaNightFountainsView } from './components/PiazzaNavonaNightFountainsView';
 import { RomanForum80MinGuide } from './components/RomanForum80MinGuide';
-import { getDaysSinceRomeFoundation, TRIP_DATES_SHORT } from './utils/romanDates';
+import { getDaysSinceRomeFoundation, getRomeRealTimeAndDay, TRIP_DATES_SHORT } from './utils/romanDates';
 import { Analytics } from '@vercel/analytics/next';
 
 interface BeforeInstallPromptEvent extends Event {
@@ -79,8 +79,15 @@ export const App: React.FC = () => {
 
   // Las 4 pestañas exactas de la barra inferior: Hoy, Itinerario, Mapa, Álbum
   const [activeTab, setActiveTab] = useState<ActiveTab>('hoy');
-  const [selectedDayId, setSelectedDayId] = useState<DayId>('sabado');
-  const [simulatedTime, setSimulatedTime] = useState<string>('11:50');
+  // Se inicializa dinámicamente con el día y hora real en Roma (Europe/Rome)
+  const [selectedDayId, setSelectedDayId] = useState<DayId>(() => {
+    const romeInfo = getRomeRealTimeAndDay();
+    return romeInfo.realDayId || 'sabado';
+  });
+  const [simulatedTime, setSimulatedTime] = useState<string>(() => {
+    const romeInfo = getRomeRealTimeAndDay();
+    return romeInfo.timeStr;
+  });
   const [selectedPlaceModal, setSelectedPlaceModal] = useState<ItineraryPlace | null>(null);
   const [preselectedAlbumPlaceId, setPreselectedAlbumPlaceId] = useState<string | null>(null);
   const [showDiningGuideModal, setShowDiningGuideModal] = useState<boolean>(false);

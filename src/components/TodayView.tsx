@@ -26,14 +26,15 @@ import {
   CheckCircle2,
   Crosshair,
   Radio,
-  ExternalLink
+  ExternalLink,
+  Calendar
 } from 'lucide-react';
 import { Coordinates, DayId, ItineraryData, ItineraryPlace } from '../types/itinerary';
 import { PLACE_ENRICHMENTS } from '../data/placeEnrichments';
 import { calculateDistanceKm, getGoogleMapsWalkingUrl } from '../utils/maps';
 import { DayRouteMiniMap } from './DayRouteMiniMap';
 import { UsefulInfoAndChecklistView } from './UsefulInfoAndChecklistView';
-import { getDaysSinceRomeFoundation } from '../utils/romanDates';
+import { getDaysSinceRomeFoundation, getRomeRealTimeAndDay } from '../utils/romanDates';
 
 interface TodayViewProps {
   data: ItineraryData;
@@ -143,32 +144,40 @@ export const TodayView: React.FC<TodayViewProps> = ({
     }
   }
 
-  // Comprobación de puntualidad y ubicación:
+  // Comprobación de puntualidad, ubicación y DÍA REAL:
+  const realRome = getRomeRealTimeAndDay();
+  const isSelectedDayRealToday = !realRome.isTripDay || realRome.realDayId === selectedDayId;
+
   // Umbral: si estás a <= 250 metros del monumento, se considera "en el lugar"
   const isInExpectedLocation = distanceToExpectedM !== null && distanceToExpectedM <= 250;
   const hasVisitStarted = currentMinutes >= startMinutes;
   const isVisitOngoing = currentMinutes >= startMinutes && currentMinutes <= endMinutes;
 
-  let scheduleStatus: 'green' | 'red' | 'unknown' = 'unknown';
+  let scheduleStatus: 'green' | 'red' | 'different-day' | 'unknown' = 'unknown';
   let statusBadgeText = '';
   let statusExplanation = '';
 
-  if (!userCoords) {
+  if (!isSelectedDayRealToday && realRome.realDayId) {
+    // El usuario está visualizando un día que no coincide con el día real actual
+    scheduleStatus = 'different-day';
+    statusBadgeText = `🗓️ Viendo ${selectedDayId.toUpperCase()} (Hoy es ${realRome.weekdayName})`;
+    statusExplanation = `Estás consultando el itinerario del ${selectedDayId} a las ${simulatedTime} h, pero hoy en Roma es ${realRome.weekdayName}. Pulsa «Sincronizar a Hoy» para comprobar la visita que corresponde en este momento.`;
+  } else if (!userCoords) {
     scheduleStatus = 'unknown';
     statusBadgeText = 'GPS Desactivado';
-    statusExplanation = `Activa el GPS para comprobar si estás en ${activePlace.nameEs} a las ${activePlace.startTime} h.`;
+    statusExplanation = `Activa el GPS para comprobar si estás en ${activePlace.nameEs} a las ${activePlace.startTime} h (${selectedDayId}).`;
   } else if (hasVisitStarted) {
     if (isInExpectedLocation) {
       scheduleStatus = 'green';
-      statusBadgeText = '🟢 Vas en hora';
+      statusBadgeText = `🟢 Vas en hora (${selectedDayId})`;
       statusExplanation = `¡Perfecto! Tu GPS confirma que estás en el recinto de ${activePlace.nameEs} (${activePlace.startTime} – ${activePlace.endTime} h).`;
     } else {
       scheduleStatus = 'red';
-      statusBadgeText = '🔴 Fuera de lugar previsto';
+      statusBadgeText = `🔴 Fuera de lugar previsto (${selectedDayId})`;
       const formattedDist = distanceToExpectedM !== null && distanceToExpectedM >= 1000
         ? `${(distanceToExpectedM / 1000).toFixed(1)} km`
         : `${distanceToExpectedM} m`;
-      statusExplanation = `¡Atención! Ha llegado la hora prevista (${activePlace.startTime} h) y NO estás en ${activePlace.nameEs}. Tu GPS está a ${formattedDist} de distancia.`;
+      statusExplanation = `¡Atención! Ha llegado la hora prevista (${activePlace.startTime} h del ${selectedDayId}) y NO estás en ${activePlace.nameEs}. Tu GPS está a ${formattedDist} de distancia.`;
     }
   } else {
     // Aún no ha empezado la visita
@@ -177,59 +186,64 @@ export const TodayView: React.FC<TodayViewProps> = ({
 
     if (walkTimeNeededMin > minutesUntilStart && distanceToExpectedM && distanceToExpectedM > 300) {
       scheduleStatus = 'red';
-      statusBadgeText = '🔴 Riesgo de retraso';
+      statusBadgeText = `🔴 Riesgo de retraso (${selectedDayId})`;
       statusExplanation = `La visita a ${activePlace.nameEs} empieza a las ${activePlace.startTime} h (en ${minutesUntilStart} min) y tardarás ~${walkTimeNeededMin} min a pie.`;
     } else {
       scheduleStatus = 'green';
-      statusBadgeText = '🟢 Vas en hora';
+      statusBadgeText = `🟢 Vas en hora (${selectedDayId})`;
       statusExplanation = `Vas a tiempo para el inicio de la visita a ${activePlace.nameEs} (${activePlace.startTime} h).`;
     }
   }
 
-  const handleSetCurrentRomeTime = () => {
-    try {
-      const now = new Date();
-      const romeTimeStr = now.toLocaleTimeString('es-ES', {
-        timeZone: 'Europe/Rome',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false
-      });
-      onChangeSimulatedTime(romeTimeStr);
-    } catch {
-      const d = new Date();
-      const h = String(d.getHours()).padStart(2, '0');
-      const m = String(d.getMinutes()).padStart(2, '0');
-      onChangeSimulatedTime(`${h}:${m}`);
+  // Sincroniza tanto el DÍA como la HORA real de Roma en un solo toque
+  const handleSetRealDayAndRomeTime = () => {
+    const info = getRomeRealTimeAndDay();
+    onChangeSimulatedTime(info.timeStr);
+    if (info.realDayId) {
+      onSelectDay(info.realDayId);
     }
   };
 
   return (
     <div className="animate-page space-y-6 pb-28">
-      {/* Selector de jornada + Control de Hora con Semáforo GPS Verde/Rojo */}
+      {/* Selector de jornada + Control de Día y Hora con Semáforo GPS */}
       <div className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          {/* Chips de Jornada */}
+          {/* Chips de Jornada con insignia de "Hoy" */}
           <div className="flex items-center gap-1.5">
             {data.days.map((day) => {
               const active = day.id === selectedDayId;
+              const isToday = day.id === realRome.realDayId;
               return (
                 <button
                   key={day.id}
                   onClick={() => onSelectDay(day.id)}
-                  className={`touch-target px-4 py-2 rounded-full text-xs font-bold capitalize transition ${
+                  className={`touch-target px-3.5 py-1.5 rounded-full text-xs font-bold capitalize transition flex items-center gap-1.5 ${
                     active
                       ? 'bg-roman-terracotta text-white shadow-soft'
+                      : isToday
+                      ? 'bg-roman-surface text-roman-terracotta border-2 border-roman-terracotta/40 hover:bg-roman-elevated'
                       : 'bg-roman-surface text-roman-muted border border-roman-border hover:text-roman-text'
                   }`}
                 >
-                  {day.id}
+                  <span>{day.id}</span>
+                  {isToday && (
+                    <span
+                      className={`text-[9px] px-1.5 py-0.5 rounded-full uppercase tracking-wider font-extrabold ${
+                        active
+                          ? 'bg-white/20 text-white'
+                          : 'bg-roman-terracotta/15 text-roman-terracotta'
+                      }`}
+                    >
+                      Hoy
+                    </span>
+                  )}
                 </button>
               );
             })}
           </div>
 
-          {/* Selector de Hora con indicador de semáforo Verde/Rojo */}
+          {/* Selector de Hora con indicador de semáforo Verde/Rojo/Amarillo */}
           <div className="flex items-center gap-2">
             <label
               className={`touch-target inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-bold transition shadow-sm ${
@@ -237,6 +251,8 @@ export const TodayView: React.FC<TodayViewProps> = ({
                   ? 'bg-emerald-500/10 border-emerald-500 text-emerald-800 dark:text-emerald-300'
                   : scheduleStatus === 'red'
                   ? 'bg-red-500/15 border-red-500 text-red-800 dark:text-red-300 animate-pulse'
+                  : scheduleStatus === 'different-day'
+                  ? 'bg-amber-500/15 border-amber-500 text-amber-900 dark:text-amber-200'
                   : 'bg-roman-surface border-roman-border text-roman-muted'
               }`}
             >
@@ -249,16 +265,23 @@ export const TodayView: React.FC<TodayViewProps> = ({
                 className="bg-transparent font-bold focus:outline-none cursor-pointer"
               />
               <span className="text-[11px] font-sans ml-0.5">
-                {scheduleStatus === 'green' ? '🟢' : scheduleStatus === 'red' ? '🔴' : '⚪'}
+                {scheduleStatus === 'green'
+                  ? '🟢'
+                  : scheduleStatus === 'red'
+                  ? '🔴'
+                  : scheduleStatus === 'different-day'
+                  ? '🟡'
+                  : '⚪'}
               </span>
             </label>
 
             <button
-              onClick={handleSetCurrentRomeTime}
-              className="touch-target px-2.5 py-1.5 rounded-full bg-roman-surface border border-roman-border text-roman-muted hover:text-roman-text text-[11px] font-bold transition"
-              title="Poner la hora real actual de Roma"
+              onClick={handleSetRealDayAndRomeTime}
+              className="touch-target px-2.5 py-1.5 rounded-full bg-roman-surface border border-roman-border text-roman-muted hover:text-roman-text text-[11px] font-bold transition flex items-center gap-1 shadow-sm"
+              title="Poner el día y la hora real actual de Roma"
             >
-              Hora Real
+              <Calendar className="w-3 h-3 text-roman-terracotta" />
+              <span>Día y Hora Real</span>
             </button>
           </div>
         </div>
@@ -270,6 +293,8 @@ export const TodayView: React.FC<TodayViewProps> = ({
               ? 'bg-emerald-500/5 border-emerald-500/40 text-emerald-950 dark:text-emerald-200'
               : scheduleStatus === 'red'
               ? 'bg-red-500/10 border-red-500/50 text-red-950 dark:text-red-200'
+              : scheduleStatus === 'different-day'
+              ? 'bg-amber-500/10 border-amber-500/50 text-amber-950 dark:text-amber-200'
               : 'bg-roman-surface border-roman-border text-roman-text'
           }`}
         >
@@ -277,7 +302,13 @@ export const TodayView: React.FC<TodayViewProps> = ({
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-current/10 pb-2.5">
             <div className="flex items-center gap-2">
               <span className="text-lg">
-                {scheduleStatus === 'green' ? '🟢' : scheduleStatus === 'red' ? '🔴' : '📡'}
+                {scheduleStatus === 'green'
+                  ? '🟢'
+                  : scheduleStatus === 'red'
+                  ? '🔴'
+                  : scheduleStatus === 'different-day'
+                  ? '🟡'
+                  : '📡'}
               </span>
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider block">
@@ -289,19 +320,32 @@ export const TodayView: React.FC<TodayViewProps> = ({
               </div>
             </div>
 
-            {/* Botón GPS */}
-            <button
-              onClick={onRequestGeolocation}
-              disabled={geoLoading}
-              className={`touch-target px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 transition ${
-                userCoords
-                  ? 'bg-roman-surface border border-current/20 text-current shadow-sm'
-                  : 'bg-roman-terracotta text-white shadow-soft animate-pulse'
-              }`}
-            >
-              <Crosshair className="w-3.5 h-3.5" />
-              <span>{geoLoading ? 'Localizando...' : userCoords ? 'GPS Activo' : 'Activar GPS'}</span>
-            </button>
+            <div className="flex items-center gap-1.5">
+              {/* Botón rápido para saltar a Hoy si se está viendo otro día */}
+              {scheduleStatus === 'different-day' && realRome.realDayId && (
+                <button
+                  onClick={handleSetRealDayAndRomeTime}
+                  className="touch-target px-2.5 py-1 rounded-full bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold flex items-center gap-1 shadow-sm transition"
+                >
+                  <Calendar className="w-3 h-3" />
+                  <span>Ir a Hoy ({realRome.weekdayName})</span>
+                </button>
+              )}
+
+              {/* Botón GPS */}
+              <button
+                onClick={onRequestGeolocation}
+                disabled={geoLoading}
+                className={`touch-target px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 transition ${
+                  userCoords
+                    ? 'bg-roman-surface border border-current/20 text-current shadow-sm'
+                    : 'bg-roman-terracotta text-white shadow-soft animate-pulse'
+                }`}
+              >
+                <Crosshair className="w-3.5 h-3.5" />
+                <span>{geoLoading ? 'Localizando...' : userCoords ? 'GPS Activo' : 'Activar GPS'}</span>
+              </button>
+            </div>
           </div>
 
           {/* Comparativa: Dónde estás vs Dónde deberías estar */}
@@ -334,7 +378,7 @@ export const TodayView: React.FC<TodayViewProps> = ({
             {/* 2. Dónde deberías estar (Itinerario) */}
             <div className="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-current/10 space-y-1">
               <span className="text-[10px] uppercase font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5" /> Visita Prevista a las {simulatedTime} h:
+                <Clock className="w-3.5 h-3.5" /> Visita Prevista ({selectedDayId.toUpperCase()}) a las {simulatedTime} h:
               </span>
               <div>
                 <div className="font-bold text-xs text-roman-text flex items-center justify-between">
