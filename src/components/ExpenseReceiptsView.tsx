@@ -737,3 +737,4 @@ export const ExpenseReceiptsView: React.FC<ExpenseReceiptsViewProps> = ({
     </div>
   );
 };
+

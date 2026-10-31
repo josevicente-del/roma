@@ -21,7 +21,12 @@ import {
   CloudSun,
   CheckSquare,
   UtensilsCrossed,
-  Coins
+  Coins,
+  AlertTriangle,
+  CheckCircle2,
+  Crosshair,
+  Radio,
+  ExternalLink
 } from 'lucide-react';
 import { Coordinates, DayId, ItineraryData, ItineraryPlace } from '../types/itinerary';
 import { PLACE_ENRICHMENTS } from '../data/placeEnrichments';
@@ -101,43 +106,268 @@ export const TodayView: React.FC<TodayViewProps> = ({
 
   const { current: activePlace, next: nextPlace } = getActivePlace();
   const enrichment = PLACE_ENRICHMENTS[activePlace.id];
-  const distanceFromUserKm = userCoords
+
+  // Cálculo de hora en minutos y horarios previstos
+  const [simH, simM] = simulatedTime.split(':').map(Number);
+  const currentMinutes = simH * 60 + simM;
+
+  const [startH, startM] = activePlace.startTime.split(':').map(Number);
+  const startMinutes = startH * 60 + startM;
+  const [endH, endM] = activePlace.endTime.split(':').map(Number);
+  const endMinutes = endH * 60 + endM;
+
+  // Distancia por GPS a la parada prevista
+  const distanceToExpectedKm = userCoords
     ? calculateDistanceKm(userCoords, activePlace.coordinates)
     : null;
+  const distanceToExpectedM = distanceToExpectedKm !== null
+    ? Math.round(distanceToExpectedKm * 1000)
+    : null;
+
+  // Buscar el monumento más cercano a la ubicación real del usuario
+  let nearestPlaceToUser: { place: ItineraryPlace; distanceM: number } | null = null;
+  if (userCoords) {
+    let minD = Infinity;
+    let closest: ItineraryPlace | null = null;
+    for (const d of data.days) {
+      for (const p of d.places) {
+        const dKm = calculateDistanceKm(userCoords, p.coordinates);
+        if (dKm < minD) {
+          minD = dKm;
+          closest = p;
+        }
+      }
+    }
+    if (closest) {
+      nearestPlaceToUser = { place: closest, distanceM: Math.round(minD * 1000) };
+    }
+  }
+
+  // Comprobación de puntualidad y ubicación:
+  // Umbral: si estás a <= 250 metros del monumento, se considera "en el lugar"
+  const isInExpectedLocation = distanceToExpectedM !== null && distanceToExpectedM <= 250;
+  const hasVisitStarted = currentMinutes >= startMinutes;
+  const isVisitOngoing = currentMinutes >= startMinutes && currentMinutes <= endMinutes;
+
+  let scheduleStatus: 'green' | 'red' | 'unknown' = 'unknown';
+  let statusBadgeText = '';
+  let statusExplanation = '';
+
+  if (!userCoords) {
+    scheduleStatus = 'unknown';
+    statusBadgeText = 'GPS Desactivado';
+    statusExplanation = `Activa el GPS para comprobar si estás en ${activePlace.nameEs} a las ${activePlace.startTime} h.`;
+  } else if (hasVisitStarted) {
+    if (isInExpectedLocation) {
+      scheduleStatus = 'green';
+      statusBadgeText = '🟢 Vas en hora';
+      statusExplanation = `¡Perfecto! Tu GPS confirma que estás en el recinto de ${activePlace.nameEs} (${activePlace.startTime} – ${activePlace.endTime} h).`;
+    } else {
+      scheduleStatus = 'red';
+      statusBadgeText = '🔴 Fuera de lugar previsto';
+      const formattedDist = distanceToExpectedM !== null && distanceToExpectedM >= 1000
+        ? `${(distanceToExpectedM / 1000).toFixed(1)} km`
+        : `${distanceToExpectedM} m`;
+      statusExplanation = `¡Atención! Ha llegado la hora prevista (${activePlace.startTime} h) y NO estás en ${activePlace.nameEs}. Tu GPS está a ${formattedDist} de distancia.`;
+    }
+  } else {
+    // Aún no ha empezado la visita
+    const minutesUntilStart = startMinutes - currentMinutes;
+    const walkTimeNeededMin = distanceToExpectedKm ? Math.round(distanceToExpectedKm * 12) : 0;
+
+    if (walkTimeNeededMin > minutesUntilStart && distanceToExpectedM && distanceToExpectedM > 300) {
+      scheduleStatus = 'red';
+      statusBadgeText = '🔴 Riesgo de retraso';
+      statusExplanation = `La visita a ${activePlace.nameEs} empieza a las ${activePlace.startTime} h (en ${minutesUntilStart} min) y tardarás ~${walkTimeNeededMin} min a pie.`;
+    } else {
+      scheduleStatus = 'green';
+      statusBadgeText = '🟢 Vas en hora';
+      statusExplanation = `Vas a tiempo para el inicio de la visita a ${activePlace.nameEs} (${activePlace.startTime} h).`;
+    }
+  }
+
+  const handleSetCurrentRomeTime = () => {
+    try {
+      const now = new Date();
+      const romeTimeStr = now.toLocaleTimeString('es-ES', {
+        timeZone: 'Europe/Rome',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+      onChangeSimulatedTime(romeTimeStr);
+    } catch {
+      const d = new Date();
+      const h = String(d.getHours()).padStart(2, '0');
+      const m = String(d.getMinutes()).padStart(2, '0');
+      onChangeSimulatedTime(`${h}:${m}`);
+    }
+  };
 
   return (
     <div className="animate-page space-y-6 pb-28">
-      {/* Chips minimalistas para cambiar de jornada + selector de hora */}
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-1.5">
-          {data.days.map((day) => {
-            const active = day.id === selectedDayId;
-            return (
-              <button
-                key={day.id}
-                onClick={() => onSelectDay(day.id)}
-                className={`touch-target px-4 py-2 rounded-full text-xs font-bold capitalize transition ${
-                  active
-                    ? 'bg-roman-terracotta text-white shadow-soft'
-                    : 'bg-roman-surface text-roman-muted border border-roman-border hover:text-roman-text'
-                }`}
-              >
-                {day.id}
-              </button>
-            );
-          })}
+      {/* Selector de jornada + Control de Hora con Semáforo GPS Verde/Rojo */}
+      <div className="space-y-3">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          {/* Chips de Jornada */}
+          <div className="flex items-center gap-1.5">
+            {data.days.map((day) => {
+              const active = day.id === selectedDayId;
+              return (
+                <button
+                  key={day.id}
+                  onClick={() => onSelectDay(day.id)}
+                  className={`touch-target px-4 py-2 rounded-full text-xs font-bold capitalize transition ${
+                    active
+                      ? 'bg-roman-terracotta text-white shadow-soft'
+                      : 'bg-roman-surface text-roman-muted border border-roman-border hover:text-roman-text'
+                  }`}
+                >
+                  {day.id}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Selector de Hora con indicador de semáforo Verde/Rojo */}
+          <div className="flex items-center gap-2">
+            <label
+              className={`touch-target inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-bold transition shadow-sm ${
+                scheduleStatus === 'green'
+                  ? 'bg-emerald-500/10 border-emerald-500 text-emerald-800 dark:text-emerald-300'
+                  : scheduleStatus === 'red'
+                  ? 'bg-red-500/15 border-red-500 text-red-800 dark:text-red-300 animate-pulse'
+                  : 'bg-roman-surface border-roman-border text-roman-muted'
+              }`}
+            >
+              <Clock className="w-3.5 h-3.5" />
+              <span>Hora:</span>
+              <input
+                type="time"
+                value={simulatedTime}
+                onChange={(e) => onChangeSimulatedTime(e.target.value)}
+                className="bg-transparent font-bold focus:outline-none cursor-pointer"
+              />
+              <span className="text-[11px] font-sans ml-0.5">
+                {scheduleStatus === 'green' ? '🟢' : scheduleStatus === 'red' ? '🔴' : '⚪'}
+              </span>
+            </label>
+
+            <button
+              onClick={handleSetCurrentRomeTime}
+              className="touch-target px-2.5 py-1.5 rounded-full bg-roman-surface border border-roman-border text-roman-muted hover:text-roman-text text-[11px] font-bold transition"
+              title="Poner la hora real actual de Roma"
+            >
+              Hora Real
+            </button>
+          </div>
         </div>
 
-        <label className="touch-target inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-roman-surface border border-roman-border text-xs text-roman-muted">
-          <Clock className="w-3.5 h-3.5 text-roman-terracotta" />
-          <span>Hora:</span>
-          <input
-            type="time"
-            value={simulatedTime}
-            onChange={(e) => onChangeSimulatedTime(e.target.value)}
-            className="bg-transparent font-bold text-roman-text focus:outline-none cursor-pointer"
-          />
-        </label>
+        {/* MÓDULO INTELIGENTE: DÓNDE ESTÁS (GPS REAL) VS DÓNDE DEBERÍAS ESTAR (PREVISTO) */}
+        <div
+          className={`rounded-2xl border p-4 shadow-sm space-y-3 transition-colors ${
+            scheduleStatus === 'green'
+              ? 'bg-emerald-500/5 border-emerald-500/40 text-emerald-950 dark:text-emerald-200'
+              : scheduleStatus === 'red'
+              ? 'bg-red-500/10 border-red-500/50 text-red-950 dark:text-red-200'
+              : 'bg-roman-surface border-roman-border text-roman-text'
+          }`}
+        >
+          {/* Cabecera del Semáforo */}
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-current/10 pb-2.5">
+            <div className="flex items-center gap-2">
+              <span className="text-lg">
+                {scheduleStatus === 'green' ? '🟢' : scheduleStatus === 'red' ? '🔴' : '📡'}
+              </span>
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider block">
+                  {statusBadgeText}
+                </span>
+                <p className="text-xs opacity-90 leading-snug">
+                  {statusExplanation}
+                </p>
+              </div>
+            </div>
+
+            {/* Botón GPS */}
+            <button
+              onClick={onRequestGeolocation}
+              disabled={geoLoading}
+              className={`touch-target px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 transition ${
+                userCoords
+                  ? 'bg-roman-surface border border-current/20 text-current shadow-sm'
+                  : 'bg-roman-terracotta text-white shadow-soft animate-pulse'
+              }`}
+            >
+              <Crosshair className="w-3.5 h-3.5" />
+              <span>{geoLoading ? 'Localizando...' : userCoords ? 'GPS Activo' : 'Activar GPS'}</span>
+            </button>
+          </div>
+
+          {/* Comparativa: Dónde estás vs Dónde deberías estar */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-0.5">
+            {/* 1. Dónde estás (GPS Real) */}
+            <div className="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-current/10 space-y-1">
+              <span className="text-[10px] uppercase font-bold text-roman-terracotta flex items-center gap-1">
+                <MapPin className="w-3.5 h-3.5" /> Tu Ubicación GPS Actual:
+              </span>
+              {userCoords ? (
+                <div>
+                  <div className="font-bold text-xs text-roman-text">
+                    {isInExpectedLocation
+                      ? `En el recinto de ${activePlace.nameEs}`
+                      : nearestPlaceToUser
+                      ? `A ${nearestPlaceToUser.distanceM} m de ${nearestPlaceToUser.place.nameEs}`
+                      : 'Posición GPS detectada'}
+                  </div>
+                  <span className="text-[11px] text-roman-muted font-mono block">
+                    {userCoords.lat.toFixed(4)}, {userCoords.lng.toFixed(4)}
+                  </span>
+                </div>
+              ) : (
+                <p className="text-xs text-roman-muted italic">
+                  Ubicación no disponible. Pulsa «Activar GPS» arriba para cotejar tu posición.
+                </p>
+              )}
+            </div>
+
+            {/* 2. Dónde deberías estar (Itinerario) */}
+            <div className="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-current/10 space-y-1">
+              <span className="text-[10px] uppercase font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5" /> Visita Prevista a las {simulatedTime} h:
+              </span>
+              <div>
+                <div className="font-bold text-xs text-roman-text flex items-center justify-between">
+                  <span>{activePlace.nameEs}</span>
+                  <span className="font-mono text-[11px] text-roman-muted">
+                    {activePlace.startTime} – {activePlace.endTime} h
+                  </span>
+                </div>
+                <p className="text-[11px] text-roman-muted line-clamp-1">{activePlace.address}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Alerta de acción si está en rojo */}
+          {scheduleStatus === 'red' && (
+            <div className="pt-1">
+              <a
+                href={getGoogleMapsWalkingUrl(
+                  activePlace.coordinates,
+                  activePlace.nameIt,
+                  userCoords
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="touch-target w-full py-2.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition"
+              >
+                <Navigation className="w-4 h-4" />
+                <span>Ruta inmediata a pie hacia {activePlace.nameEs}</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+              </a>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* BANNER DE FECHA CON AÑO 2026 Y CRONOLOGÍA DESDE LA FUNDACIÓN DE ROMA */}
@@ -196,9 +426,9 @@ export const TodayView: React.FC<TodayViewProps> = ({
               </span>
             </div>
 
-            {distanceFromUserKm !== null && (
+            {distanceToExpectedKm !== null && (
               <span className="px-2.5 py-1 rounded-full bg-roman-elevated text-roman-text font-bold">
-                📍 A {distanceFromUserKm} km de tu GPS
+                📍 A {distanceToExpectedKm} km de tu GPS
               </span>
             )}
           </div>
