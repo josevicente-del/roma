@@ -43,6 +43,7 @@ import { SharedPhotoAlbumView } from './components/SharedPhotoAlbumView';
 import { PlaceDetailModal } from './components/PlaceDetailModal';
 import { TrajanColumnSpecialSection } from './components/TrajanColumnSpecialSection';
 import { PiazzaNavonaNightFountainsView } from './components/PiazzaNavonaNightFountainsView';
+import { RomanForum80MinGuide } from './components/RomanForum80MinGuide';
 import { getDaysSinceRomeFoundation, TRIP_DATES_SHORT } from './utils/romanDates';
 import { Analytics } from '@vercel/analytics/next';
 
@@ -82,6 +83,7 @@ export const App: React.FC = () => {
   const [showDiningGuideModal, setShowDiningGuideModal] = useState<boolean>(false);
   const [showTrajanModal, setShowTrajanModal] = useState<boolean>(false);
   const [showNavonaModal, setShowNavonaModal] = useState<boolean>(false);
+  const [showForumGuideModal, setShowForumGuideModal] = useState<boolean>(false);
 
   const [showProfileSwitcher, setShowProfileSwitcher] = useState<boolean>(false);
   const [isOffline, setIsOffline] = useState<boolean>(!navigator.onLine);
@@ -337,6 +339,7 @@ export const App: React.FC = () => {
             onGoToWeather={() => setActiveTab('tiempo')}
             onGoToExpenses={() => setActiveTab('gastos')}
             onOpenDiningGuide={() => setShowDiningGuideModal(true)}
+            onOpenForumGuide={() => setShowForumGuideModal(true)}
             onOpenTrajanGuide={() => setShowTrajanModal(true)}
             onOpenNavonaGuide={() => setShowNavonaModal(true)}
             onOpenAlbumForPlace={(placeId) => {
@@ -417,7 +420,31 @@ export const App: React.FC = () => {
         onOpenDiningGuide={() => setShowDiningGuideModal(true)}
         onOpenTrajanColumn={() => setShowTrajanModal(true)}
         onOpenPiazzaNavona={() => setShowNavonaModal(true)}
+        onOpenForumGuide={() => setShowForumGuideModal(true)}
       />
+
+      {/* MODAL ESPECIAL GUÍA DETALLADA: EL FORO ROMANO EN 80 MINUTOS */}
+      {showForumGuideModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/75 backdrop-blur-sm p-0 sm:p-4"
+          onClick={() => setShowForumGuideModal(false)}
+        >
+          <div
+            className="animate-modal w-full max-w-3xl max-h-[94vh] bg-roman-bg text-roman-text rounded-t-[24px] sm:rounded-[24px] shadow-elevated border border-roman-border overflow-y-auto p-5 sm:p-7 space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <RomanForum80MinGuide
+              onClose={() => setShowForumGuideModal(false)}
+              onGoToNextScheduleStop={() => {
+                setShowForumGuideModal(false);
+                const allPlaces = itineraryData.days.flatMap((d) => d.places);
+                const nextPlace = allPlaces.find((p) => p.id === 'sab-2-san-clemente');
+                if (nextPlace) setSelectedPlaceModal(nextPlace);
+              }}
+            />
+          </div>
+        </div>
+      )}
 
       {/* MODAL ESPECIAL MONOGRÁFICO: LA COLUMNA DE TRAJANO */}
       {showTrajanModal && (

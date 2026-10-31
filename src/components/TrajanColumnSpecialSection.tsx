@@ -305,3 +305,4 @@ export const TrajanColumnSpecialSection: React.FC<TrajanColumnSpecialSectionProp
     </div>
   );
 };
+

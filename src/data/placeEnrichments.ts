@@ -74,7 +74,7 @@ export const PLACE_ENRICHMENTS: Record<string, PlaceEnrichment> = {
         sceneDescription: 'El mítico combate final de artes marciales entre Bruce Lee y Chuck Norris se ambientó en los pasillos abovedados del segundo piso del Coliseo.'
       }
     ],
-    audioGuideScript: 'Estáis frente al Anfiteatro Flavio, inaugurado en el año 80 después de Cristo por el emperador Tito. Sus ochenta arcos numerados permitían que cincuenta mil espectadores ocuparan sus asientos en apenas quince minutos. Fijaos en los agujeros de la piedra de travertino: en la Edad Media se extrajeron las trescientas toneladas de grapas de hierro que unían los bloques. Al cruzar hacia el Foro Romano por la Vía Sacra, pisaréis las mismas losas de basalto negro por las que desfilaron Julio César, Marco Antonio y Augusto.',
+    audioGuideScript: 'Estáis frente al Anfiteatro Flavio, conocido universalmente como el Coliseo, inaugurado en el año ochenta después de Cristo por el emperador Tito con cien días consecutivos de juegos y naumaquias. Sus ochenta arcadas monumentales estaban calculadas con una precisión geométrica tal que permitían a más de cincuenta mil espectadores ocupar sus asientos o evacuar el recinto en apenas quince minutos. Fijaos en las oquedades en los sillares de travertino: durante la Edad Media y el Renacimiento se extrajeron meticulosamente las trescientas toneladas de grapas de hierro que unían los bloques sin argamasa. Al traspasar el recinto e ingresar al Foro Romano por la Vía Sacra, caminaréis sobre las mismas losas de basalto negro que pisaron Julio César, Marco Antonio, Cicerón y los emperadores en sus desfiles triunfales. Abrid bien los ojos: estáis en el epicentro exacto de la civilización occidental.',
     freeAudioGuideLinks: [
       {
         title: 'Audioguía Gratuita del Coliseo en Español (izi.TRAVEL)',
@@ -268,7 +268,7 @@ export const PLACE_ENRICHMENTS: Record<string, PlaceEnrichment> = {
         sceneDescription: 'Aquí se rodó una de las escenas más famosas de la historia del cine: Gregory Peck mete la mano en la Bocca della Verità y esconde el brazo en la manga de su chaqueta fingiendo que se la ha cortado; el grito de susto de Audrey Hepburn fue 100% real porque Peck no le avisó de la broma.'
       }
     ],
-    audioGuideScript: 'Estáis en el antiguo Foro Boario, el puerto fluvial y mercado de ganado de la Roma primitiva. En el pórtico de Santa Maria in Cosmedin os espera la Boca de la Verdad, un disco de mármol de mil trescientos kilos que probablemente servía como tapa de alcantarilla de la Cloaca Máxima. Desde la Edad Media se decía que mordía la mano de los mentirosos, mito inmortalizado aquí mismo por Audrey Hepburn y Gregory Peck en Vacaciones en Roma.',
+    audioGuideScript: 'Estáis en el antiguo Foro Boario, el primer enclave comercial y puerto fluvial de la Roma primitiva junto al río Tíber. En el pórtico de la iglesia medieval de Santa Maria in Cosmedin os espera la legendaria Boca de la Verdad: una losa colosal de mármol pavonazzetto de mil trescientos kilos de peso, esculpida en el siglo primero con el rostro del dios Océano o Fauno. Los arqueólogos sugieren que su función original era la de una monumental arqueta de drenaje de la Cloaca Máxima para canalizar las lluvias del cercano Templo de Hércules. Sin embargo, en la Edad Media surgió el mito infalible de que aquel que pronunciara un juramento falso con la mano introducida en sus fauces de piedra perdería sus dedos en el acto. Una leyenda que Audrey Hepburn y Gregory Peck inmortalizaron con genialidad aquí mismo en la inolvidable comedia Vacaciones en Roma.',
     freeAudioGuideLinks: [
       {
         title: 'Audioguía Bocca della Verità y Foro Boario (izi.TRAVEL)',
@@ -303,7 +303,7 @@ export const PLACE_ENRICHMENTS: Record<string, PlaceEnrichment> = {
         sceneDescription: 'Gran parte de las historias románticas de jóvenes arquitectos y paseos nocturnos se rodaron en las calles del Trastevere y Ponte Sisto.'
       }
     ],
-    audioGuideScript: 'Bienvenidos al Trastevere, que en latín significa más allá del Tíber. En la Antigüedad era el barrio de los marineros, artesanos y comunidades orientales; hoy conserva mejor que ningún otro rincón de Roma su alma medieval de adoquines, ropa tendida y trattorias. En el centro de su plaza brilla el mosaico dorado de Santa Maria in Trastevere, la primera iglesia de Roma dedicada a la Virgen María en el siglo cuarto.',
+    audioGuideScript: 'Bienvenidos al Trastevere, cuyo nombre en latín significa literalmente más allá del Tíber. En la Antigüedad era una barriada extramuros habitada por marineros sirios, alfareros y comunidades orientales que vivían al margen de la nobleza patricia. Ese secular aislamiento permitió que el barrio conservara casi intacto su laberinto de callejuelas adoquinadas, sus fachadas con enredaderas y ese orgullo popular de considerarse los romanos más puros de la ciudad. En el corazón de la plaza destaca la Basílica de Santa Maria in Trastevere, el primer templo cristiano de la ciudad consagrado oficialmente a la Virgen María en el siglo cuarto. Mirad los mosaicos dorados de su fachada: cuando cae la tarde y se encienden las farolas, las teselas de oro brillan como una joya suspendida en la noche romana.',
     freeAudioGuideLinks: [
       {
         title: 'Paseo Audioguiado por el Trastevere en Español (izi.TRAVEL)',
@@ -367,7 +367,7 @@ export const PLACE_ENRICHMENTS: Record<string, PlaceEnrichment> = {
         sceneDescription: 'Película que popularizó en todo el planeta el ritual de lanzar monedas de espaldas a la Fontana di Trevi.'
       }
     ],
-    audioGuideScript: 'Aquí tenéis la Fontana di Trevi iluminada. El agua cristalina que escucháis lleva manando sin parar desde el año diecinueve antes de Cristo gracias al acueducto Aqua Virgo construido por Agripa. En mil setecientos treinta y dos, el arquitecto Nicola Salvi transformó la fachada del palacio en un arrecife rocoso por donde emerge el dios Océano. No olvidéis lanzar vuestra moneda con la mano derecha por encima del hombro izquierdo para asegurar vuestro regreso a Roma.',
+    audioGuideScript: 'Ante vosotros resplandece la Fontana di Trevi, cumbre de la escenografía barroca universal. El torrente continuo de agua que escucháis lleva manando más de dos mil años sin interrupción a través del acueducto Aqua Virgo, inaugurado por Marco Vipsanio Agripa en el año diecinueve antes de Cristo. En mil setecientos treinta y dos, el arquitecto Nicola Salvi fusionó la arquitectura con la naturaleza salvaje: sobre un arrecife de travertino emerge la carroza triunfal del titán Océano tirada por dos briosos corceles marinos, uno dócil y otro enfurecido, simbolizando los dos estados del mar. Cumplid con la tradición ineludible: tomad una moneda con la mano derecha, dad la espalda a la dársena y arrojadla sobre el hombro izquierdo. La leyenda promete que quien lanza la moneda tiene garantizado su regreso a la Ciudad Eterna.',
     freeAudioGuideLinks: [
       {
         title: 'Audioguía Fontana di Trevi y sus Secretos (izi.TRAVEL)',

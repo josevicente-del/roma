@@ -45,6 +45,7 @@ interface TodayViewProps {
   onGoToWeather?: () => void;
   onGoToExpenses?: () => void;
   onOpenDiningGuide?: () => void;
+  onOpenForumGuide?: () => void;
   onOpenTrajanGuide?: () => void;
   onOpenNavonaGuide?: () => void;
   onOpenAlbumForPlace: (placeId: string) => void;
@@ -65,6 +66,7 @@ export const TodayView: React.FC<TodayViewProps> = ({
   onGoToWeather,
   onGoToExpenses,
   onOpenDiningGuide,
+  onOpenForumGuide,
   onOpenTrajanGuide,
   onOpenNavonaGuide,
   onOpenAlbumForPlace
@@ -349,8 +351,44 @@ export const TodayView: React.FC<TodayViewProps> = ({
         )}
       </div>
 
-      {/* MONOGRÁFICOS ESPECIALES DEL VIAJE: COLUMNA DE TRAJANO Y PIAZZA NAVONA NOCTURNA */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+      {/* MONOGRÁFICOS ESPECIALES DEL VIAJE: FORO ROMANO 80 MIN, COLUMNA DE TRAJANO Y PIAZZA NAVONA */}
+      <div className="space-y-3.5">
+        {/* Tarjeta Destacada: Guía del Foro Romano en 80 Minutos */}
+        <div className="rounded-card bg-gradient-to-br from-[#2B2420] via-[#382B24] to-[#1E1815] border border-amber-800/40 text-white shadow-soft p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-start gap-3.5">
+            <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-amber-300 text-2xl shrink-0">
+              🏛️
+            </div>
+            <div className="space-y-1">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30">
+                  ⏱️ Visita Interior Calculada: 80 Minutos
+                </span>
+                <span className="text-xs font-mono text-stone-300">Sábado 10:30 h</span>
+              </div>
+              <h3 className="font-serif font-bold text-lg text-amber-100">
+                Guía del Foro Romano & 8 Infografías
+              </h3>
+              <p className="text-xs text-stone-300 leading-relaxed max-w-xl">
+                Arco de Tito, Basílica de Majencio, Vestales, Tumba de Julio César, Curia Julia y Septimio Severo. Incluye reconstrucciones visuales, qué queda vs cómo era y audioguía con voz natural.
+              </p>
+            </div>
+          </div>
+
+          {onOpenForumGuide && (
+            <button
+              type="button"
+              onClick={onOpenForumGuide}
+              className="touch-target px-5 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-stone-950 font-bold text-xs sm:text-sm shrink-0 shadow-md flex items-center justify-center gap-2 transition"
+            >
+              <span>Abrir Guía de 80′</span>
+              <span>→</span>
+            </button>
+          )}
+        </div>
+
+        {/* Dos tarjetas en paralelo: Columna de Trajano y Piazza Navona Nocturna */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
         {/* Tarjeta Columna de Trajano */}
         <div className="rounded-card bg-roman-surface border border-roman-border shadow-soft p-4 flex flex-col justify-between gap-3 hover:border-roman-terracotta/40 transition">
           <div className="space-y-1.5">
@@ -407,6 +445,7 @@ export const TodayView: React.FC<TodayViewProps> = ({
           )}
         </div>
       </div>
+    </div>
 
       {/* DESPLEGABLE LIMPIO DE INFORMACIÓN ÚTIL (Hotel Via Palermo 4, Vuelos, 112, Nasoni y Checklist) */}
       <div className="rounded-card bg-roman-surface border border-roman-border shadow-soft overflow-hidden">

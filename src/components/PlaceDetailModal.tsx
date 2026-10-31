@@ -32,6 +32,7 @@ import {
 import { Coordinates, ItineraryPlace } from '../types/itinerary';
 import { PLACE_ENRICHMENTS } from '../data/placeEnrichments';
 import { getAppleMapsWalkingUrl, getGoogleMapsWalkingUrl } from '../utils/maps';
+import { NaturalAudioGuidePlayer } from './NaturalAudioGuidePlayer';
 
 interface PlaceDetailModalProps {
   place: ItineraryPlace | null;
@@ -41,6 +42,7 @@ interface PlaceDetailModalProps {
   onOpenDiningGuide?: () => void;
   onOpenTrajanColumn?: () => void;
   onOpenPiazzaNavona?: () => void;
+  onOpenForumGuide?: () => void;
 }
 
 export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
@@ -50,9 +52,9 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
   onOpenAlbumForPlace,
   onOpenDiningGuide,
   onOpenTrajanColumn,
-  onOpenPiazzaNavona
+  onOpenPiazzaNavona,
+  onOpenForumGuide
 }) => {
-  const [isSpeaking, setIsSpeaking] = useState(false);
   const [showFullHistory, setShowFullHistory] = useState(false);
   const [showArchitecture, setShowArchitecture] = useState(false);
 
@@ -63,7 +65,6 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
       }
-      setIsSpeaking(false);
     };
   }, [place]);
 
@@ -72,29 +73,6 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
   const enrichment = PLACE_ENRICHMENTS[place.id];
   const googleMapsUrl = getGoogleMapsWalkingUrl(place.coordinates, place.nameIt, userCoords);
   const appleMapsUrl = getAppleMapsWalkingUrl(place.coordinates, place.nameIt, userCoords);
-
-  const toggleOfflineAudioGuide = () => {
-    if (!('speechSynthesis' in window)) return;
-    if (isSpeaking) {
-      window.speechSynthesis.cancel();
-      setIsSpeaking(false);
-      return;
-    }
-
-    const textToRead =
-      enrichment?.audioGuideScript ||
-      `${place.nameEs}. ${place.historyAndCuriosities}`;
-
-    const utterance = new SpeechSynthesisUtterance(textToRead);
-    utterance.lang = 'es-ES';
-    utterance.rate = 0.98;
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
-
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utterance);
-    setIsSpeaking(true);
-  };
 
   return (
     <div
@@ -190,6 +168,36 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
             </button>
           </div>
 
+          {/* ACCESO DIRECTO A LA GUÍA INFOGRÁFICA DEL FORO ROMANO EN 80 MINUTOS */}
+          {onOpenForumGuide && place.id === 'sab-1-coliseo-foro' && (
+            <button
+              type="button"
+              onClick={() => {
+                onClose();
+                onOpenForumGuide();
+              }}
+              className="touch-target w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#2B2420] via-[#4A3226] to-[#2B2420] text-amber-100 border-2 border-amber-500/50 font-bold text-sm flex items-center justify-between shadow-md transition hover:scale-[1.01]"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="text-2xl">🏛️</span>
+                <div className="text-left">
+                  <div className="font-serif font-bold text-amber-300 leading-tight flex items-center gap-1.5">
+                    <span>Guía Especial: Foro Romano en 80 Minutos</span>
+                    <span className="text-[10px] bg-amber-500/20 text-amber-200 border border-amber-400/30 px-1.5 py-0.2 rounded font-sans">
+                      Calculado
+                    </span>
+                  </div>
+                  <div className="text-[11px] font-normal text-stone-300">
+                    8 Paradas maestras · Infografías, qué queda vs cómo era y audioguía HD
+                  </div>
+                </div>
+              </div>
+              <span className="text-xs font-bold text-stone-900 bg-amber-400 px-2.5 py-1.5 rounded-lg shadow-sm">
+                Abrir 80′ →
+              </span>
+            </button>
+          )}
+
           {/* ACCESO DIRECTO AL MONOGRÁFICO DE LA COLUMNA DE TRAJANO (SÁBADO 13:50 H) */}
           {onOpenTrajanColumn && place.id === 'sab-5-foro-trajano' && (
             <button
@@ -264,68 +272,54 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
               </button>
             )}
 
-          {/* 🎧 SECCIÓN DE AUDIOGUÍAS GRATUITAS (REPRODUCTOR DE VOZ OFFLINE + ENLACES EXTERNOS) */}
-          <div className="p-4 rounded-card bg-roman-surface border border-roman-border shadow-soft space-y-3">
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <Headphones className="w-5 h-5 text-roman-terracotta" />
-                <h3 className="font-serif font-bold text-base text-roman-text">
-                  Audioguías Gratuitas en Español
-                </h3>
-              </div>
-              <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-roman-elevated text-roman-muted font-medium">
-                Sin coste
-              </span>
-            </div>
-
-            {/* Botón de narración por voz Offline integrada */}
-            <button
-              type="button"
-              onClick={toggleOfflineAudioGuide}
-              className={`touch-target w-full px-4 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition ${
-                isSpeaking
-                  ? 'bg-[#2B2420] text-[#F7F3EC]'
-                  : 'bg-roman-elevated hover:opacity-90 text-roman-text'
-              }`}
-            >
-              {isSpeaking ? (
-                <>
-                  <Square className="w-4 h-4 text-roman-terracotta fill-current" />
-                  Detener narración en voz alta
-                </>
-              ) : (
-                <>
-                  <Volume2 className="w-4 h-4 text-roman-terracotta" />
-                  Escuchar Audioguía Narrada Offline (Voz integrada)
-                </>
-              )}
-            </button>
+          {/* 🎧 SECCIÓN DE AUDIOGUÍAS GRATUITAS (REPRODUCTOR DE VOZ NATURAL HD + ENLACES EXTERNOS) */}
+          <div className="space-y-3">
+            {/* Reproductor con Voz Natural, Selector de Calidad y Velocidades */}
+            <NaturalAudioGuidePlayer
+              title={place.nameEs}
+              script={enrichment?.audioGuideScript || `${place.nameEs}. ${place.historyAndCuriosities}`}
+              durationApprox={enrichment?.freeAudioGuideLinks?.[0]?.durationApprox || '15 min'}
+            />
 
             {/* Enlaces a audioguías gratuitas externas verificadas (izi.TRAVEL / Oficiales) */}
             {enrichment?.freeAudioGuideLinks && enrichment.freeAudioGuideLinks.length > 0 && (
-              <div className="space-y-2 pt-1">
-                {enrichment.freeAudioGuideLinks.map((ag, idx) => (
-                  <a
-                    key={idx}
-                    href={ag.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="touch-target flex items-center justify-between p-3 rounded-xl bg-roman-bg hover:bg-roman-elevated border border-roman-border transition"
-                  >
-                    <div className="min-w-0 pr-2">
-                      <div className="font-bold text-xs text-roman-text truncate">
-                        {ag.title}
+              <div className="p-4 rounded-card bg-roman-surface border border-roman-border shadow-soft space-y-2">
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <div className="flex items-center gap-2">
+                    <Headphones className="w-4 h-4 text-roman-terracotta" />
+                    <h4 className="font-serif font-bold text-xs text-roman-text">
+                      Otras Audioguías Gratuitas en la Nube
+                    </h4>
+                  </div>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-roman-elevated text-roman-muted font-medium">
+                    Apps oficiales
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  {enrichment.freeAudioGuideLinks.map((ag, idx) => (
+                    <a
+                      key={idx}
+                      href={ag.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="touch-target flex items-center justify-between p-2.5 rounded-xl bg-roman-bg hover:bg-roman-elevated border border-roman-border transition"
+                    >
+                      <div className="min-w-0 pr-2">
+                        <div className="font-bold text-xs text-roman-text truncate">
+                          {ag.title}
+                        </div>
+                        <div className="text-[11px] text-roman-muted">
+                          {ag.provider} · {ag.language}{' '}
+                          {ag.durationApprox ? `· ${ag.durationApprox}` : ''}
+                        </div>
                       </div>
-                      <div className="text-[11px] text-roman-muted">
-                        {ag.provider} · {ag.language}{' '}
-                        {ag.durationApprox ? `· ${ag.durationApprox}` : ''}
-                      </div>
-                    </div>
-                    <span className="inline-flex items-center gap-1 text-xs font-bold text-roman-terracotta shrink-0">
-                      Abrir <ExternalLink className="w-3.5 h-3.5" />
-                    </span>
-                  </a>
-                ))}
+                      <span className="inline-flex items-center gap-1 text-xs font-bold text-roman-terracotta shrink-0">
+                        Abrir <ExternalLink className="w-3.5 h-3.5" />
+                      </span>
+                    </a>
+                  ))}
+                </div>
               </div>
             )}
           </div>
