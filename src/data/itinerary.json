@@ -1,0 +1,1058 @@
+{
+  "tripMeta": {
+    "title": "Fin de Semana Imperial en Roma",
+    "dates": "6 al 8 de noviembre de 2026",
+    "groupSize": 5,
+    "travelers": ["Laura", "José Antonio", "Mónica", "José Vicente", "Beatriz"],
+    "accommodation": {
+      "name": "Base de Operaciones · Via Palermo 4",
+      "address": "Via Palermo 4, 00184 Roma RM, Italia",
+      "zone": "Rione Monti / Via Nazionale",
+      "coordinates": {
+        "lat": 41.8989,
+        "lng": 12.4914
+      },
+      "notes": "Ubicación privilegiada entre el Quirinal y la Suburra de Monti. A solo 10 minutos a pie de la estación de Termini, 12 minutos de San Pietro in Vincoli y 14 minutos de la Fontana di Trevi."
+    },
+    "flights": {
+      "arrival": "Viernes 6 de noviembre de 2026 · 22:00 h (aterrizaje en aeropuerto)",
+      "departure": "Domingo 8 de noviembre de 2026 · 19:00 h (salida del vuelo)",
+      "hotelExitSunday": "Domingo 8 de noviembre de 2026 · 16:30 h en punto (salida hacia aeropuerto)",
+      "transferAdvice": "Para 5 personas con equipaje, la opción más rápida y rentable puerta a puerta desde/hacia Via Palermo 4 es una Minivan oficial o Uber Van (~65-75 € en total, 13-15 € por persona), o bien caminar 900 m (11 min) hasta Roma Termini y tomar el tren directo Leonardo Express (14 €/persona, 32 min sin tráfico hasta Fiumicino)."
+    }
+  },
+  "days": [
+    {
+      "id": "viernes",
+      "title": "Viernes 6 de Noviembre de 2026",
+      "subtitle": "Llegada nocturna a la Ciudad Eterna y check-in en Monti",
+      "date": "2026-11-06",
+      "weatherSummary": {
+        "tempMax": 15,
+        "tempMin": 10,
+        "condition": "Noche despejada y fresca",
+        "rainChance": 15,
+        "advice": "Chaqueta ligera al salir del aeropuerto. La zona de Via Palermo es muy segura y está bien iluminada a medianoche."
+      },
+      "totalWalkingKm": 0.6,
+      "routeLogicExplanation": "El viernes se centra exclusivamente en un traslado ágil desde el aeropuerto tras aterrizar a las 22:00 h para descansar bien: el sábado comienza temprano a las 08:35 h rumbo al Coliseo.",
+      "planBSummary": "Si el vuelo se retrasa más allá de las 23:00 h, avisad por WhatsApp al alojamiento en Via Palermo 4 para confirmar el código de auto check-in o recepción nocturna.",
+      "places": [
+        {
+          "id": "viernes-llegada",
+          "order": 1,
+          "day": "viernes",
+          "dateStr": "Viernes 6 Nov",
+          "startTime": "22:00",
+          "endTime": "23:30",
+          "durationMinutes": 90,
+          "isFixed": true,
+          "category": "logistica",
+          "nameEs": "Llegada al Aeropuerto y Check-in en Via Palermo 4",
+          "nameIt": "Arrivo in Aeroporto e Check-in in Via Palermo 4",
+          "coordinates": {
+            "lat": 41.8989,
+            "lng": 12.4914
+          },
+          "address": "Via Palermo 4, 00184 Roma RM",
+          "historyAndCuriosities": "Vuestro alojamiento se encuentra en Via Palermo, una elegante arteria trazada a finales del siglo XIX cuando Roma se convirtió en la capital del Reino de Italia unificado. Está situada en la frontera entre las colinas del Quirinal y el Viminal, justo encima del pintoresco barrio de Monti, que en la Antigua Roma era conocido como la 'Suburra': el barrio más populoso, vibrante y plebeyo de la urbe, donde nació el propio Julio César. A pocos pasos de vuestro portal se levanta el Palazzo delle Esposizioni en Via Nazionale y el túnel Umberto I que atraviesa el Quirinal. Es un enclave estratégico inmejorable: os permite llegar caminando en menos de 15 minutos tanto a la Roma Imperial (Foros y Coliseo) como a la Roma Barroca (Trevi y Panteón), evitando depender del transporte público durante todo el fin de semana.",
+          "recommendedDurationText": "90 min (desembarque + traslado al centro)",
+          "openingHours": "Recepción / Acceso acordado con el alojamiento",
+          "ticketInfo": {
+            "type": "Restaurante / Reserva",
+            "priceApprox": "Minivan 5 pax: ~65-75 € | Tren Leonardo Express: 14 €/pax",
+            "bookingRequired": true,
+            "bookingAdvice": "Tener confirmado el teléfono del anfitrión en Via Palermo 4 para llegada sobre las 23:15 h."
+          },
+          "importantWarnings": [
+            "En el aeropuerto seguid únicamente la señalización oficial 'TAXI' (coches blancos con escudo de Roma Capitale) o vuestro transfer precontratado; ignorad a quienes ofrecen transporte dentro de la terminal.",
+            "Recordad tener efectivo a mano para la tasa turística municipal de Roma (Contributo di Soggiorno: entre 6 € y 7,50 € por persona y noche según categoría)."
+          ],
+          "practicalTips": [
+            "CENAS TARDÍAS TRAS EL CHECK-IN (23:15 - 00:30 h): Si llegáis con hambre, tenéis 3 sitios abiertos hasta medianoche/01:00 h a menos de 4 minutos a pie de Via Palermo 4: 1) 'Ai Tre Scalini' (Via Panisperna 251, histórica vinoteca con platos calientes y tablas hasta la 01:00 h), 2) 'La Barrique' (Via del Boschetto 41B, enoteca con cocina hasta las 00:00 h), y 3) 'Trieste Pizza' (Via Urbana 112, pizzería gourmet al corte en Monti).",
+            "Dejad preparadas las entradas nominativas y el DNI/Pasaporte físico para el control del Coliseo del sábado a primera hora."
+          ],
+          "planB": "Si el tren Leonardo Express de las 23:23 h (último del día desde Fiumicino) va justo de tiempo, tomad directamente un taxi o minivan para los 5.",
+          "walkingFromPrev": {
+            "fromName": "Aeropuerto de Roma",
+            "distanceKm": 0.0,
+            "timeMinutes": 45,
+            "routeNotes": "Traslado directo desde el aeropuerto hasta la puerta de Via Palermo 4."
+          },
+          "walkingToNext": {
+            "toName": "Descanso en el alojamiento",
+            "distanceKm": 0.0,
+            "timeMinutes": 0
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Via del Boschetto (Corazón de Monti)",
+              "nameIt": "Via del Boschetto",
+              "distanceMeters": 180,
+              "description": "A solo dos calles hacia abajo desde Via Palermo: una callejuela bohemia llena de fachadas con hiedra y vinotecas por si queréis estirar las piernas 10 minutos antes de dormir."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sabado",
+      "title": "Sábado 7 de Noviembre de 2026",
+      "subtitle": "Roma Imperial, Basílicas Milenarias, Ghetto Judío, Trastevere y Noche Barroca",
+      "date": "2026-11-07",
+      "weatherSummary": {
+        "tempMax": 17,
+        "tempMin": 9,
+        "condition": "Intervalos soleados con brisa otoñal",
+        "rainChance": 20,
+        "advice": "Calzado muy cómodo y con suela adherente (los adoquines 'sampietrini' y las calzadas romanas del Foro resbalan con la humedad matinal). Llevad paraguas plegable ligero por precaución."
+      },
+      "totalWalkingKm": 9.5,
+      "routeLogicExplanation": "El sábado dibuja un bucle geográfico perfecto y respeta todas las pausas de mediodía de las iglesias. Salimos de Via Palermo 4 a las 08:05 h y entramos primero a San Pietro in Vincoli (08:15-08:40 h, a mitad de camino al Coliseo, recién abierta, sin colas y evitando su cierre de 12:30 a 15:00 h). A las 08:48 h estamos ya en el Coliseo para el FIJO de las 09:00 h. Al salir a las 11:45 h caminamos 600 m a San Clemente (11:55 h, antes de su cierre de las 12:30 h) y 650 m a San Juan de Letrán (12:45 h, abierta todo el mediodía). Desde allí regresamos hacia el Foro de Trajano (13:50 h) para entrar puntuales a la comida fija en Vecchia Roma (14:30 h). Por la tarde vemos Bocca della Verità (16:15 h), cruzamos al tour fijo de Trastevere (17:00 h) y volvemos al hotel pasando por el Panteón y Fontana di Trevi iluminados.",
+      "planBSummary": "Si llueve el sábado por la mañana, en el Coliseo priorizad las galerías cubiertas del primer y segundo anillo; si llueve tras la comida en Vecchia Roma, acortad la parada exterior de Bocca della Verità y refugiaos en la Basílica de Santa Cecilia o Santa Maria in Trastevere antes del tour de las 17:00 h.",
+      "places": [
+        {
+          "id": "sab-4-san-pietro-vincoli",
+          "order": 1,
+          "day": "sabado",
+          "dateStr": "Sábado 7 Nov",
+          "startTime": "08:15",
+          "endTime": "08:40",
+          "durationMinutes": 25,
+          "isFixed": false,
+          "category": "iglesia",
+          "nameEs": "Basílica de San Pietro in Vincoli (El Moisés)",
+          "nameIt": "Basilica di San Pietro in Vincoli",
+          "coordinates": {
+            "lat": 41.8939,
+            "lng": 12.4931
+          },
+          "address": "Piazza di San Pietro in Vincoli, 4/a, 00184 Roma RM",
+          "historyAndCuriosities": "Construida en el siglo V por la emperatriz Licinia Eudoxia para custodiar las cadenas ('vincoli') con las que San Pedro fue encarcelado en Jerusalén y en la cárcel Mamertina de Roma —que según la leyenda se fundieron milagrosamente en una sola al acercarlas el Papa León Magno—, esta basílica es mundialmente célebre por albergar el Moisés de Miguel Ángel (1515), pieza central del inconcluso mausoleo del Papa Julio II. La escultura es tan sobrecogedora por su anatomía, sus venas marcadas y su mirada furiosa que cuenta la tradición que el propio Miguel Ángel, al terminarla, golpeó la rodilla derecha del Moisés con su martillo gritándole: '¡Perché non parli!' (¿Por qué no hablas?). Curiosidad histórica fascinante: los famosos 'cuernos' sobre la cabeza de Moisés se deben a una traducción al latín en la Vulgata de San Jerónimo del término hebreo 'qaran' (que significaba 'rostro radiante de haces de luz', pero se tradujo literalmente como 'cornuta').",
+          "recommendedDurationText": "25 min",
+          "openingHours": "Horario de otoño/invierno (noviembre): 08:00 – 12:30 h y 15:00 – 18:00 h",
+          "ticketInfo": {
+            "type": "Gratuita",
+            "priceApprox": "Entrada gratuita (moneda de 1 € opcional para encender la iluminación LED del Moisés)",
+            "bookingRequired": false,
+            "bookingAdvice": "JUGADA MAESTRA DE EXPERTO: Como cierra al mediodía (12:30 a 15:00 h) y os pilla literalmente en la ruta de bajada de Via Palermo 4 al Coliseo, visitarla a las 08:15 h os permite contemplar el Moisés en silencio absoluto, sin grupos y a solo 4 minutos del Coliseo."
+          },
+          "importantWarnings": [
+            "Abre a las 08:00 h en punto y cierra al mediodía de 12:30 a 15:00 h; al visitarla a las 08:15 h evitáis el cierre de mediodía y salís a las 08:40 h directos al Coliseo (situado a solo 350 metros cuesta abajo).",
+            "Llevad una moneda de 1 € o 2 € para encender el foco LED del Moisés."
+          ],
+          "practicalTips": [
+            "Además del Moisés en el transepto derecho, bajad la mirada al altar mayor: en el relicario dorado inferior están las cadenas originales de San Pedro.",
+            "Al salir hacia el Coliseo a las 08:40 h, bajad las escaleras de Via della Polveriera que os dejan directamente frente al mirador superior del Coliseo."
+          ],
+          "planB": "Interior completamente cubierto.",
+          "walkingFromPrev": {
+            "fromName": "Alojamiento (Via Palermo 4)",
+            "distanceKm": 0.75,
+            "timeMinutes": 10,
+            "routeNotes": "Bajad por Via dei Serpenti atravesando Monti, cruzad Via Cavour y subid la pintoresca escalinata cubierta de los Borgia (Salita dei Borgia)."
+          },
+          "walkingToNext": {
+            "toName": "Foro Romano y Coliseo (FIJO 09:00)",
+            "distanceKm": 0.35,
+            "timeMinutes": 5
+          }
+        },
+        {
+          "id": "sab-1-coliseo-foro",
+          "order": 2,
+          "day": "sabado",
+          "dateStr": "Sábado 7 Nov",
+          "startTime": "09:00",
+          "endTime": "11:45",
+          "durationMinutes": 165,
+          "isFixed": true,
+          "category": "monumento",
+          "nameEs": "Foro Romano y Coliseo (FIJO)",
+          "nameIt": "Foro Romano e Colosseo (Anfiteatro Flavio)",
+          "coordinates": {
+            "lat": 41.8902,
+            "lng": 12.4922
+          },
+          "address": "Piazza del Colosseo, 1, 00184 Roma RM",
+          "historyAndCuriosities": "Inaugurado en el año 80 d.C. bajo el emperador Tito con cien días ininterrumpidos de juegos, el Anfiteatro Flavio (conocido como Coliseo por la colosal estatua de bronce de Nerón que se alzaba junto a él) fue el mayor recinto de espectáculos del mundo romano, capaz de albergar entre 50.000 y 70.000 espectadores organizados estrictamente por clase social. Bajo su arena de madera se ocultaba el hipogeo, un complejo laberinto subterráneo de dos niveles con 80 montacargas accionados por poleas y contrapesos que hacían emerger fieras y escenografías de golpe. Al lado se extiende el Foro Romano, el auténtico corazón político, religioso y jurídico de la República y del Imperio durante más de un milenio. Caminaréis por la misma Via Sacra por donde desfilaban los generales victoriosos, pasando junto al Arco de Tito (donde se ven tallados los tesoros del Templo de Jerusalén), el Templo de Antonino y Faustina, la Curia Julia (sede original del Senado romano perfectamente conservada) y el túmulo donde fue incinerado Julio César en el 44 a.C., donde aún hoy los visitantes dejan flores frescas.",
+          "recommendedDurationText": "2 h 45 min (Coliseo + Foro Romano integrados)",
+          "openingHours": "08:30 – 16:30 h (horario de otoño/invierno; última entrada 15:30 h)",
+          "ticketInfo": {
+            "type": "De pago",
+            "priceApprox": "18 € entrada estándar Parcocolosseo (24 € con Arena)",
+            "bookingRequired": true,
+            "bookingAdvice": "Cita FIJA a las 09:00 h. Imprescindible llevar DNI o Pasaporte físico original de los 5 (las entradas son nominativas y cotejan el nombre en el torno de control)."
+          },
+          "importantWarnings": [
+            "FIJO INAMOVIBLE 09:00 h: Al salir de San Pietro in Vincoli a las 08:40 h estáis a solo 4 minutos a pie (350 m) del mirador y entrada del Coliseo, llegando a las 08:45 h para el control de seguridad.",
+            "No se permiten mochilas grandes, botellas de cristal ni sprays. Llevad botellas reutilizables vacías o de plástico: dentro del Foro y junto al Coliseo hay fuentes de agua potable gratuita ('nasoni').",
+            "Para encajar toda la mañana sin prisas, centraos en la vía principal del Foro Romano (Via Sacra desde el Arco de Tito hasta el Arco de Septimio Severo) y salid por la salida cercana al Coliseo / Via Labicana hacia San Clemente."
+          ],
+          "practicalTips": [
+            "Las mejores fotos grupales de los 5 con el Coliseo de fondo se toman desde la terraza superior de Via Nicola Salvi (justo al bajar desde San Pietro in Vincoli, antes de las escaleras del Metro).",
+            "Dentro del Foro Romano, no os perdáis la Casa de las Vestales, el jardín con estanques donde vivían las sacerdotisas encargadas de mantener encendido el fuego sagrado de Roma."
+          ],
+          "planB": "En caso de lluvia matinal, el primer y segundo nivel interior del Coliseo están techados por las bóvedas romanas; en el Foro, la Curia Julia y el Templo de Rómulo ofrecen resguardo.",
+          "walkingFromPrev": {
+            "fromName": "San Pietro in Vincoli",
+            "distanceKm": 0.35,
+            "timeMinutes": 5,
+            "routeNotes": "Bajad directamente por Via della Polveriera / Via Nicola Salvi hasta el mirador y acceso del Coliseo."
+          },
+          "walkingToNext": {
+            "toName": "Basílica de San Clemente",
+            "distanceKm": 0.6,
+            "timeMinutes": 8
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Arco de Constantino",
+              "nameIt": "Arco di Costantino",
+              "distanceMeters": 80,
+              "description": "Situado justo entre la salida del Coliseo y la entrada al Foro (315 d.C.); es el arco triunfal más grande y mejor conservado de la Antigüedad."
+            }
+          ]
+        },
+        {
+          "id": "sab-2-san-clemente",
+          "order": 3,
+          "day": "sabado",
+          "dateStr": "Sábado 7 Nov",
+          "startTime": "11:55",
+          "endTime": "12:35",
+          "durationMinutes": 40,
+          "isFixed": false,
+          "category": "iglesia",
+          "nameEs": "Basílica de San Clemente",
+          "nameIt": "Basilica di San Clemente al Laterano",
+          "coordinates": {
+            "lat": 41.8893,
+            "lng": 12.4975
+          },
+          "address": "Via Labicana, 95, 00184 Roma RM",
+          "historyAndCuriosities": "San Clemente es la mejor 'lasaña histórica' de Roma: tres estratos de civilización superpuestos en vertical. En el nivel actual (siglo XII) os deslumbrará su pavimento cosmatesco y el extraordinario mosaico dorado del ábside con el Árbol de la Vida. Al bajar al primer nivel subterráneo os adentraréis en una basílica paleocristiana del siglo IV que conserva frescos medievales únicos —entre ellos el famoso fresco de Sisinnio, que contiene una de las primeras inscripciones de la historia en las que el latín vulgar empieza a transformarse en lengua italiana (¡casi como un cómic medieval con bocadillos de diálogo!)—. Y descendiendo un nivel más abajo, a 14 metros bajo la calle actual, llegaréis a la Roma del siglo I d.C.: una ínsula republicana, un templo pagano intacto dedicado al dios persa Mitra (Mitreo con su altar del sacrificio del toro) y el sonido real de un arroyo subterráneo romano que aún corre bajo los cimientos.",
+          "recommendedDurationText": "40 min",
+          "openingHours": "Lunes a sábado: 09:00 – 12:30 h y 14:00 – 18:00 h (Domingos abre solo a las 12:00 h, por eso es clave visitarla el sábado).",
+          "ticketInfo": {
+            "type": "De pago",
+            "priceApprox": "Basílica superior: Gratuita | Excavaciones subterráneas: 10 €",
+            "bookingRequired": true,
+            "bookingAdvice": "IMPORTANTE: La basílica superior cierra al mediodía a las 12:30 h. Si queréis bajar a los niveles subterráneos (10 €), reservad el pase de las 11:50/12:00 h en basilicadisaanclemente.com o centrar la visita en la joya del nivel superior."
+          },
+          "importantWarnings": [
+            "AVISO DE CIERRE AL MEDIODÍA: Cierra a las 12:30 h por pausa de mediodía. Llegar a las 11:55 h tras el Coliseo es el momento exacto antes del cierre.",
+            "Norma de vestimenta estricta en todas las basílicas de Roma: hombros y rodillas cubiertos.",
+            "En los niveles subterráneos está prohibido hacer fotografías por conservación de los frescos."
+          ],
+          "practicalTips": [
+            "Fijaos en el coro de mármol blanco en el centro de la nave: fue reutilizado de la iglesia original del siglo VI y lleva el monograma del Papa Juan II.",
+            "Si vais justos de tiempo al salir del Foro, disfrutad del impresionante mosaico del siglo XII de la planta superior (gratuito y sin reserva) para asegurar la llegada holgada a San Juan de Letrán."
+          ],
+          "planB": "Completamente bajo techo (excelente refugio si llueve a mediodía).",
+          "walkingFromPrev": {
+            "fromName": "Coliseo / Foro Romano",
+            "distanceKm": 0.6,
+            "timeMinutes": 8,
+            "routeNotes": "Caminad en línea recta hacia el este por Via di San Giovanni in Laterano (con vistas directas al Coliseo a vuestra espalda)."
+          },
+          "walkingToNext": {
+            "toName": "San Juan de Letrán",
+            "distanceKm": 0.65,
+            "timeMinutes": 9
+          }
+        },
+        {
+          "id": "sab-3-san-juan-letran",
+          "order": 4,
+          "day": "sabado",
+          "dateStr": "Sábado 7 Nov",
+          "startTime": "12:45",
+          "endTime": "13:25",
+          "durationMinutes": 40,
+          "isFixed": false,
+          "category": "iglesia",
+          "nameEs": "Archibasílica de San Juan de Letrán",
+          "nameIt": "Arcibasilica di San Giovanni in Laterano",
+          "coordinates": {
+            "lat": 41.8859,
+            "lng": 12.5057
+          },
+          "address": "Piazza di San Giovanni in Laterano, 4, 00184 Roma RM",
+          "historyAndCuriosities": "Muchos viajeros creen que la catedral de Roma es San Pedro del Vaticano, pero en realidad la verdadera Catedral del Papa como Obispo de Roma es San Juan de Letrán. En su fachada campea una inscripción latina imponente: 'Omnium Urbis et Orbis Ecclesiarum Mater et Caput' (Madre y Cabeza de todas las iglesias de la ciudad y del mundo). Fundada por el emperador Constantino en el año 313 d.C. sobre los terrenos de la familia Laterani tras el Edicto de Milán, fue la residencia papal oficial durante mil años antes de trasladarse al Vaticano en el siglo XIV. En el siglo XVII, el Papa Inocencio X encargó al genial Francesco Borromini remodelar la nave central, donde se alzan doce colosales estatuas de mármol de los Apóstoles de más de cuatro metros de altura. Las enormes puertas centrales de bronce de la entrada principal no son barrocas: son las puertas originales de la Curia Julia del Senado del Foro Romano, trasladadas aquí en 1660.",
+          "recommendedDurationText": "40 min",
+          "openingHours": "Todos los días de 07:00 a 18:30 h (NO cierra al mediodía)",
+          "ticketInfo": {
+            "type": "Gratuita",
+            "priceApprox": "Entrada libre (Claustro opcional: 5 €)",
+            "bookingRequired": false,
+            "bookingAdvice": "No requiere reserva. Hay un breve control de seguridad con arco detector en el pórtico."
+          },
+          "importantWarnings": [
+            "Al no cerrar al mediodía, encaja de maravilla a las 12:45 h cuando otras iglesias pequeñas están cerradas.",
+            "Desde aquí caminamos en línea recta hacia el Foro de Trajano (1,8 km llano/bajada suave por Via di San Giovanni y Via dei Fori Imperiali, 22 min) llegando sobre las 13:50 h sin prisas."
+          ],
+          "practicalTips": [
+            "Al entrar, tocad y observad las puertas centrales de bronce verde: pertenecen al Senado de la Antigua Roma.",
+            "En la plaza exterior se levanta el Obelisco Lateranense, el obelisco egipcio en pie más alto del mundo (32 metros de granito rojo traído de Karnak)."
+          ],
+          "planB": "Interior monumental totalmente cubierto.",
+          "walkingFromPrev": {
+            "fromName": "Basílica de San Clemente",
+            "distanceKm": 0.65,
+            "timeMinutes": 9,
+            "routeNotes": "Continuad subiendo suavemente por Via di San Giovanni in Laterano hasta la gran plaza."
+          },
+          "walkingToNext": {
+            "toName": "Foro de Trajano",
+            "distanceKm": 1.8,
+            "timeMinutes": 22
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Escalera Santa (Scala Sancta)",
+              "nameIt": "Pontificio Santuario della Scala Santa",
+              "distanceMeters": 70,
+              "description": "Situada justo enfrente de la fachada de San Juan de Letrán: los 28 peldaños de mármol que según la tradición subió Jesús en el pretorio de Poncio Pilato, traídos de Jerusalén por Santa Elena en el año 326. Se puede asomar gratuitamente para ver a los fieles subirla de rodillas."
+            }
+          ]
+        },
+        {
+          "id": "sab-5-foro-trajano",
+          "order": 5,
+          "day": "sabado",
+          "dateStr": "Sábado 7 Nov",
+          "startTime": "13:50",
+          "endTime": "14:22",
+          "durationMinutes": 32,
+          "isFixed": false,
+          "category": "monumento",
+          "nameEs": "Foro de Trajano, Mercados y Columna Trajana",
+          "nameIt": "Foro di Traiano e Mercati di Traiano",
+          "coordinates": {
+            "lat": 41.8956,
+            "lng": 12.4845
+          },
+          "address": "Via dei Fori Imperiali / Via IV Novembre, 94, 00187 Roma RM",
+          "historyAndCuriosities": "Construido entre el 107 y el 112 d.C. por el emperador hispano Trajano (nacido en Itálica, cerca de Sevilla) con el inmenso botín de la conquista de la Dacia (actual Rumanía), este fue el último, más grande y más fastuoso de los Foros Imperiales. El arquitecto Apolodoro de Damasco tuvo que excavar y desmontar literalmente una ladera entera de 38 metros de altura que unía las colinas del Quirinal y el Capitolio. Justo esa altura exacta (38 metros) es lo que mide la Columna de Trajano, según reza su inscripción basal. La columna está formada por 18 colosales tambores de mármol de Carrara de 40 toneladas cada uno, recorridos en espiral por un friso de 200 metros de longitud con más de 2.500 figuras talladas que narran como una película documental las guerras dacias. Detrás se alzan en semicírculo los Mercados de Trajano, considerados el primer 'centro comercial' y complejo administrativo de varios pisos del mundo, construido en ladrillo romano.",
+          "recommendedDurationText": "30-35 min",
+          "openingHours": "Todos los días de 09:30 a 19:30 h (último acceso 18:30 h). Pasarela exterior y Columna: 24 h.",
+          "ticketInfo": {
+            "type": "De pago",
+            "priceApprox": "Vistas desde pasarela y Columna: Gratuito | Entrada Mercados de Trajano y pasarela interior: 15 €",
+            "bookingRequired": false,
+            "bookingAdvice": "Si deseáis entrar al recinto interior de los Mercados de Trajano (Museo dei Fori Imperiali, entrada por Via IV Novembre 94), se recomienda comprar online en mercatiditraiano.it; la pasarela de la Columna y la Basílica Ulpia se recorren al aire libre."
+          },
+          "importantWarnings": [
+            "Está exactamente a 450 metros (5 minutos a pie) del restaurante Vecchia Roma, por lo que os deja en la puerta de la comida sin ningún desvío."
+          ],
+          "practicalTips": [
+            "En lo alto de la Columna de Trajano estuvo la estatua de bronce del emperador hasta la Edad Media; en 1587 el Papa Sixto V colocó la estatua actual de San Pedro.",
+            "Dentro del hueco de la columna hay una escalera de caracol tallada en el propio mármol de 185 peldaños."
+          ],
+          "planB": "El interior de los Mercados de Trajano (Gran Aula cubierta por bóvedas de arista del siglo II) es completamente techado.",
+          "walkingFromPrev": {
+            "fromName": "San Juan de Letrán",
+            "distanceKm": 1.8,
+            "timeMinutes": 22,
+            "routeNotes": "Paseo en suave bajada pasando frente al Coliseo y recorriendo la avenida peatonal de Via dei Fori Imperiali."
+          },
+          "walkingToNext": {
+            "toName": "Restaurante Vecchia Roma",
+            "distanceKm": 0.45,
+            "timeMinutes": 6
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Monumento a Vittorio Emanuele II (Altar de la Patria)",
+              "nameIt": "Altare della Patria / Vittoriano",
+              "distanceMeters": 120,
+              "description": "Justo al cruzar Piazza Venezia desde la Columna de Trajano. Sus terrazas inferiores son de acceso gratuito y ofrecen una vista imponente de toda la avenida de los Foros."
+            }
+          ]
+        },
+        {
+          "id": "sab-6-vecchia-roma",
+          "order": 6,
+          "day": "sabado",
+          "dateStr": "Sábado 7 Nov",
+          "startTime": "14:30",
+          "endTime": "16:10",
+          "durationMinutes": 100,
+          "isFixed": true,
+          "category": "restaurante",
+          "nameEs": "Comida en Trattoria Vecchia Roma (FIJO - Ghetto)",
+          "nameIt": "Trattoria Da Enzo / Vecchia Roma (Piazza Campitelli)",
+          "coordinates": {
+            "lat": 41.8931,
+            "lng": 12.4795
+          },
+          "address": "Piazza di Campitelli, 18, 00186 Roma RM",
+          "historyAndCuriosities": "Ubicado en la tranquila y escenográfica Piazza di Campitelli, en la frontera del histórico Barrio Judío (Ghetto Ebraico, el más antiguo del mundo occidental tras el de Venecia, instituido en 1555 por la bula del Papa Pablo IV), el restaurante Vecchia Roma (fundado en 1916) es toda una institución gastronómica romana. La plaza está presidida por la iglesia barroca de Santa Maria in Campitelli y una fuente diseñada por Giacomo della Porta en 1589. Aquí la cocina combina la tradición romana clásica con toques judeo-romanos: su plato estrella más famoso es la 'Amatriciana Flambé' o 'Cacio e Pepe', que terminan de mantecar dentro de una gran rueda de queso Pecorino Romano flameada delante de los comensales. Además, en noviembre comienza la temporada perfecta de la 'Carciofo alla Giudia' (alcachofa frita entera crujiente como una flor dorada), receta ancestral de las familias del Ghetto.",
+          "recommendedDurationText": "1 h 40 min",
+          "openingHours": "Turno de comidas: 12:30 – 15:30 h (Domingos cerrado, ¡perfecto haberlo fijado en sábado!)",
+          "ticketInfo": {
+            "type": "Restaurante / Reserva",
+            "priceApprox": "25 – 35 € por persona",
+            "bookingRequired": true,
+            "bookingAdvice": "FIJO DE COMIDA DEL SÁBADO: Tened confirmada la reserva para 5 personas (idealmente a las 14:15 / 14:30 h) en el +39 06 686 4604."
+          },
+          "importantWarnings": [
+            "Atención en Google Maps: existen dos restaurantes llamados 'Vecchia Roma' en la ciudad; el vuestro del barrio judío/Ghetto es el de **Piazza di Campitelli, 18** (junto al Pórtico de Octavia).",
+            "Salid del restaurante sobre las 16:10 h para tener 50 minutos muy cómodos para ver la Bocca della Verità y cruzar la Isla Tiberina hacia el Trastevere antes de las 17:00 h."
+          ],
+          "practicalTips": [
+            "Qué pedir para compartir entre los 5: Carciofi alla Giudia (alcachofas a la judía), Fiore di Zucca (flores de calabacín rellenas de mozzarella y anchoa), Bucatini all'Amatriciana en rueda de pecorino y Tonnarelli Cacio e Pepe.",
+            "Al salir de comer, caminad por el Pórtico de Octavia (a 150 metros): el antiguo pórtico dedicado por Augusto a su hermana Octavia que servía de mercado de pescado en la Edad Media."
+          ],
+          "planB": "Salón interior abovedado climatizado.",
+          "walkingFromPrev": {
+            "fromName": "Foro de Trajano",
+            "distanceKm": 0.45,
+            "timeMinutes": 6,
+            "routeNotes": "Bordeando la falda del Capitolio por Via del Teatro di Marcello y entrando a Piazza di Campitelli."
+          },
+          "walkingToNext": {
+            "toName": "Bocca della Verità",
+            "distanceKm": 0.45,
+            "timeMinutes": 6
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Pórtico de Octavia y Teatro de Marcelo",
+              "nameIt": "Portico d'Ottavia e Teatro di Marcello",
+              "distanceMeters": 140,
+              "description": "Pasáis literalmente bajo sus arcos al salir de Vecchia Roma rumbo a la Bocca della Verità. El Teatro de Marcelo (13 a.C.) fue el modelo arquitectónico directo en el que se inspiró el Coliseo."
+            },
+            {
+              "nameEs": "Fuente de las Tortugas (Fontana delle Tartarughe)",
+              "nameIt": "Fontana delle Tartarughe (Piazza Mattei)",
+              "distanceMeters": 160,
+              "description": "A 2 minutos de Vecchia Roma en Piazza Mattei: una joya renacentista escondida con tortugas de bronce atribuidas a Bernini."
+            }
+          ]
+        },
+        {
+          "id": "sab-7-bocca-verita",
+          "order": 7,
+          "day": "sabado",
+          "dateStr": "Sábado 7 Nov",
+          "startTime": "16:15",
+          "endTime": "16:45",
+          "durationMinutes": 30,
+          "isFixed": false,
+          "category": "monumento",
+          "nameEs": "Bocca della Verità y Foro Boario",
+          "nameIt": "Bocca della Verità (Santa Maria in Cosmedin)",
+          "coordinates": {
+            "lat": 41.8881,
+            "lng": 12.4815
+          },
+          "address": "Piazza della Bocca della Verità, 18, 00186 Roma RM",
+          "historyAndCuriosities": "Situada en el pórtico de la iglesia medieval de Santa Maria in Cosmedin, la Bocca della Verità es un enorme disco de mármol pavonazzetto del siglo I d.C. de 1,75 metros de diámetro y 1.300 kilos de peso que esculpe el rostro barbado de una deidad pagana (probablemente Océano, Fauno o Júpiter Amón). Los arqueólogos creen que originalmente era la tapa monumental de una alcantarilla de la Cloaca Máxima en el cercano templo de Hércules para drenar la sangre de los sacrificios y el agua de lluvia. En la Edad Media surgió la leyenda de que funcionaba como un detector de mentiras infalible: quien introdujera la mano en su boca abierta y pronunciara un juramento falso sufriría la amputación inmediata de sus dedos. Se hizo inmortal en el cine mundial gracias a la escena de 'Vacaciones en Roma' (1953), donde Gregory Peck finge que la piedra le muerde la mano ante el susto real y espontáneo de Audrey Hepburn.",
+          "recommendedDurationText": "25-30 min",
+          "openingHours": "Todos los días de 09:30 a 17:50 h",
+          "ticketInfo": {
+            "type": "De pago",
+            "priceApprox": "Donativo obligatorio de 2 € para hacerse la foto en el pórtico (visible gratis desde la verja exterior)",
+            "bookingRequired": false,
+            "bookingAdvice": "No admite reserva. Si la cola supera los 15 minutos (a las 16:40 h debemos cruzar el puente hacia Trastevere), haced la foto desde la verja lateral a 2 metros de distancia y entrad directamente al interior de la iglesia de Santa Maria in Cosmedin (sin cola)."
+          },
+          "importantWarnings": [
+            "CONTROL DE TIEMPO: A las 16:45 h en punto salid caminando hacia el puente (a solo 10 minutos a pie) para llegar puntuales a la visita guiada del Trastevere de las 17:00 h."
+          ],
+          "practicalTips": [
+            "No miréis solo el medallón: justo enfrente, en medio de la plaza (antiguo Foro Boario o mercado de ganado de Roma), tenéis dos templos republicanos intactos del siglo II a.C.: el Templo circular de Hércules Víctor (el edificio de mármol conservado más antiguo de Roma) y el Templo de Portuno."
+          ],
+          "planB": "Pórtico cubierto y basílica interior con precioso suelo cosmatesco y la reliquia del cráneo de San Valentín en el altar lateral.",
+          "walkingFromPrev": {
+            "fromName": "Restaurante Vecchia Roma",
+            "distanceKm": 0.45,
+            "timeMinutes": 6,
+            "routeNotes": "Bajad por Via del Teatro di Marcello pasando junto a San Nicola in Carcere."
+          },
+          "walkingToNext": {
+            "toName": "Trastevere (Visita Guiada)",
+            "distanceKm": 0.65,
+            "timeMinutes": 10
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Isla Tiberina y Puente Fabricio (62 a.C.)",
+              "nameIt": "Isola Tiberina e Ponte Fabricio",
+              "distanceMeters": 220,
+              "description": "Cruzaréis a pie al Trastevere atravesando la Isla Tiberina por el Ponte Fabricio, el puente romano original más antiguo de Roma (año 62 a.C.), que sigue tal cual lo pisaron Cicerón y Julio César."
+            }
+          ]
+        },
+        {
+          "id": "sab-8-trastevere",
+          "order": 8,
+          "day": "sabado",
+          "dateStr": "Sábado 7 Nov",
+          "startTime": "17:00",
+          "endTime": "19:30",
+          "durationMinutes": 150,
+          "isFixed": true,
+          "category": "barrio",
+          "nameEs": "Visita Guiada por el Trastevere (FIJO)",
+          "nameIt": "Rione XIII Trastevere (Trans Tiberim)",
+          "coordinates": {
+            "lat": 41.8896,
+            "lng": 12.4698
+          },
+          "address": "Piazza di Santa Maria in Trastevere / Piazza Belli, Roma",
+          "historyAndCuriosities": "Su nombre proviene del latín 'Trans Tiberim' (Más allá del Tíber). En la Antigüedad era un barrio extramuros habitado por marineros sirios, pescadores, alfareros y una importante comunidad judía y oriental que vivía al margen de la ciudad patricia. Gracias a este aislamiento histórico, los trasteverinos desarrollaron un orgullo de identidad propio (se consideran a sí mismos 'los romanos más puros') y el barrio conservó su trazado medieval de callejuelas laberínticas adoquinadas con sampietrini, fachadas color ocre y terracota cubiertas de buganvillas y ropa tendida. Su corazón espiritual y social es la Piazza di Santa Maria in Trastevere, donde se levanta la primera iglesia de Roma dedicada oficialmente a la Virgen María (siglo IV, reconstruida en el XII con 22 columnas de granito arrancadas de las Termas de Caracalla y deslumbrantes mosaicos bizantinos dorados de Pietro Cavallini que al anochecer brillan desde la propia plaza).",
+          "recommendedDurationText": "2 h 30 min (Tour guiado + aperitivo/paseo)",
+          "openingHours": "Basílica de Santa Maria in Trastevere: abierta hasta las 21:00 h",
+          "ticketInfo": {
+            "type": "Restaurante / Reserva",
+            "priceApprox": "Visita guiada reservada a las 17:00 h",
+            "bookingRequired": true,
+            "bookingAdvice": "FIJO INAMOVIBLE 17:00 h: Revisad el punto exacto de encuentro de vuestro guía (habitualmente Piazza Giuseppe Gioachino Belli al cruzar el puente o la fuente de Piazza Santa Maria in Trastevere)."
+          },
+          "importantWarnings": [
+            "En noviembre en Roma anochece sobre las 17:00 h: veréis el Trastevere encender sus farolas cálidas, que es cuando luce más mágico.",
+            "Cuidado con los bolsos en las calles más animadas al caer la tarde (Piazza Trilussa y Via del Moro)."
+          ],
+          "practicalTips": [
+            "Al acabar el tour sobre las 19:00 h, probad un 'Supplì al telefono' recién hecho (croqueta romana de arroz con ragú y corazón de mozzarella fundida) en 'Supplì Roma' (Via di San Francesco a Ripa, 137) o tomad un Aperol Spritz en el legendario Bar San Calisto (a 2,50-4 €).",
+            "Para cenar tras el paseo nocturno, podéis picar algo en Trastevere antes de cruzar hacia el Panteón o cenar cerca de Trevi/Monti al terminar la ruta."
+          ],
+          "planB": "Durante la visita se visitan interiores espectaculares como Santa Maria in Trastevere y Santa Cecilia (con la escultura de Stefano Maderno).",
+          "walkingFromPrev": {
+            "fromName": "Bocca della Verità",
+            "distanceKm": 0.65,
+            "timeMinutes": 10,
+            "routeNotes": "Cruzad el río por el Puente Palatino o por la Isla Tiberina (Ponte Fabricio + Ponte Cestio) hacia Piazza Belli / Trastevere."
+          },
+          "walkingToNext": {
+            "toName": "Panteón Iluminado",
+            "distanceKm": 1.1,
+            "timeMinutes": 15
+          }
+        },
+        {
+          "id": "sab-9-panteon-nocturno",
+          "order": 9,
+          "day": "sabado",
+          "dateStr": "Sábado 7 Nov",
+          "startTime": "19:45",
+          "endTime": "20:05",
+          "durationMinutes": 20,
+          "isFixed": false,
+          "category": "monumento",
+          "nameEs": "Pazza della Rotonda y Panteón Iluminado (Exterior)",
+          "nameIt": "Piazza della Rotonda e Pantheon (Vista Notturna)",
+          "coordinates": {
+            "lat": 41.8986,
+            "lng": 12.4769
+          },
+          "address": "Piazza della Rotonda, 00186 Roma RM",
+          "historyAndCuriosities": "En el camino de regreso a pie desde el Trastevere hacia vuestro hotel en Via Palermo, cruzaréis el histórico Ponte Sisto y atravesaréis Campo de' Fiori hasta desembocar de frente en la Piazza della Rotonda iluminada. Contemplar el pórtico corintio del Panteón de Agripa de noche, con la luz cálida bañando sus 16 columnas monolíticas de granito egipcio y el reflejo sobre la fuente renacentista de Giacomo della Porta coronada por el obelisco de Ramsés II, es una de las estampas más inolvidables de Roma. Mañana domingo a las 12:30 h entraréis al interior con luz cenital entrando por el óculo de la cúpula, pero este primer encuentro nocturno os permite disfrutar de la plaza con mucha menos gente que al mediodía.",
+          "recommendedDurationText": "20 min (Paseo nocturno y fotos en la plaza)",
+          "openingHours": "Plaza abierta 24 h (La visita interior completa se realiza el domingo a las 12:30 h)",
+          "ticketInfo": {
+            "type": "Gratuita",
+            "priceApprox": "Plaza exterior gratuita",
+            "bookingRequired": false,
+            "bookingAdvice": "Parada escénica de paso hacia la Fontana di Trevi."
+          },
+          "importantWarnings": [
+            "No os sentéis en los escalones de la fuente central de la plaza si hay policía municipal (Vigili Urbani), ya que desde 2019 está regulado por ordenanza de protección monumental."
+          ],
+          "practicalTips": [
+            "Si os apetece el mejor café espresso o granizado de café con nata de Roma, justo en la esquina de la plaza está 'La Casa del Caffè Tazza d'Oro' o a 100 metros 'Sant'Eustachio Il Caffè'."
+          ],
+          "planB": "Las galerías cercanas de Piazza di Pietra (Templo de Adriano) ofrecen resguardo si chispea.",
+          "walkingFromPrev": {
+            "fromName": "Trastevere",
+            "distanceKm": 1.1,
+            "timeMinutes": 15,
+            "routeNotes": "Cruzad el peatonal Ponte Sisto sobre el Tíber, pasad por Campo de' Fiori y subid hacia Piazza della Rotonda."
+          },
+          "walkingToNext": {
+            "toName": "Fontana di Trevi",
+            "distanceKm": 0.6,
+            "timeMinutes": 8
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Campo de' Fiori y Piazza Farnese",
+              "nameIt": "Campo de' Fiori",
+              "distanceMeters": 100,
+              "description": "Pasáis por el centro de la plaza al venir de Ponte Sisto; presidida por la estatua encapuchada del filósofo Giordano Bruno."
+            }
+          ]
+        },
+        {
+          "id": "sab-10-fontana-trevi",
+          "order": 10,
+          "day": "sabado",
+          "dateStr": "Sábado 7 Nov",
+          "startTime": "20:15",
+          "endTime": "21:00",
+          "durationMinutes": 45,
+          "isFixed": false,
+          "category": "monumento",
+          "nameEs": "Fontana di Trevi y Cena de Regreso a Monti",
+          "nameIt": "Fontana di Trevi",
+          "coordinates": {
+            "lat": 41.9009,
+            "lng": 12.4833
+          },
+          "address": "Piazza di Trevi, 00187 Roma RM",
+          "historyAndCuriosities": "La fuente barroca más célebre del planeta marca el punto final ('mostra') del Acueducto Aqua Virgo, inaugurado por Marco Vipsanio Agripa en el año 19 a.C. para abastecer sus termas junto al Panteón y que lleva más de dos mil años funcionando sin interrupción. Su nombre 'Trevi' deriva del latín 'Trivium' (la confluencia de tres calles). Diseñada en 1732 por Nicola Salvi por encargo del Papa Clemente XII sobre la fachada del Palazzo Poli, escenifica el reino del dios Océano sobre una carroza en forma de concha tirada por dos caballos marinos (uno dócil y otro encabritado, simbolizando la calma y la tempestad de los mares) guiados por tritones. Curiosidad divertida: en el lateral derecho de la fuente veréis un gran jarrón esculpido en travertino conocido popularmente como el 'Asso di Coppe' (As de Copas); Nicola Salvi lo colocó estratégicamente ahí para taparle la vista a un barbero de la plaza que no paraba de criticar las obras cada día. Cada año se recogen de sus aguas cerca de 1,5 millones de euros en monedas, que se destinan íntegramente a proyectos sociales de Cáritas Roma.",
+          "recommendedDurationText": "45 min (visita a la fuente + helado o cena camino a Via Palermo)",
+          "openingHours": "Abierta 24 h (Con acceso ordenado a la dársena frontal de 09:00 a 21:00 h; tras las 21:00 h acceso libre)",
+          "ticketInfo": {
+            "type": "Gratuita",
+            "priceApprox": "Gratuita (2 € si se accede al foso inferior en horario regulado diurno; desde la plaza superior y de noche es libre)",
+            "bookingRequired": false,
+            "bookingAdvice": "No requiere reserva. Verla iluminada a las 20:15 h de camino a vuestro hotel (a solo 11 minutos de Via Palermo 4) es espectacular."
+          },
+          "importantWarnings": [
+            "Tradición de las monedas (película 'Tres monedas en la fuente'): se lanza con la mano derecha por encima del hombro izquierdo dando la espalda a la fuente. 1 moneda asegura volver a Roma.",
+            "Está prohibido sentarse en el borde de mármol del vaso de la fuente o comer/beber en el escalón inferior."
+          ],
+          "practicalTips": [
+            "En la esquina derecha de la fuente hay una pequeña fuente lateral con dos caños cruzados llamada la 'Fontanina degli Innamorati' (Fuente de los Enamorados): el agua es potable y dice la leyenda que las parejas que beben de ella permanecen unidas para siempre.",
+            "Para cenar de regreso hacia Via Palermo 4: subiendo hacia el Quirinal y entrando en vuestro barrio (Via Nazionale / Via dei Serpenti) tenéis trattorias auténticas lejos de las trampas para turistas de la propia plaza de Trevi, como 'Ai Tre Scalini' (Via Panisperna 251, a 4 min del hotel) o 'La Taverna dei Fori Imperiali'."
+          ],
+          "planB": "En el camino de Panteón a Trevi pasáis pegados a la Galleria Sciarra (patio modernista techado con cristal a 150 m de Trevi) y la Iglesia de San Ignacio de Loyola.",
+          "walkingFromPrev": {
+            "fromName": "Panteón",
+            "distanceKm": 0.6,
+            "timeMinutes": 8,
+            "routeNotes": "Por Via del Seminario, pasando frente al Templo de Adriano (Piazza di Pietra) y cruzando Via del Corso."
+          },
+          "walkingToNext": {
+            "toName": "Alojamiento (Via Palermo 4)",
+            "distanceKm": 0.9,
+            "timeMinutes": 12
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Templo de Adriano (Piazza di Pietra) e Iglesia de San Ignacio",
+              "nameIt": "Tempio di Adriano e Chiesa di Sant'Ignazio di Loyola",
+              "distanceMeters": 220,
+              "description": "Están exactamente en la calle recta que une el Panteón con la Fontana di Trevi. Entrad 3 minutos en San Ignacio (abre hasta tarde) para ver su famosa 'falsa cúpula' en perspectiva pintada por Andrea Pozzo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domingo",
+      "title": "Domingo 8 de Noviembre de 2026",
+      "subtitle": "Vaticano al Amanecer, Ara Pacis, Caravaggio, Panteón Interior e Iglesia del Gesù",
+      "date": "2026-11-08",
+      "weatherSummary": {
+        "tempMax": 16,
+        "tempMin": 8,
+        "condition": "Mañana luminosa con nubes altas",
+        "rainChance": 25,
+        "advice": "Salid temprano para entrar a la Basílica de San Pedro sin cola a las 08:15 h. Recordad dejar las maletas listas en consigna del alojamiento en Via Palermo 4 antes de salir."
+      },
+      "totalWalkingKm": 7.6,
+      "routeLogicExplanation": "El domingo ejecuta una estrategia brillante de 'Oeste a Este' hacia el hotel. Empezamos en el punto más lejano (Vaticano: Plaza y Basílica de San Pedro) a primera hora de la mañana, antes de que se formen las colas y antes del cierre temporal del altar mayor por el Ángelus dominical de las 12:00 h. Desde el Vaticano caminamos siempre de regreso hacia nuestro hotel en Via Palermo: subimos bordeando el Tíber hasta el Ara Pacis, bajamos al corazón renacentista para ver los 3 cuadros de Caravaggio en San Luis de los Franceses, entramos al interior del Panteón a mediodía (la mejor hora para ver el haz de luz del óculo), comemos junto a la Iglesia del Gesù, vemos su asombroso interior barroco y subimos a Via Palermo 4 en 14 minutos para recoger maletas a las 16:00 h y salir al aeropuerto a las 16:30 h con margen de seguridad absoluto.",
+      "planBSummary": "Para el primer tramo matinal (Via Palermo 4 -> Vaticano, 3,4 km), si preferís guardar piernas o llueve, tomad la Línea A de Metro en 'Repubblica' (a 550 m del hotel) hasta 'Ottaviano-San Pietro' (4 paradas, 8 minutos, 1,50 €). Todo el regreso desde el Vaticano hasta el hotel es un paseo llano espectacular.",
+      "places": [
+        {
+          "id": "dom-1-vaticano",
+          "order": 1,
+          "day": "domingo",
+          "dateStr": "Domingo 8 Nov",
+          "startTime": "08:15",
+          "endTime": "10:10",
+          "durationMinutes": 115,
+          "isFixed": false,
+          "category": "iglesia",
+          "nameEs": "Ciudad del Vaticano: Plaza y Basílica de San Pedro",
+          "nameIt": "Città del Vaticano: Piazza e Basilica di San Pietro",
+          "coordinates": {
+            "lat": 41.9022,
+            "lng": 12.4539
+          },
+          "address": "Piazza San Pietro, 00120 Città del Vaticano",
+          "historyAndCuriosities": "Enclavada en el Estado soberano más pequeño del mundo (44 hectáreas), la Basílica Papal de San Pedro se levanta sobre la antigua colina y el Circo de Nerón, exactamente encima de la necrópolis donde fue enterrado el apóstol San Pedro tras ser crucificado cabeza abajo entre los años 64 y 67 d.C. La basílica actual reemplazó al templo constantiniano del siglo IV y su construcción duró 120 años (1506-1626), reuniendo a los mayores genios de la historia del arte: Bramante, Rafael, Miguel Ángel (quien diseñó su colosal cúpula de 136 metros de altura a los 72 años de edad), Carlo Maderno y Gian Lorenzo Bernini. En la primera capilla de la nave derecha os espera 'La Piedad' (1499), esculpida por un Miguel Ángel de tan solo 24 años y la única obra que firmó en toda su vida (su nombre está cincelado en la banda que cruza el pecho de la Virgen). Bajo la cúpula se alza el Baldaquino de bronce de Bernini (29 metros de altura, equivalente a un edificio de nueve plantas) y al exterior os abraza la monumental columnata elíptica de 284 columnas dóricas y 140 estatuas de santos.",
+          "recommendedDurationText": "1 h 55 min (Exteriores, Plaza, Columnata y Basílica interior)",
+          "openingHours": "Basílica: 07:00 – 19:10 h (Los domingos por la mañana el acceso turístico es fluido entre 07:30 y 09:45 h antes de la Misa Mayor y el Ángelus de las 12:00 h).",
+          "ticketInfo": {
+            "type": "Gratuita",
+            "priceApprox": "Plaza y Basílica de San Pedro: 100% Gratuitas (sin Museos Vaticanos, que además cierran los domingos)",
+            "bookingRequired": false,
+            "bookingAdvice": "No requiere entrada de pago. Llegar sobre las 08:15 h os garantiza pasar los controles de seguridad de la columnata derecha en 10-15 minutos en lugar de hacer más de 1 hora de cola a media mañana."
+          },
+          "importantWarnings": [
+            "TRAYECTO SUPERANDO 2,5 KM (3,4 km desde Via Palermo 4): Aunque podéis ir dando un paseo matinal precioso (42 min por Fontana di Trevi, Panteón, Piazza Navona y Puente Sant'Angelo vacíos al amanecer), como supera los 2,5 km tenéis la **alternativa sugerida puntual**: caminar 6 min hasta Metro Repubblica (Línea A) y bajar en Ottaviano (8 min de tren, os deja a las puertas de la plaza).",
+            "ACCESO EXACTO SIN COLA EQUIVOCADA: Entrad por el control de seguridad situado bajo el **brazo derecho de la columnata de Bernini (lado Norte / Via di Porta Angelica)**. Una vez dentro del pórtico de la Basílica, no os metáis en la fila de la derecha del todo (que es para subir de pago a la Cúpula), sino entrad directamente por las puertas centrales a la Basílica (100% gratuita).",
+            "Código de vestimenta vigilado por la Guardia Suiza y gendarmes: hombros y rodillas tapados (nada de tirantes o pantalones/faldas por encima de la rodilla).",
+            "Los domingos a las 12:00 h el Papa reza el Ángelus desde la ventana del Palacio Apostólico y el interior de la Basílica se restringe desde las 10:15 h por la misa capitular; por eso visitarla de 08:15 a 10:10 h es la jugada maestra."
+          ],
+          "practicalTips": [
+            "En la Plaza de San Pedro, buscad a ambos lados del obelisco egipcio central dos discos de piedra en el suelo con la inscripción 'Centro del Colonnato': si os ponéis encima y miráis hacia la columnata de Bernini, las cuatro filas de columnas se alinean perfectamente y parece que solo hay una fila.",
+            "Dentro de la Basílica, mirad las marcas doradas en el suelo de la nave central que comparan la longitud de San Pedro (218 m) con las mayores catedrales del mundo."
+          ],
+          "planB": "Interior monumental de la Basílica de San Pedro y pórtico de Carlo Maderno.",
+          "walkingFromPrev": {
+            "fromName": "Alojamiento (Via Palermo 4)",
+            "distanceKm": 3.4,
+            "timeMinutes": 42,
+            "routeNotes": "A pie cruzando el centro histórico vacío al amanecer y el Puente de Sant'Angelo, o bien Metro Línea A (Repubblica -> Ottaviano, 12 min en total).",
+            "publicTransportAlternative": "Trayecto > 2,5 km: Metro Línea A desde 'Repubblica' (a 550 m del hotel) hasta 'Ottaviano - San Pietro' (4 paradas, 8 min, 1,50 €). Se paga acercando la tarjeta bancaria contactless al torno."
+          },
+          "walkingToNext": {
+            "toName": "Ara Pacis",
+            "distanceKm": 1.6,
+            "timeMinutes": 20
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Castillo y Puente de Sant'Angelo",
+              "nameIt": "Castel Sant'Angelo e Ponte Sant'Angelo",
+              "distanceMeters": 500,
+              "description": "Al salir de la Plaza de San Pedro por Via della Conciliazione hacia el río pasaréis justo frente al Mausoleo del emperador Adriano (Castel Sant'Angelo) y el puente peatonal con los 10 ángeles barrocos de Bernini."
+            }
+          ]
+        },
+        {
+          "id": "dom-2-ara-pacis",
+          "order": 2,
+          "day": "domingo",
+          "dateStr": "Domingo 8 Nov",
+          "startTime": "10:30",
+          "endTime": "11:15",
+          "durationMinutes": 45,
+          "isFixed": false,
+          "category": "monumento",
+          "nameEs": "Museo del Ara Pacis (Altar de la Paz de Augusto)",
+          "nameIt": "Museo dell'Ara Pacis Augustae",
+          "coordinates": {
+            "lat": 41.906,
+            "lng": 12.4754
+          },
+          "address": "Lungotevere in Augusta (esquina Via di Ripetta), 00186 Roma RM",
+          "historyAndCuriosities": "Consagrado el 30 de enero del año 9 a.C. por el Senado romano para celebrar el regreso triunfal del emperador Augusto tras sus campañas de pacificación en Hispania y la Galia, el Ara Pacis es la obra cumbre de la escultura de la época augústea. Originalmente estaba situado en el Campo de Marte y formaba parte de un gigantesco reloj solar (el Horologium Augusti), cuyo gnomon era un obelisco egipcio (el que hoy está en Piazza Montecitorio) cuya sombra apuntaba directamente al centro del altar el día del cumpleaños de Augusto (23 de septiembre). Con la caída del Imperio y las crecidas del río Tíber, el altar quedó sepultado bajo 4 metros de lodo y bajo los cimientos de un palacio renacentista. Fue rescatado pieza a pieza en complejas excavaciones con congelación del terreno en 1937-1938. En 2006 se inauguró el luminoso pabellón minimalista actual diseñado por el arquitecto estadounidense Richard Meier. Sus relieves en mármol de Carrara retratan con un realismo sobrecogedor a toda la familia imperial (Augusto, Livia, Agripa y los niños tirando de las togas de sus padres).",
+          "recommendedDurationText": "45 min",
+          "openingHours": "Todos los días de 09:30 a 19:30 h (última entrada 18:30 h)",
+          "ticketInfo": {
+            "type": "De pago",
+            "priceApprox": "Entrada interior: 13 € | Vista desde los grandes ventanales exteriores y texto del Res Gestae: Gratuita",
+            "bookingRequired": false,
+            "bookingAdvice": "No suele haber colas largas a las 10:30 h; se puede adquirir en taquilla en el momento o ver el altar completo tanto por dentro como a través de la cristalera panorámica y el muro exterior con el testamento de Augusto (Res Gestae Divi Augusti)."
+          },
+          "importantWarnings": [
+            "Justo al lado del pabellón veréis el gran Mausoleo circular de Augusto, donde reposaron las cenizas de la dinastía Julio-Claudia."
+          ],
+          "practicalTips": [
+            "En el muro exterior del museo (bajo el pórtico que da a Via di Ripetta, de acceso libre) está grabada en bronce la copia completa de las 'Res Gestae Divi Augusti', la autobiografía política que Augusto mandó inscribir antes de morir.",
+            "En los relieves inferiores del altar, buscad entre las hojas de acanto pequeños animales esculpidos: lagartijas, ranas, cisnes y escorpiones."
+          ],
+          "planB": "Museo moderno íntegramente cubierto y climatizado.",
+          "walkingFromPrev": {
+            "fromName": "Vaticano (Plaza de San Pedro)",
+            "distanceKm": 1.6,
+            "timeMinutes": 20,
+            "routeNotes": "Paseo llano y escénico: salid por Via della Conciliazione hasta Castel Sant'Angelo y subid bordeando la orilla del Tíber hasta el Puente Cavour."
+          },
+          "walkingToNext": {
+            "toName": "San Luis de los Franceses",
+            "distanceKm": 0.75,
+            "timeMinutes": 10
+          }
+        },
+        {
+          "id": "dom-3-san-luis-franceses",
+          "order": 3,
+          "day": "domingo",
+          "dateStr": "Domingo 8 Nov",
+          "startTime": "11:25",
+          "endTime": "11:55",
+          "durationMinutes": 30,
+          "isFixed": false,
+          "category": "iglesia",
+          "nameEs": "Iglesia de San Luis de los Franceses (Tríptico de Caravaggio)",
+          "nameIt": "Chiesa di San Luigi dei Francesi",
+          "coordinates": {
+            "lat": 41.8996,
+            "lng": 12.4746
+          },
+          "address": "Piazza di San Luigi de' Francesi, 00186 Roma RM",
+          "historyAndCuriosities": "Consagrada en 1589 como la iglesia nacional de la comunidad francesa en Roma, con fachada diseñada por Giacomo della Porta donde se ven esculpidas las salamandras (emblema del rey Francisco I de Francia), este templo guarda uno de los mayores tesoros de la historia de la pintura universal: la Capilla Contarelli (última capilla de la nave izquierda), decorada entre 1599 y 1602 por un joven y rebelde Michelangelo Merisi da Caravaggio. Fue su primer gran encargo público y revolucionó el arte para siempre con el 'tenebrismo' o claroscuro dramático. Los tres lienzos gigantes narran la vida del apóstol San Mateo: a la izquierda, 'La vocación de San Mateo' (donde un rayo de luz diagonal entra como una espada señalando al recaudador de impuestos sentado en una taberna romana); en el centro, 'San Mateo y el Ángel'; y a la derecha, 'El martirio de San Mateo' (en cuyo fondo oscuro Caravaggio se autorretrató con gesto melancólico presenciando el asesinato). Ver estos tres cuadros juntos en su ubicación original y de forma gratuita es como entrar al Museo del Prado o a los Uffizi en plena calle de Roma.",
+          "recommendedDurationText": "30 min",
+          "openingHours": "Domingos: abre a las 11:30 h tras la misa en francés de la mañana (11:30 – 12:45 h y 14:30 – 18:30 h).",
+          "ticketInfo": {
+            "type": "Gratuita",
+            "priceApprox": "Entrada 100% gratuita (moneda de 1 € para encender el foco de la Capilla Contarelli)",
+            "bookingRequired": false,
+            "bookingAdvice": "AVISO DOMINGO: Los domingos celebra misa de la comunidad francesa a las 10:30 h y abre a las visitas turísticas a las 11:30 h en punto. Llegar a las 11:25 h os sitúa los primeros en la puerta al terminar el oficio."
+          },
+          "importantWarnings": [
+            "HORARIO CRÍTICO DE DOMINGO: Las visitas turísticas se abren a las 11:30 h. Salimos a las 11:55 h rumbo a la Iglesia del Gesù (a 6 min) para verla antes de que cierre a las 12:30 h.",
+            "Llevad monedas de 1 € para el temporizador de luz de Caravaggio."
+          ],
+          "practicalTips": [
+            "No os perdáis tampoco la segunda capilla de la nave derecha, con sublimes frescos de Domenichino sobre Santa Cecilia.",
+            "Al salir de la iglesia, asomaos 3 minutos a Piazza Navona (está literalmente a 80 metros a vuestra derecha) para ver a plena luz del día la Fuente de los Cuatro Ríos de Bernini."
+          ],
+          "planB": "Interior cubierto.",
+          "walkingFromPrev": {
+            "fromName": "Ara Pacis",
+            "distanceKm": 0.75,
+            "timeMinutes": 10,
+            "routeNotes": "Bajad por la elegante Via della Scrofa en línea recta hacia el sur."
+          },
+          "walkingToNext": {
+            "toName": "Iglesia del Gesù (Madre del Barroco)",
+            "distanceKm": 0.55,
+            "timeMinutes": 7
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Piazza Navona y Fuente de los Cuatro Ríos",
+              "nameIt": "Piazza Navona (Fontana dei Quattro Fiumi)",
+              "distanceMeters": 90,
+              "description": "A solo 1 minuto a pie detrás de San Luis de los Franceses: el antiguo Estadio de Domiciano convertido en la plaza barroca más célebre de Roma, con obras de Bernini y Borromini frente a frente."
+            },
+            {
+              "nameEs": "Sant'Agostino (Otro Caravaggio gratis a 120 m)",
+              "nameIt": "Basilica di Sant'Agostino in Campo Marzio",
+              "distanceMeters": 120,
+              "description": "A 1 minuto al norte de San Luis de los Franceses: alberga 'La Virgen de los Peregrinos' de Caravaggio y un fresco del profeta Isaías pintado por Rafael."
+            }
+          ]
+        },
+        {
+          "id": "dom-5-iglesia-gesu",
+          "order": 4,
+          "day": "domingo",
+          "dateStr": "Domingo 8 Nov",
+          "startTime": "12:02",
+          "endTime": "12:28",
+          "durationMinutes": 26,
+          "isFixed": false,
+          "category": "iglesia",
+          "nameEs": "Iglesia del Gesù (Madre del Barroco)",
+          "nameIt": "Chiesa del Santissimo Nome di Gesù all'Argentina",
+          "coordinates": {
+            "lat": 41.8959,
+            "lng": 12.4798
+          },
+          "address": "Piazza del Gesù, 00186 Roma RM",
+          "historyAndCuriosities": "Fundada en 1568 por San Ignacio de Loyola, fundador de la Compañía de Jesús, la Iglesia del Gesù es el edificio matriz de todas las iglesias jesuitas del mundo y la cuna arquitectónica del estilo Barroco (diseñada por Vignola y Giacomo della Porta). Su interior es uno de los espectáculos visuales más sobrecogedores de Roma: la bóveda de la nave central alberga el fresco 'El Triunfo del Nombre de Jesús' de Giovanni Battista Gaulli (Il Baciccio, 1679), una obra maestra del trampantojo tridimensional donde las figuras pintadas desbordan el marco de estuco dorado y proyectan sombras reales sobre el techo, dando la sensación de que el cielo se abre y los ángeles rebeldes caen en picado hacia el suelo de la iglesia. En el transepto izquierdo se levanta la Capilla de San Ignacio de Loyola, proyectada por Andrea Pozzo: el altar más rico y suntuoso del Barroco romano, revestido de bronce dorado y con la mayor pieza de lapislázuli azul del mundo coronando la Trinidad. Bajo el altar reposa el cuerpo de San Ignacio en una urna de bronce.",
+          "recommendedDurationText": "26 min",
+          "openingHours": "07:30 – 12:30 h y reabre a las 16:00 h (Visitándola de 12:02 a 12:28 h la disfrutáis justo antes de la pausa del mediodía).",
+          "ticketInfo": {
+            "type": "Gratuita",
+            "priceApprox": "Iglesia gratuita (Espejo inclinado en el centro de la nave para admirar el techo sin dolor de cuello)",
+            "bookingRequired": false,
+            "bookingAdvice": "ORDEN TÁCTICO PERFECTO: Al visitarla de 12:02 a 12:28 h entráis antes de su cierre de las 12:30 h y luego camináis 5 minutos al Panteón (que NO cierra al mediodía)."
+          },
+          "importantWarnings": [
+            "Cierra sus puertas a las 12:30 h por pausa de mediodía; llegar a las 12:02 h os da casi media hora completa para admirar el techo de Il Baciccio y la Capilla de San Ignacio.",
+            "Curiosidad famosa en la Plaza del Gesù: la plaza es tan ventosa que una leyenda romana dice que el Diablo y el Viento paseaban juntos por Roma; el Diablo dijo 'espérame aquí un minuto que entro a esta iglesia' y jamás volvió a salir, por lo que el Viento sigue esperándolo eternamente en Piazza del Gesù."
+          ],
+          "practicalTips": [
+            "En mitad de la nave central de la Iglesia del Gesù hay un gran espejo inclinado: acercaos para ver el techo de Il Baciccio con una perspectiva tridimensional vertiginosa."
+          ],
+          "planB": "Interior monumental cubierto.",
+          "walkingFromPrev": {
+            "fromName": "San Luis de los Franceses",
+            "distanceKm": 0.55,
+            "timeMinutes": 7,
+            "routeNotes": "Por Corso Vittorio Emanuele II pasando junto a Largo di Torre Argentina hasta Piazza del Gesù."
+          },
+          "walkingToNext": {
+            "toName": "Panteón de Agripa (Interior) y Comida",
+            "distanceKm": 0.4,
+            "timeMinutes": 5
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Área Sacra de Largo di Torre Argentina",
+              "nameIt": "Area Sacra di Largo di Torre Argentina",
+              "distanceMeters": 170,
+              "description": "Pasáis justo al lado al venir de San Luis: las ruinas de 4 templos republicanos y la Curia de Pompeyo, el lugar exacto donde fue asesinado Julio César en los Idus de Marzo del 44 a.C., famoso por su colonia protegida de gatos romanos."
+            }
+          ]
+        },
+        {
+          "id": "dom-4-panteon-interior",
+          "order": 5,
+          "day": "domingo",
+          "dateStr": "Domingo 8 Nov",
+          "startTime": "12:35",
+          "endTime": "15:25",
+          "durationMinutes": 170,
+          "isFixed": false,
+          "category": "monumento",
+          "nameEs": "Panteón de Agripa (Interior Diurno) y Almuerzo de Despedida",
+          "nameIt": "Pantheon · Basilica di Santa Maria ad Martyres",
+          "coordinates": {
+            "lat": 41.8986,
+            "lng": 12.4769
+          },
+          "address": "Piazza della Rotonda, 00186 Roma RM",
+          "historyAndCuriosities": "El edificio mejor conservado de toda la Antigüedad romana es una proeza de ingeniería que sigue dejando sin aliento casi dos mil años después. Aunque la inscripción de bronce del friso exterior dice 'M·AGRIPPA·L·F·COS·TERTIVM·FECIT' (Marco Agripa, hijo de Lucio, cónsul por tercera vez, lo hizo), aquel primer templo del año 27 a.C. ardió en dos incendios y el edificio actual fue reconstruido íntegramente desde los cimientos por el emperador hispano Adriano entre los años 118 y 125 d.C. Su cúpula semiesférica sigue siendo hoy la mayor cúpula de hormigón en masa sin armar del mundo: mide exactamente 43,30 metros de diámetro, idéntica medida que la altura desde el suelo de mármol hasta el óculo superior, de modo que dentro del Panteón cabría una esfera perfecta de 43,30 metros. Para que la bóveda no colapsara por su propio peso (4.500 toneladas), los ingenieros romanos usaron 28 filas de casetones y aligeraron la mezcla del hormigón a medida que subían (travertino abajo, toba volcánica en el centro y piedra pómez ultraligera junto al óculo de 9 metros abierto al cielo). En su interior descansan los reyes de la Italia unificada y el gran genio del Renacimiento, Rafael Sanzio, bajo el epitafio escrito por Pietro Bembo: 'Aquí yace Rafael: por quien en vida temió ser vencida la Naturaleza, y al morir él, temió morir ella también'.",
+          "recommendedDurationText": "50 min visita Panteón (12:35-13:25 h) + 2 h Comida de despedida (13:25-15:25 h)",
+          "openingHours": "09:00 – 19:00 h ininterrumpido (NO cierra al mediodía; a las 12:35 h el sol está en su punto más alto sobre el óculo).",
+          "ticketInfo": {
+            "type": "De pago",
+            "priceApprox": "5 € entrada general",
+            "bookingRequired": true,
+            "bookingAdvice": "Reservad las 5 entradas de 5 € en la web oficial del Ministerio de Cultura (museiitaliani.it) para la franja de 12:30-13:00 h, o comprad con tarjeta en la fila rápida 'Pagamento Elettronico' a la derecha del pórtico."
+          },
+          "importantWarnings": [
+            "EVITAR LA COLA DE EFECTIVO: En el Panteón hay tres filas: Reservas online, Pago con Tarjeta (rápida, 5-10 min) y Pago en Efectivo (lenta). Llevad la reserva en museiitaliani.it o pagad con tarjeta.",
+            "Visitarlo a las 12:35 h del mediodía os permite ver el haz solar del óculo en su ángulo más cenital y después comer tranquilamente de 13:25 a 15:25 h."
+          ],
+          "practicalTips": [
+            "Mirad al suelo justo en el centro de la rotonda: el pavimento de pórfido y granito es ligeramente convexo y tiene 22 pequeños agujeros de drenaje invisibles para evacuar la lluvia cuando cae por el óculo abierto.",
+            "Para la comida de despedida del domingo (13:25 – 15:25 h): tenéis 'Armando al Pantheon' (con reserva), 'Osteria da Fortunata' (pasta fresca amasada a la vista), o subir ya hacia vuestro barrio de Monti ('La Carbonara' en Via Panisperna 214, a 3 minutos del hotel, ideal para comer sin estrés al lado de vuestras maletas)."
+          ],
+          "planB": "Incluso si llueve en noviembre, ver caer la cortina de lluvia por el óculo central del Panteón hacia los desagües romanos del siglo II es un espectáculo único en el mundo.",
+          "walkingFromPrev": {
+            "fromName": "Iglesia del Gesù",
+            "distanceKm": 0.4,
+            "timeMinutes": 5,
+            "routeNotes": "Subid por Via della Minerva pasando junto al elefantito de Bernini hasta Piazza della Rotonda."
+          },
+          "walkingToNext": {
+            "toName": "Alojamiento Via Palermo 4 (Maletas)",
+            "distanceKm": 1.1,
+            "timeMinutes": 14
+          },
+          "nearbyBonus": [
+            {
+              "nameEs": "Basílica de Santa Maria sopra Minerva y el Elefantito de Bernini",
+              "nameIt": "Santa Maria sopra Minerva (Pulcino della Minerva)",
+              "distanceMeters": 95,
+              "description": "Pasáis justo por su plaza al subir del Gesù al Panteón: la única iglesia gótica de Roma con bóveda azul estrellada, una escultura de Cristo de Miguel Ángel y el elefante con obelisco de Bernini."
+            }
+          ]
+        },
+        {
+          "id": "dom-6-regreso-aeropuerto",
+          "order": 6,
+          "day": "domingo",
+          "dateStr": "Domingo 8 Nov",
+          "startTime": "15:45",
+          "endTime": "16:30",
+          "durationMinutes": 45,
+          "isFixed": true,
+          "category": "logistica",
+          "nameEs": "Regreso a Via Palermo 4, Equipaje y Salida al Aeropuerto (16:30 h FIJO)",
+          "nameIt": "Ritorno in Via Palermo 4, Ritiro Bagagli e Partenza per l'Aeroporto",
+          "coordinates": {
+            "lat": 41.8989,
+            "lng": 12.4914
+          },
+          "address": "Via Palermo 4, 00184 Roma RM",
+          "historyAndCuriosities": "El broche final de vuestro fin de semana romano os devuelve a Via Palermo 4 atravesando Piazza Venezia y subiendo por la monumental Via Nazionale o por las escalinatas de Monti. Llegar a las 15:45 h os proporciona un colchón de seguridad de 45 minutos enteros antes de la hora límite fijada (16:30 h) para ir al baño, reorganizar abrigos, recoger las maletas de los 5 e iniciar el traslado hacia el aeropuerto para vuestro vuelo de las 19:00 h. Como decía el poeta romano Tibulo hace más de dos mil años, 'Roma, tu nombre está destinado a gobernar la tierra', y como lanzasteis vuestra moneda anoche en las aguas del Aqua Virgo de la Fontana di Trevi, esta salida a las 16:30 h no es un adiós sino un 'Arrivederci Roma'.",
+          "recommendedDurationText": "45 min de margen en el hotel (Salida puntual a las 16:30 h)",
+          "openingHours": "Salida límite hacia el aeropuerto: 16:30 h (Vuelo a las 19:00 h)",
+          "ticketInfo": {
+            "type": "Restaurante / Reserva",
+            "priceApprox": "Minivan precontratada o Tren Leonardo Express desde Termini",
+            "bookingRequired": true,
+            "bookingAdvice": "Si vais en Minivan para los 5, citad al conductor en Via Palermo 4 a las 16:20 h. Si vais en el tren Leonardo Express, salid de Via Palermo 4 a las 16:15 h caminando 10 min a Termini para tomar el tren de las 16:35 h (llega al aeropuerto a las 17:07 h)."
+          },
+          "importantWarnings": [
+            "HORA LÍMITE FIJA: A las 16:30 h debéis estar ya en marcha rumbo al aeropuerto para estar en la terminal sobre las 17:10 h (casi 2 horas antes del vuelo de las 19:00 h)."
+          ],
+          "practicalTips": [
+            "De camino desde Piazza del Gesù a Via Palermo 4, si os sobran 15 minutos, podéis comprar café molido, queso Pecorino al vacío o dulces romanos en Via Nazionale."
+          ],
+          "planB": "Si llueve el domingo por la tarde, podéis comer directamente en el barrio de Monti (a 200 m de Via Palermo 4) a las 14:00 h para estar ya pegados al hotel.",
+          "walkingFromPrev": {
+            "fromName": "Iglesia del Gesù / Piazza Venezia",
+            "distanceKm": 1.1,
+            "timeMinutes": 14,
+            "routeNotes": "Cruzad Piazza Venezia y subid por Via Nazionale hasta girar a la derecha en Via Palermo 4."
+          },
+          "walkingToNext": {
+            "toName": "Aeropuerto de Roma (Vuelo 19:00 h)",
+            "distanceKm": 0.0,
+            "timeMinutes": 40
+          }
+        }
+      ]
+    }
+  ],
+  "preTripChecklist": [
+    {
+      "id": "chk-1",
+      "category": "Reservas Críticas",
+      "title": "Entradas nominativas Coliseo + Foro Romano (Sábado 7, 09:00 h)",
+      "description": "Verificar que las 5 entradas tengan los nombres y apellidos exactos tal y como figuran en el DNI/Pasaporte de Laura, José Antonio, Mónica, José Vicente y Beatriz. Llevar el PDF descargado en el móvil.",
+      "urgent": true,
+      "link": "https://ticketing.colosseo.it/"
+    },
+    {
+      "id": "chk-2",
+      "category": "Reservas Críticas",
+      "title": "Confirmación de mesa en Trattoria Vecchia Roma (Sábado 7, ~14:30 h)",
+      "description": "Confirmar reserva para 5 personas en la sede del Ghetto / Campitelli (Piazza di Campitelli, 18 - Tel: +39 06 686 4604). No confundir con otro local homónimo en Esquilino.",
+      "urgent": true
+    },
+    {
+      "id": "chk-3",
+      "category": "Reservas Críticas",
+      "title": "Punto de encuentro Visita Guiada Trastevere (Sábado 7, 17:00 h)",
+      "description": "Revisar en el bono de la reserva el punto exacto de encuentro con el guía (suele ser Piazza Giuseppe Gioachino Belli o Piazza Trilussa) y el teléfono de contacto del guía.",
+      "urgent": true
+    },
+    {
+      "id": "chk-4",
+      "category": "Reservas Críticas",
+      "title": "Entradas del Panteón de Agripa (Domingo 8, 12:30 h - 5 €)",
+      "description": "Adquirir las 5 entradas en la plataforma oficial del Ministerio de Cultura italiano (Musei Italiani) para evitar la cola de efectivo en Piazza della Rotonda.",
+      "urgent": false,
+      "link": "https://portale.museiitaliani.it/"
+    },
+    {
+      "id": "chk-5",
+      "category": "Reservas Críticas",
+      "title": "Subterráneos de la Basílica de San Clemente (Sábado 7, 11:55 h - 10 €)",
+      "description": "Si queréis bajar al Mitreo romano y la basílica del siglo IV bajo San Clemente, reservad el pase online antes de que cierre a las 12:30 h (la basílica superior de mosaicos es gratuita y sin reserva).",
+      "urgent": false,
+      "link": "https://www.basilicadisaanclemente.com/"
+    },
+    {
+      "id": "chk-6",
+      "category": "Horarios y Misas",
+      "title": "Pausas de mediodía en Iglesias (San Pietro in Vincoli y Gesù)",
+      "description": "Recordar que San Pietro in Vincoli cierra de 12:30 a 15:00 h (podéis ver el Moisés a las 08:20 h bajando al Coliseo) y la Iglesia del Gesù cierra el domingo a las 12:30 h (visitarla a las 12:05 h justo antes del Panteón).",
+      "urgent": true
+    },
+    {
+      "id": "chk-7",
+      "category": "Documentación y Logística",
+      "title": "Transfer Aeropuerto <-> Via Palermo 4 para 5 personas",
+      "description": "Al ser 5 viajeros (no cabéis en un taxi normal de 4 plazas), reservar Minivan para el viernes a las 22:00 h y para el domingo a las 16:30 h, o usar el tren Leonardo Express desde Termini (a 10 min a pie del hotel).",
+      "urgent": true
+    },
+    {
+      "id": "chk-8",
+      "category": "Documentación y Logística",
+      "title": "Efectivo para Tasa Turística (Contributo di Soggiorno) y Monedas de 1 €",
+      "description": "Llevar efectivo para abonar la tasa municipal en el alojamiento de Via Palermo 4 y monedas sueltas de 1 € y 2 € para encender los focos de los cuadros de Caravaggio y el Moisés.",
+      "urgent": false
+    },
+    {
+      "id": "chk-9",
+      "category": "Equipaje Noviembre",
+      "title": "Vestimenta por capas, hombros cubiertos y calzado antideslizante",
+      "description": "En noviembre en Roma la temperatura oscila entre 9 °C y 17 °C. Llevar calzado ya domado con buena suela para los adoquines ('sampietrini'), paraguas plegable pequeño y fular/prenda que cubra hombros en el Vaticano e iglesias.",
+      "urgent": false
+    },
+    {
+      "id": "chk-10",
+      "category": "Documentación y Logística",
+      "title": "Instalar esta PWA en los móviles de Laura, José Antonio, Mónica, José Vicente y Beatriz",
+      "description": "Abrir la web antes de volar, pulsar 'Añadir a pantalla de inicio' y navegar una vez por las pestañas para que el Service Worker guarde todas las fichas y el mapa en modo Offline.",
+      "urgent": false
+    }
+  ]
+}

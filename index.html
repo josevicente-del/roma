@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#F7F3EC" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Roma 2026" />
+    <meta name="description" content="Guía de viaje interactiva y álbum de fotos compartido para el fin de semana en Roma (6-8 Noviembre)." />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon-192.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <title>ROMA · Guía & Álbum (6–8 Nov)</title>
+    <style>
+      /* Pantalla Splash inicial coherente con la paleta Travertino (#F7F3EC) y Terracota (#B5532F) */
+      #initial-splash {
+        position: fixed;
+        inset: 0;
+        background-color: #F7F3EC;
+        color: #2B2420;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.3s ease;
+      }
+      .dark #initial-splash {
+        background-color: #181412;
+        color: #F5F0E8;
+      }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-[#B5532F] selection:text-white">
+    <div id="root">
+      <!-- Splash Screen nativa minimalista mientras hidrata la PWA -->
+      <div id="initial-splash">
+        <svg width="64" height="64" viewBox="0 0 192 192" style="margin-bottom: 16px;">
+          <rect width="192" height="192" rx="44" fill="#B5532F" />
+          <path d="M46 136 H146 M56 136 V76 A40 40 0 0 1 136 76 V136" fill="none" stroke="#F7F3EC" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="96" cy="82" r="10" fill="#F7F3EC"/>
+        </svg>
+        <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; letter-spacing: 0.08em;">ROMA</div>
+        <div style="font-family: sans-serif; font-size: 12px; color: #685B52; margin-top: 4px; letter-spacing: 0.14em;">VI – VIII NOVIEMBRE</div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

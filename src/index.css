@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   DESIGN TOKENS (VARIABLES CSS) - PALETA ROMANA & MODO OSCURO WCAG AA
+   ========================================================================== */
+:root {
+  /* Modo Claro: Crema/Travertino, Terracota y Marrón Oscuro Cálido */
+  --bg-primary: #F7F3EC;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #EFE9DF;
+  --text-primary: #2B2420;
+  --text-secondary: #685B52;
+  --accent-terracotta: #B5532F;
+  --accent-terracotta-hover: #984222;
+  --secondary-sage: #6E7E6A;
+  --secondary-gold: #B69654;
+  --border-subtle: #E4DDD2;
+}
+
+.dark {
+  /* Modo Oscuro equivalente con alto contraste (WCAG AA) */
+  --bg-primary: #181412;
+  --bg-surface: #231E1B;
+  --bg-elevated: #2E2723;
+  --text-primary: #F5F0E8;
+  --text-secondary: #BFB3A8;
+  --accent-terracotta: #D46B46;
+  --accent-terracotta-hover: #E07D5A;
+  --secondary-sage: #8EA189;
+  --secondary-gold: #CFB170;
+  --border-subtle: #38302B;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Botones táctiles ergonómicos pensados para usar con una mano (mínimo 44px) */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Ajustes para barra inferior en móviles con notch (iOS / Android) */
+.safe-area-bottom {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+/* Cuadrícula tipo Masonry para el Álbum de Fotos */
+.masonry-grid {
+  column-count: 2;
+  column-gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    column-count: 3;
+    column-gap: 16px;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 640px) {
+  .masonry-item {
+    margin-bottom: 16px;
+  }
+}
+
+/* Microanimaciones sutiles que respetan prefers-reduced-motion */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomInSubtle {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-page {
+  animation: fadeSlideUp 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-modal {
+  animation: zoomInSubtle 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Asegurar que los controles de Leaflet queden por debajo de modales y barras fijas */
+.leaflet-pane,
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 10 !important;
+}

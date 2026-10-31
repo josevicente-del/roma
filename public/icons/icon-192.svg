@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <rect width="192" height="192" rx="44" fill="#B5532F" />
+  <rect x="14" y="14" width="164" height="164" rx="34" fill="none" stroke="#F7F3EC" stroke-width="2" opacity="0.35" />
+  <!-- Cúpula y Óculo del Panteón + Arco Romano minimalista -->
+  <path d="M44 134 H148" stroke="#F7F3EC" stroke-width="6" stroke-linecap="round" />
+  <path d="M54 134 V86 A42 42 0 0 1 138 86 V134" fill="none" stroke="#F7F3EC" stroke-width="6" stroke-linecap="round" />
+  <path d="M78 134 V104 A18 18 0 0 1 114 104 V134" fill="#F7F3EC" opacity="0.2" />
+  <circle cx="96" cy="70" r="7" fill="#F7F3EC" />
+  <text x="96" y="160" font-family="Georgia, serif" font-size="17" font-weight="bold" fill="#F7F3EC" text-anchor="middle" letter-spacing="4">ROMA</text>
+</svg>
