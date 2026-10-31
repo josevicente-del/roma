@@ -42,7 +42,7 @@ import { GroupExpenseSplitter } from './components/GroupExpenseSplitter';
 import { SharedPhotoAlbumView } from './components/SharedPhotoAlbumView';
 import { PlaceDetailModal } from './components/PlaceDetailModal';
 import { getDaysSinceRomeFoundation, TRIP_DATES_SHORT } from './utils/romanDates';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/next';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
