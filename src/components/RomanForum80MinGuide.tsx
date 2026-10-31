@@ -36,7 +36,9 @@ import {
   Info,
   Layers,
   ArrowRight,
-  X
+  X,
+  Maximize2,
+  ExternalLink
 } from 'lucide-react';
 import { NaturalAudioGuidePlayer } from './NaturalAudioGuidePlayer';
 
@@ -58,6 +60,10 @@ interface ForumStop {
   secretDetail: string;
   photoTip: string;
   audioScript: string;
+  imageUrl: string;
+  imageAlt: string;
+  imageCaption: string;
+  locationTipInForum: string;
 }
 
 const FORUM_STOPS: ForumStop[] = [
@@ -78,7 +84,11 @@ const FORUM_STOPS: ForumStop[] = [
     reconstructionVsReality: 'Fue el primer arco de triunfo de un solo vano de Roma. En la Edad Media quedó empotrado como torre fortificada de la familia Frangipane; en 1821 el arquitecto Giuseppe Valadier lo restauró con travertino para diferenciar las partes originales de mármol de los añadidos modernos.',
     secretDetail: 'Mirad el techo interior bajo la bóveda de casetones: esculpe el momento exacto en que Tito asciende al Olimpo a lomos del águila de Júpiter para convertirse en dios. Además, este arco fue el modelo exacto en el que se inspiró Napoleón en 1806 para construir el Arco de Triunfo de París.',
     photoTip: 'Colocaos bajo el intradós del arco mirando hacia arriba para captar con gran angular el relieve del candelabro de 7 brazos (Menorá) recortado contra la bóveda de casetones.',
-    audioScript: 'Bienvenidos a la primera estación de nuestro recorrido por el Foro Romano. Estáis bajo el Arco de Tito, erigido en el año ochenta y uno después de Cristo en la cima de la colina Velia. Alzar la vista al interior del arco: en el relieve sur veréis a los soldados romanos desfilando con el colosal candelabro de siete brazos de oro puro, la Menorá, arrancada del Templo de Jerusalén tras su asedio. Con ese inmenso botín de oro se financió precisamente la construcción del Coliseo que acabamos de visitar.'
+    audioScript: 'Bienvenidos a la primera estación de nuestro recorrido por el Foro Romano. Estáis bajo el Arco de Tito, erigido en el año ochenta y uno después de Cristo en la cima de la colina Velia. Alzar la vista al interior del arco: en el relieve sur veréis a los soldados romanos desfilando con el colosal candelabro de siete brazos de oro puro, la Menorá, arrancada del Templo de Jerusalén tras su asedio. Con ese inmenso botín de oro se financió precisamente la construcción del Coliseo que acabamos de visitar.',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Arch_of_Titus%2C_Rome%2C_Italy.jpg/800px-Arch_of_Titus%2C_Rome%2C_Italy.jpg',
+    imageAlt: 'Arco de Tito en la cumbre de la Vía Sacra',
+    imageCaption: 'Vista del Arco de Tito (81 d.C.) en la cumbre de la colina Velia mirando hacia el Foro',
+    locationTipInForum: 'En la cumbre de la colina Velia, justo al acceder al recinto arqueológico desde el Coliseo mirando al oeste hacia la Vía Sacra.'
   },
   {
     id: 'majencio',
@@ -97,7 +107,11 @@ const FORUM_STOPS: ForumStop[] = [
     reconstructionVsReality: 'Lo que hoy contemplamos es solo un tercio del edificio original (la nave lateral norte). Su nave central tenía bóvedas de crucería gigantescas sostenidas por ocho columnas de mármol de 14 metros de altura (una de ellas fue trasladada en 1614 a la plaza de Santa Maria Maggiore, donde sigue en pie).',
     secretDetail: 'En el ábside occidental se alzaba el Coloso de Constantino, una estatua de 12 metros de altura hecha en mármol y bronce dorado. Hoy su cabeza de 2,5 metros y su mano derecha apuntando al cielo se pueden ver en los Museos Capitolinos.',
     photoTip: 'Poneos en el centro de la Vía Sacra justo enfrente de los 3 arcos gigantes: disparad en vertical para que una persona en primer plano sirva de escala humana ante la inmensidad de las bóvedas.',
-    audioScript: 'Avanzando por la Vía Sacra nos encontramos ante la estructura techada más colosal de toda la Antigüedad: la Basílica de Majencio y Constantino. Fijaos en los enormes casetones octogonales tallados en el hormigón de las bóvedas: los ingenieros romanos los vaciaban por dentro para aligerar toneladas de peso sin restar solidez a la estructura. Mil doscientos años después, Donato Bramante y Miguel Ángel se plantaron aquí mismo para estudiar estas tres bóvedas y proyectar la Basílica de San Pedro del Vaticano.'
+    audioScript: 'Avanzando por la Vía Sacra nos encontramos ante la estructura techada más colosal de toda la Antigüedad: la Basílica de Majencio y Constantino. Fijaos en los enormes casetones octogonales tallados en el hormigón de las bóvedas: los ingenieros romanos los vaciaban por dentro para aligerar toneladas de peso sin restar solidez a la estructura. Mil doscientos años después, Donato Bramante y Miguel Ángel se plantaron aquí mismo para estudiar estas tres bóvedas y proyectar la Basílica de San Pedro del Vaticano.',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Basilica_di_Massenzio_01.jpg/800px-Basilica_di_Massenzio_01.jpg',
+    imageAlt: 'Bóvedas de la Basílica de Majencio y Constantino',
+    imageCaption: 'Las 3 bóvedas de hormigón de 35 m de altura conservadas de la nave norte',
+    locationTipInForum: 'En la ladera norte (a tu derecha según bajas la Vía Sacra). Sus 3 arcos colosales son la estructura más alta y voluminosa de todo el recinto.'
   },
   {
     id: 'romulo',
@@ -116,7 +130,11 @@ const FORUM_STOPS: ForumStop[] = [
     reconstructionVsReality: 'El templo conserva su cúpula original intacta y su fachada semicircular flanqueada por dos columnas de pórfido rojo egipcio traídas desde el Nilo.',
     secretDetail: 'Fijaos bien en las dos hojas de la puerta de bronce verde: son las originales fundidas en el año 307 d.C. Su cerradura de hierro romana con pestillo horizontal sigue operativa y puede cerrarse con su llave antigua tras diecisiete siglos.',
     photoTip: 'Acercaos a la puerta de bronce para fotografiar el detalle de la cerradura romana y el contraste del bronce milenario con las columnas de pórfido.',
-    audioScript: 'Deteneos unos instantes frente a este misterioso edificio circular de ladrillo. Es el Templo de Rómulo, mandado construir por el emperador Majencio para divinizar a su hijo pequeño, fallecido a muy corta edad. Pero lo más prodigioso de este rincón es su puerta: esas dos hojas de bronce verde son las originales del año trescientos siete. Tienen más de mil setecientos años y conservan su cerradura romana original, que aún funciona a la perfección.'
+    audioScript: 'Deteneos unos instantes frente a este misterioso edificio circular de ladrillo. Es el Templo de Rómulo, mandado construir por el emperador Majencio para divinizar a su hijo pequeño, fallecido a muy corta edad. Pero lo más prodigioso de este rincón es su puerta: esas dos hojas de bronce verde son las originales del año trescientos siete. Tienen más de mil setecientos años y conservan su cerradura romana original, que aún funciona a la perfección.',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Tempio_del_Divo_Romolo_2.jpg/800px-Tempio_del_Divo_Romolo_2.jpg',
+    imageAlt: 'Fachada circular del Templo de Rómulo con puertas de bronce',
+    imageCaption: 'Rotonda de ladrillo del 307 d.C. con las puertas de bronce originales y columnas de pórfido',
+    locationTipInForum: 'Edificio circular de ladrillo a tu derecha tras pasar Majencio. Busca sus dos columnas de pórfido rojizo y su gran puerta verde de bronce.'
   },
   {
     id: 'vestales',
@@ -135,7 +153,11 @@ const FORUM_STOPS: ForumStop[] = [
     reconstructionVsReality: 'Era una auténtica mansión de lujo autosuficiente: calefacción por hipocausto bajo el suelo, cocinas, molinos y baños privados. En el centro del patio lucían tres estanques de agua cristalina donde se refrescaba el ambiente.',
     secretDetail: 'Observad las estatuas de mármol de las Vestales Máximas que rodean el jardín: en uno de los pedestales (fechado en el 364 d.C.) el nombre de la vestal fue borrado deliberadamente a golpes de cincel. La leyenda cuenta que se convirtió secretamente a la nueva fe cristiana.',
     photoTip: 'El mejor encuadre es desde el extremo este del patio: alinead la hilera de estatuas de mármol con el templo circular de Vesta y los olivos centenarios.',
-    audioScript: 'Entramos ahora en uno de los lugares más sagrados y misteriosos de la civilización romana: la Casa de las Vestales. Aquí vivían las seis únicas sacerdotisas de Roma, elegidas entre niñas de familias nobles cuando tenían entre seis y diez años. Durante treinta años estaban obligadas a mantener encendido el fuego sagrado del Estado romano, que jamás podía extinguirse. A cambio, gozaban de privilegios inauditos para una mujer de su época: administraban sus propias fortunas y tenían el poder de perdonar la vida a cualquier condenado a muerte con solo cruzarse en su camino.'
+    audioScript: 'Entramos ahora en uno de los lugares más sagrados y misteriosos de la civilización romana: la Casa de las Vestales. Aquí vivían las seis únicas sacerdotisas de Roma, elegidas entre niñas de familias nobles cuando tenían entre seis y diez años. Durante treinta años estaban obligadas a mantener encendido el fuego sagrado del Estado romano, que jamás podía extinguirse. A cambio, gozaban de privilegios inauditos para una mujer de su época: administraban sus propias fortunas y tenían el poder de perdonar la vida a cualquier condenado a muerte con solo cruzarse en su camino.',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/House_of_the_Vestals_-_panoramio.jpg/800px-House_of_the_Vestals_-_panoramio.jpg',
+    imageAlt: 'Patio ajardinado de la Casa de las Vestales',
+    imageCaption: 'Atrium Vestae: patio claustral con estanques y estatuas de las sacerdotisas',
+    locationTipInForum: 'A la izquierda (sur) de la Vía Sacra, a los pies de la colina del Palatino. Amplio patio ajardinado con tres estanques alargados y estatuas.'
   },
   {
     id: 'antonino',
@@ -154,7 +176,11 @@ const FORUM_STOPS: ForumStop[] = [
     reconstructionVsReality: 'El templo pagano se transformó en 1602 en la iglesia barroca de San Lorenzo in Miranda. La puerta de la iglesia se construyó a 6 metros de altura respecto al suelo romano original, porque durante siglos los sedimentos y la tierra enterraron el Foro hasta casi tapar las columnas.',
     secretDetail: 'Mirad atentamente la parte superior de los fustes de las columnas de mármol: veréis unas profundas incisiones oblicuas. Son los surcos dejados por las cuerdas con las que en la Edad Media intentaron derribar el templo con yuntas de bueyes para saquear el mármol, pero las columnas resistieron firmes.',
     photoTip: 'Haced la foto desde la esquina suroeste para capturar el contraste de las columnas paganas del siglo II con el frontón barroco de la iglesia construida en su interior.',
-    audioScript: 'Mirad hacia arriba al Templo de Antonino y Faustina, uno de los edificios mejor conservados del Foro. Fijaos en las seis columnas monolíticas de mármol cipollino de diecisiete metros de altura. Si observáis la parte superior de las columnas, notaréis unas profundas hendiduras diagonales. En la Edad Media, cuando el Foro se usaba como pastizal de vacas, intentaron atar maromas con yuntas de bueyes para tirar las columnas y robar la piedra; pero la ingeniería romana era tan descomunal que las cuerdas se partieron sin mover un milímetro el templo.'
+    audioScript: 'Mirad hacia arriba al Templo de Antonino y Faustina, uno de los edificios mejor conservados del Foro. Fijaos en las seis columnas monolíticas de mármol cipollino de diecisiete metros de altura. Si observáis la parte superior de las columnas, notaréis unas profundas hendiduras diagonales. En la Edad Media, cuando el Foro se usaba como pastizal de vacas, intentaron atar maromas con yuntas de bueyes para tirar las columnas y robar la piedra; pero la ingeniería romana era tan descomunal que las cuerdas se partieron sin mover un milímetro el templo.',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Tempio_di_Antonino_e_Faustina_Roma.jpg/800px-Tempio_di_Antonino_e_Faustina_Roma.jpg',
+    imageAlt: 'Columnas monolíticas de mármol cipollino de Antonino y Faustina',
+    imageCaption: 'Pronaos imperial del 141 d.C. con columnas de mármol cipollino verde de 17 m',
+    locationTipInForum: 'Frente a las Vestales, en el lado norte de la Vía Sacra. Destaca por sus 6 altas columnas que custodian la iglesia barroca embutida en su interior.'
   },
   {
     id: 'cesar',
@@ -173,7 +199,11 @@ const FORUM_STOPS: ForumStop[] = [
     reconstructionVsReality: 'Fue el primer templo de la historia dedicado a un mortal divinizado en Roma. Su frontón lucía una estrella de bronce que simbolizaba el cometa visible durante siete días tras el asesinato de César.',
     secretDetail: 'El túmulo circular bajo el techado de chapa marca el punto exacto donde el pueblo romano quemó espontáneamente el cadáver de César el 15 de marzo del 44 a.C. tras el discurso de Marco Antonio. A día de hoy, turistas y romanos siguen depositando monedas, poemas y flores frescas cada mañana.',
     photoTip: 'Haced una foto cercana del altar con las flores frescas recién puestas, con los restos de las columnas corintias del templo de fondo.',
-    audioScript: 'Estamos ante uno de los lugares más cargados de emoción de la historia universal: el Altar de Julio César. Tras ser asesinado con veintitrés puñaladas en el Teatro de Pompeyo en los Idus de Marzo del año cuarenta y cuatro antes de Cristo, su cuerpo fue traído aquí. Marco Antonio agitó la toga ensangrentada del dictador ante el pueblo enardecido, que improvisó una pira funeraria quemando bancos y maderas para incinerar sus restos. Observad el túmulo de piedra: dos mil sesenta años después, la gente de todo el mundo sigue dejando flores frescas cada día en su memoria.'
+    audioScript: 'Estamos ante uno de los lugares más cargados de emoción de la historia universal: el Altar de Julio César. Tras ser asesinado con veintitrés puñaladas en el Teatro de Pompeyo en los Idus de Marzo del año cuarenta y cuatro antes de Cristo, su cuerpo fue traído aquí. Marco Antonio agitó la toga ensangrentada del dictador ante el pueblo enardecido, que improvisó una pira funeraria quemando bancos y maderas para incinerar sus restos. Observad el túmulo de piedra: dos mil sesenta años después, la gente de todo el mundo sigue dejando flores frescas cada día en su memoria.',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Tempio_del_Divo_Giulio_Roma.jpg/800px-Tempio_del_Divo_Giulio_Roma.jpg',
+    imageAlt: 'Restos del Templo y Altar de Julio César',
+    imageCaption: 'El túmulo funerario donde fue incinerado Julio César tras los Idus de Marzo del 44 a.C.',
+    locationTipInForum: 'En la cabecera este de la explanada del Foro. Es una estructura de piedra semicircular bajo un techo protector donde siempre verás ofrendas florales.'
   },
   {
     id: 'curia',
@@ -192,7 +222,11 @@ const FORUM_STOPS: ForumStop[] = [
     reconstructionVsReality: 'Se conserva íntegra porque en el año 638 el Papa Honorio I la convirtió en la iglesia de Sant\'Adriano al Foro. En 1937 se retiraron los añadidos barrocos para revelar la sala senatorial del siglo III.',
     secretDetail: 'El pavimento de la sala es el original de mármol policromado (opus sectile) pisado por los senadores romanos. Las puertas exteriores de bronce son copias exactas del siglo XVII: las originales de la época imperial fueron trasladadas y colocadas en la Basílica de San Juan de Letrán.',
     photoTip: 'Si está abierta (habitualmente fines de semana), asomaos al umbral para capturar el diseño geométrico del suelo de pórfido y la inmensa altura de 21 metros de sus muros sin columnas.',
-    audioScript: 'Llegamos al centro neurálgico del poder del Imperio: la Curia Julia, sede del Senado Romano. En esta sala de veintiún metros de altura se sentaban trescientos senadores para decidir el destino de millones de súbditos, desde Hispania hasta Mesopotamia. Su acústica es tan asombrosa que la voz de un orador se escucha con total claridad en el rincón más alejado sin necesidad de amplificación. Mirad el suelo de mármol con dibujos geométricos de pórfido rojo egipcio y serpentina verde: es el pavimento imperial original del siglo tercero.'
+    audioScript: 'Llegamos al centro neurálgico del poder del Imperio: la Curia Julia, sede del Senado Romano. En esta sala de veintiún metros de altura se sentaban trescientos senadores para decidir el destino de millones de súbditos, desde Hispania hasta Mesopotamia. Su acústica es tan asombrosa que la voz de un orador se escucha con total claridad en el rincón más alejado sin necesidad de amplificación. Mirad el suelo de mármol con dibujos geométricos de pórfido rojo egipcio y serpentina verde: es el pavimento imperial original del siglo tercero.',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Curia_Iulia_Rome.jpg/800px-Curia_Iulia_Rome.jpg',
+    imageAlt: 'Fachada monumental de ladrillo de la Curia Julia',
+    imageCaption: 'La Curia Julia (Senado de Roma): edificio intacto de 21,6 m de altura',
+    locationTipInForum: 'Gran edificio cúbico de ladrillo marrón claro de 21 m de altura con frontón triangular, situado en la esquina noroeste junto al Arco de Severo.'
   },
   {
     id: 'rostra',
@@ -211,7 +245,11 @@ const FORUM_STOPS: ForumStop[] = [
     reconstructionVsReality: 'En la parte superior del arco había una cuádriga de bronce con Septimio Severo y sus hijos. Junto a él se alza la tribuna de la Rostra, decorada con los espolones metálicos de los barcos enemigos capturados en batalla.',
     secretDetail: 'Fijaos en la cuarta línea de la inscripción dedicatoria del ático: Caracalla asesinó a su propio hermano Geta en el año 212 d.C. y ordenó borrar su nombre de todos los monumentos de Roma (damnatio memoriae). Si os fijáis bien, todavía se aprecian los orificios de los remaches de bronce donde estaban las letras del nombre de Geta antes de ser raspadas.',
     photoTip: 'Colocaos a los pies de la Rostra con el Arco de Septimio Severo iluminado lateralmente y el Templo de Saturno a vuestra izquierda para la toma clásica de despedida del Foro.',
-    audioScript: 'Culminamos nuestros ochenta minutos en el extremo occidental del Foro, frente al Arco de Septimio Severo y la tribuna de oradores de la Rostra. Desde esta tribuna elevada Cicerón pronunció sus famosas Catilinarias y Marco Antonio encandiló al pueblo. Y en el arco de tres vanos de mármol blanco se oculta un drama sangriento: el emperador Caracalla mandó matar a su hermano Geta y ordenó borrar su nombre de la inscripción que tenéis ante vosotros. Mirad hacia la colina: subiendo unos pasos llegaréis a la plaza del Capitolio, broche de oro de nuestra visita.'
+    audioScript: 'Culminamos nuestros ochenta minutos en el extremo occidental del Foro, frente al Arco de Septimio Severo y la tribuna de oradores de la Rostra. Desde esta tribuna elevada Cicerón pronunció sus famosas Catilinarias y Marco Antonio encandiló al pueblo. Y en el arco de tres vanos de mármol blanco se oculta un drama sangriento: el emperador Caracalla mandó matar a su hermano Geta y ordenó borrar su nombre de la inscripción que tenéis ante vosotros. Mirad hacia la colina: subiendo unos pasos llegaréis a la plaza del Capitolio, broche de oro de nuestra visita.',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Arch_of_Septimius_Severus_Rome.jpg/800px-Arch_of_Septimius_Severus_Rome.jpg',
+    imageAlt: 'Arco triunfal de Septimio Severo de tres vanos',
+    imageCaption: 'Arco de Septimio Severo (203 d.C.) y restos de la Rostra a los pies del Capitolio',
+    locationTipInForum: 'Al fondo oeste del Foro, al pie de la colina Capitolina. Majestuoso arco triunfal blanco de tres arcadas junto a la plataforma elevada de la Rostra.'
   }
 ];
 
@@ -226,6 +264,7 @@ export const RomanForum80MinGuide: React.FC<RomanForum80MinGuideProps> = ({
 }) => {
   const [selectedStopId, setSelectedStopId] = useState<string>('tito');
   const [completedStops, setCompletedStops] = useState<Record<string, boolean>>({});
+  const [expandedImage, setExpandedImage] = useState<{ url: string; title: string; caption: string } | null>(null);
 
   const currentStop = FORUM_STOPS.find((s) => s.id === selectedStopId) || FORUM_STOPS[0];
 
@@ -350,7 +389,7 @@ export const RomanForum80MinGuide: React.FC<RomanForum80MinGuideProps> = ({
               <button
                 key={stop.id}
                 onClick={() => setSelectedStopId(stop.id)}
-                className={`p-2.5 rounded-xl border text-left transition-all duration-200 flex flex-col justify-between min-h-[85px] relative ${
+                className={`p-2 rounded-xl border text-left transition-all duration-200 flex flex-col justify-between min-h-[110px] relative overflow-hidden group ${
                   isSelected
                     ? 'bg-roman-accent/15 border-roman-terracotta shadow-md scale-[1.02]'
                     : isDone
@@ -358,9 +397,9 @@ export const RomanForum80MinGuide: React.FC<RomanForum80MinGuideProps> = ({
                     : 'bg-roman-surface border-roman-border hover:bg-roman-elevated'
                 }`}
               >
-                <div className="flex items-center justify-between w-full">
-                  <span className="text-xs font-mono font-bold px-1.5 py-0.5 rounded bg-roman-elevated text-roman-terracotta">
-                    Min {stop.timeStartMin}′ – {stop.timeEndMin}′
+                <div className="flex items-center justify-between w-full mb-1">
+                  <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-roman-elevated text-roman-terracotta">
+                    Min {stop.timeStartMin}′–{stop.timeEndMin}′
                   </span>
                   <button
                     type="button"
@@ -372,18 +411,31 @@ export const RomanForum80MinGuide: React.FC<RomanForum80MinGuideProps> = ({
                     title={isDone ? 'Marcar como pendiente' : 'Marcar como visitada'}
                   >
                     {isDone ? (
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                     ) : (
-                      <Circle className="w-4 h-4" />
+                      <Circle className="w-3.5 h-3.5" />
                     )}
                   </button>
                 </div>
 
-                <div className="mt-1">
-                  <h4 className={`text-xs font-bold line-clamp-1 ${isSelected ? 'text-roman-terracotta' : 'text-roman-text'}`}>
-                    {stop.order}. {stop.title}
-                  </h4>
-                  <span className="text-[10px] text-roman-muted">{stop.durationMin} min</span>
+                {/* Miniatura visual del monumento */}
+                <div className="flex items-center gap-2 mt-auto">
+                  <img
+                    src={stop.imageUrl}
+                    alt={stop.imageAlt}
+                    loading="lazy"
+                    className="w-10 h-10 rounded-lg object-cover border border-roman-border shrink-0 bg-stone-200"
+                    onError={(e) => {
+                      // Fallback silencioso si no hay conexión
+                      (e.target as HTMLElement).style.display = 'none';
+                    }}
+                  />
+                  <div className="min-w-0">
+                    <h4 className={`text-xs font-bold truncate ${isSelected ? 'text-roman-terracotta' : 'text-roman-text'}`}>
+                      {stop.order}. {stop.title}
+                    </h4>
+                    <span className="text-[10px] text-roman-muted block truncate">{stop.durationMin} min</span>
+                  </div>
                 </div>
               </button>
             );
@@ -432,6 +484,48 @@ export const RomanForum80MinGuide: React.FC<RomanForum80MinGuideProps> = ({
               </>
             )}
           </button>
+        </div>
+
+        {/* FOTO DEL MONUMENTO + GUÍA DE LOCALIZACIÓN IN SITU */}
+        <div className="rounded-2xl border border-roman-border overflow-hidden bg-roman-elevated shadow-sm">
+          <div className="relative group max-h-72 overflow-hidden bg-stone-900">
+            <img
+              src={currentStop.imageUrl}
+              alt={currentStop.imageAlt}
+              loading="lazy"
+              className="w-full h-56 sm:h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            <button
+              onClick={() =>
+                setExpandedImage({
+                  url: currentStop.imageUrl,
+                  title: currentStop.title,
+                  caption: currentStop.imageCaption
+                })
+              }
+              className="absolute bottom-3 right-3 bg-black/70 hover:bg-black/90 text-white p-2 rounded-xl backdrop-blur-sm transition flex items-center gap-1 text-xs font-semibold shadow-md"
+              title="Ampliar imagen"
+            >
+              <Maximize2 className="w-3.5 h-3.5" />
+              <span>Ver ampliada</span>
+            </button>
+          </div>
+          <div className="p-3.5 space-y-2">
+            <p className="text-xs italic text-roman-muted">
+              📷 {currentStop.imageCaption}
+            </p>
+            <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-start gap-2.5">
+              <MapPin className="w-4 h-4 text-roman-terracotta shrink-0 mt-0.5" />
+              <div>
+                <strong className="text-xs font-bold text-amber-900 dark:text-amber-300 block">
+                  Cómo localizarlo in situ en el Foro:
+                </strong>
+                <p className="text-xs text-roman-text leading-relaxed">
+                  {currentStop.locationTipInForum}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Destacado clave */}
@@ -530,6 +624,41 @@ export const RomanForum80MinGuide: React.FC<RomanForum80MinGuideProps> = ({
           )}
         </div>
       </div>
+
+      {/* Modal de Imagen Ampliada */}
+      {expandedImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm p-4 flex flex-col items-center justify-center animate-page"
+          onClick={() => setExpandedImage(null)}
+        >
+          <div
+            className="max-w-3xl w-full bg-stone-900 border border-stone-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-3.5 border-b border-stone-800 text-white">
+              <h4 className="font-serif font-bold text-sm sm:text-base truncate">
+                {expandedImage.title}
+              </h4>
+              <button
+                onClick={() => setExpandedImage(null)}
+                className="p-1.5 rounded-full hover:bg-white/10 text-stone-300 hover:text-white transition"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="flex-1 overflow-auto p-2 bg-black flex items-center justify-center">
+              <img
+                src={expandedImage.url}
+                alt={expandedImage.title}
+                className="max-h-[70vh] w-auto object-contain rounded-lg shadow-lg"
+              />
+            </div>
+            <div className="p-3 border-t border-stone-800 bg-stone-900/90 text-xs text-stone-300">
+              {expandedImage.caption}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
