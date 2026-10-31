@@ -41,6 +41,8 @@ import { RomanDiningGuideView } from './components/RomanDiningGuideView';
 import { GroupExpenseSplitter } from './components/GroupExpenseSplitter';
 import { SharedPhotoAlbumView } from './components/SharedPhotoAlbumView';
 import { PlaceDetailModal } from './components/PlaceDetailModal';
+import { TrajanColumnSpecialSection } from './components/TrajanColumnSpecialSection';
+import { PiazzaNavonaNightFountainsView } from './components/PiazzaNavonaNightFountainsView';
 import { getDaysSinceRomeFoundation, TRIP_DATES_SHORT } from './utils/romanDates';
 import { Analytics } from '@vercel/analytics/next';
 
@@ -78,6 +80,8 @@ export const App: React.FC = () => {
   const [selectedPlaceModal, setSelectedPlaceModal] = useState<ItineraryPlace | null>(null);
   const [preselectedAlbumPlaceId, setPreselectedAlbumPlaceId] = useState<string | null>(null);
   const [showDiningGuideModal, setShowDiningGuideModal] = useState<boolean>(false);
+  const [showTrajanModal, setShowTrajanModal] = useState<boolean>(false);
+  const [showNavonaModal, setShowNavonaModal] = useState<boolean>(false);
 
   const [showProfileSwitcher, setShowProfileSwitcher] = useState<boolean>(false);
   const [isOffline, setIsOffline] = useState<boolean>(!navigator.onLine);
@@ -333,6 +337,8 @@ export const App: React.FC = () => {
             onGoToWeather={() => setActiveTab('tiempo')}
             onGoToExpenses={() => setActiveTab('gastos')}
             onOpenDiningGuide={() => setShowDiningGuideModal(true)}
+            onOpenTrajanGuide={() => setShowTrajanModal(true)}
+            onOpenNavonaGuide={() => setShowNavonaModal(true)}
             onOpenAlbumForPlace={(placeId) => {
               setPreselectedAlbumPlaceId(placeId);
               setActiveTab('album');
@@ -409,7 +415,45 @@ export const App: React.FC = () => {
           setActiveTab('album');
         }}
         onOpenDiningGuide={() => setShowDiningGuideModal(true)}
+        onOpenTrajanColumn={() => setShowTrajanModal(true)}
+        onOpenPiazzaNavona={() => setShowNavonaModal(true)}
       />
+
+      {/* MODAL ESPECIAL MONOGRÁFICO: LA COLUMNA DE TRAJANO */}
+      {showTrajanModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/70 backdrop-blur-sm p-0 sm:p-4"
+          onClick={() => setShowTrajanModal(false)}
+        >
+          <div
+            className="animate-modal w-full max-w-2xl max-h-[92vh] bg-roman-bg text-roman-text rounded-t-[24px] sm:rounded-[24px] shadow-elevated border border-roman-border overflow-y-auto p-5 sm:p-7 space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <TrajanColumnSpecialSection
+              userCoords={userCoords}
+              onClose={() => setShowTrajanModal(false)}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* MODAL ESPECIAL VISITA NOCTURNA: PIAZZA NAVONA & LAS 3 FUENTES */}
+      {showNavonaModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/70 backdrop-blur-sm p-0 sm:p-4"
+          onClick={() => setShowNavonaModal(false)}
+        >
+          <div
+            className="animate-modal w-full max-w-2xl max-h-[92vh] bg-roman-bg text-roman-text rounded-t-[24px] sm:rounded-[24px] shadow-elevated border border-roman-border overflow-y-auto p-5 sm:p-7 space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <PiazzaNavonaNightFountainsView
+              userCoords={userCoords}
+              onClose={() => setShowNavonaModal(false)}
+            />
+          </div>
+        </div>
+      )}
 
       {/* MODAL DE LA GUÍA GASTRONÓMICA ROMANA Y RESTAURANTES CURADOS */}
       {showDiningGuideModal && (

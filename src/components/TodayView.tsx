@@ -45,6 +45,8 @@ interface TodayViewProps {
   onGoToWeather?: () => void;
   onGoToExpenses?: () => void;
   onOpenDiningGuide?: () => void;
+  onOpenTrajanGuide?: () => void;
+  onOpenNavonaGuide?: () => void;
   onOpenAlbumForPlace: (placeId: string) => void;
 }
 
@@ -63,6 +65,8 @@ export const TodayView: React.FC<TodayViewProps> = ({
   onGoToWeather,
   onGoToExpenses,
   onOpenDiningGuide,
+  onOpenTrajanGuide,
+  onOpenNavonaGuide,
   onOpenAlbumForPlace
 }) => {
   const [showUsefulGuide, setShowUsefulGuide] = useState(false);
@@ -343,6 +347,65 @@ export const TodayView: React.FC<TodayViewProps> = ({
             <span>Ver Restaurantes & Platos</span>
           </button>
         )}
+      </div>
+
+      {/* MONOGRÁFICOS ESPECIALES DEL VIAJE: COLUMNA DE TRAJANO Y PIAZZA NAVONA NOCTURNA */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        {/* Tarjeta Columna de Trajano */}
+        <div className="rounded-card bg-roman-surface border border-roman-border shadow-soft p-4 flex flex-col justify-between gap-3 hover:border-roman-terracotta/40 transition">
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-roman-elevated text-roman-terracotta">
+                🏛️ Escultura Imperial · 113 d.C.
+              </span>
+              <span className="text-xs font-mono text-roman-muted">Sábado 13:50 h</span>
+            </div>
+            <h4 className="font-serif font-bold text-base text-roman-text">
+              La Columna de Trajano
+            </h4>
+            <p className="text-xs text-roman-muted leading-relaxed">
+              El primer «cómic cinematográfico» en mármol: 200 m de friso en espiral, secretos, la tumba y los 3 mejores miradores.
+            </p>
+          </div>
+          {onOpenTrajanGuide && (
+            <button
+              type="button"
+              onClick={onOpenTrajanGuide}
+              className="touch-target w-full py-2.5 px-3.5 rounded-xl bg-roman-elevated hover:bg-roman-surface border border-roman-border text-roman-terracotta font-bold text-xs flex items-center justify-center gap-2 transition"
+            >
+              <span>Ver Monográfico Completo</span>
+              <span>→</span>
+            </button>
+          )}
+        </div>
+
+        {/* Tarjeta Piazza Navona de Noche */}
+        <div className="rounded-card bg-gradient-to-br from-[#1F1714] to-[#2B231E] border border-amber-900/40 text-white shadow-soft p-4 flex flex-col justify-between gap-3">
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-black/40 text-amber-400 border border-amber-500/20">
+                🌙 Paseo Exterior Nocturno
+              </span>
+              <span className="text-xs font-mono text-stone-300">Sábado Noche</span>
+            </div>
+            <h4 className="font-serif font-bold text-base text-amber-100">
+              Piazza Navona & Las 3 Fuentes
+            </h4>
+            <p className="text-xs text-stone-300 leading-relaxed">
+              Estadio de Domiciano iluminado, las 3 fuentes (Bernini, Moro, Neptuno), rivalidad con Borromini y cine.
+            </p>
+          </div>
+          {onOpenNavonaGuide && (
+            <button
+              type="button"
+              onClick={onOpenNavonaGuide}
+              className="touch-target w-full py-2.5 px-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center gap-2 transition"
+            >
+              <span>Ver Visita Nocturna</span>
+              <span>→</span>
+            </button>
+          )}
+        </div>
       </div>
 
       {/* DESPLEGABLE LIMPIO DE INFORMACIÓN ÚTIL (Hotel Via Palermo 4, Vuelos, 112, Nasoni y Checklist) */}

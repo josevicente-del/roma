@@ -578,6 +578,12 @@
           },
           "nearbyBonus": [
             {
+              "nameEs": "Piazza Navona y las 3 Fuentes de Noche",
+              "nameIt": "Piazza Navona e le Tre Fontane",
+              "distanceMeters": 300,
+              "description": "A solo 4 minutos a pie al oeste del Panteón. Imprescindible de noche: la Fuente de los Cuatro Ríos de Bernini iluminada frente a Sant'Agnese, la Fuente del Moro y la Fuente de Neptuno sobre el trazado del Estadio de Domiciano."
+            },
+            {
               "nameEs": "Campo de' Fiori y Piazza Farnese",
               "nameIt": "Campo de' Fiori",
               "distanceMeters": 100,

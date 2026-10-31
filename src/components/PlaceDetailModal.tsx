@@ -39,6 +39,8 @@ interface PlaceDetailModalProps {
   onClose: () => void;
   onOpenAlbumForPlace: (placeId: string) => void;
   onOpenDiningGuide?: () => void;
+  onOpenTrajanColumn?: () => void;
+  onOpenPiazzaNavona?: () => void;
 }
 
 export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
@@ -46,7 +48,9 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
   userCoords,
   onClose,
   onOpenAlbumForPlace,
-  onOpenDiningGuide
+  onOpenDiningGuide,
+  onOpenTrajanColumn,
+  onOpenPiazzaNavona
 }) => {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [showFullHistory, setShowFullHistory] = useState(false);
@@ -185,6 +189,61 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
               Fotos de este lugar
             </button>
           </div>
+
+          {/* ACCESO DIRECTO AL MONOGRÁFICO DE LA COLUMNA DE TRAJANO (SÁBADO 13:50 H) */}
+          {onOpenTrajanColumn && place.id === 'sab-5-foro-trajano' && (
+            <button
+              type="button"
+              onClick={() => {
+                onClose();
+                onOpenTrajanColumn();
+              }}
+              className="touch-target w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-900/10 via-amber-800/15 to-amber-900/10 hover:bg-amber-800/20 border-2 border-amber-600/40 text-roman-text font-bold text-sm flex items-center justify-between shadow-soft transition"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="text-xl">🏛️</span>
+                <div className="text-left">
+                  <div className="font-serif font-bold text-roman-terracotta leading-tight">
+                    Monográfico: La Columna de Trajano
+                  </div>
+                  <div className="text-[11px] font-normal text-roman-muted">
+                    Cómo leer su cómic de 200m, secretos, tumba y los 3 miradores
+                  </div>
+                </div>
+              </div>
+              <span className="text-xs font-bold text-white bg-roman-terracotta px-2.5 py-1 rounded-md shadow-sm">
+                Abrir Guía →
+              </span>
+            </button>
+          )}
+
+          {/* ACCESO DIRECTO A LA VISITA EXTERIOR NOCTURNA: PIAZZA NAVONA & 3 FUENTES */}
+          {onOpenPiazzaNavona &&
+            (place.id === 'sab-9-panteon-nocturno' || place.id === 'sab-10-fontana-trevi') && (
+              <button
+                type="button"
+                onClick={() => {
+                  onClose();
+                  onOpenPiazzaNavona();
+                }}
+                className="touch-target w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#1E1714] via-[#2D231E] to-[#1E1714] text-amber-100 border border-amber-500/40 font-bold text-sm flex items-center justify-between shadow-lg transition"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xl">🌙</span>
+                  <div className="text-left">
+                    <div className="font-serif font-bold text-amber-300 leading-tight">
+                      Visita Nocturna: Piazza Navona & Las 3 Fuentes
+                    </div>
+                    <div className="text-[11px] font-normal text-stone-300">
+                      A 4 min a pie · Cuatro Ríos (Bernini), Moro y Neptuno iluminadas
+                    </div>
+                  </div>
+                </div>
+                <span className="text-xs font-bold text-stone-900 bg-amber-400 px-2.5 py-1 rounded-md shadow-sm">
+                  Ver Visita →
+                </span>
+              </button>
+            )}
 
           {/* ACCESO DIRECTO A LA GUÍA GASTRONÓMICA EN PARADAS DE COMIDA O BARRIOS GASTRONÓMICOS */}
           {onOpenDiningGuide &&
