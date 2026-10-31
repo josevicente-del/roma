@@ -21,6 +21,7 @@ import {
   ChevronDown,
   Download,
   Layers,
+  Receipt,
   X
 } from 'lucide-react';
 import rawItineraryData from './data/itinerary.json';
@@ -40,6 +41,7 @@ import { InteractiveMapView } from './components/InteractiveMapView';
 import { WeatherForecastView } from './components/WeatherForecastView';
 import { RomanDiningGuideView } from './components/RomanDiningGuideView';
 import { GroupExpenseSplitter } from './components/GroupExpenseSplitter';
+import { ExpenseReceiptsView } from './components/ExpenseReceiptsView';
 import { SharedPhotoAlbumView } from './components/SharedPhotoAlbumView';
 import { PlaceDetailModal } from './components/PlaceDetailModal';
 import { TrajanColumnSpecialSection } from './components/TrajanColumnSpecialSection';
@@ -85,6 +87,7 @@ export const App: React.FC = () => {
   const [showTrajanModal, setShowTrajanModal] = useState<boolean>(false);
   const [showNavonaModal, setShowNavonaModal] = useState<boolean>(false);
   const [showForumGuideModal, setShowForumGuideModal] = useState<boolean>(false);
+  const [expenseSubTab, setExpenseSubTab] = useState<'calculadora' | 'tiquets'>('calculadora');
 
   const [showProfileSwitcher, setShowProfileSwitcher] = useState<boolean>(false);
   const [isOffline, setIsOffline] = useState<boolean>(!navigator.onLine);
@@ -338,7 +341,14 @@ export const App: React.FC = () => {
             onGoToFullItinerary={() => setActiveTab('itinerario')}
             onGoToFullMap={() => setActiveTab('mapa')}
             onGoToWeather={() => setActiveTab('tiempo')}
-            onGoToExpenses={() => setActiveTab('gastos')}
+            onGoToExpenses={() => {
+              setExpenseSubTab('calculadora');
+              setActiveTab('gastos');
+            }}
+            onGoToReceipts={() => {
+              setExpenseSubTab('tiquets');
+              setActiveTab('gastos');
+            }}
             onOpenDiningGuide={() => setShowDiningGuideModal(true)}
             onOpenForumGuide={() => setShowForumGuideModal(true)}
             onOpenTrajanGuide={() => setActiveTab('trajano')}
@@ -394,7 +404,41 @@ export const App: React.FC = () => {
 
         {activeTab === 'gastos' && (
           <div className="animate-page space-y-6 pb-28">
-            <GroupExpenseSplitter />
+            {/* Conmutador superior entre Calculadora de Adelantos y Buzón de Fotos de Tiquets */}
+            <div className="grid grid-cols-2 gap-2 p-1 rounded-2xl bg-roman-surface border border-roman-border shadow-soft text-xs font-bold max-w-md mx-auto">
+              <button
+                onClick={() => setExpenseSubTab('calculadora')}
+                className={`touch-target py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition ${
+                  expenseSubTab === 'calculadora'
+                    ? 'bg-roman-terracotta text-white shadow-soft'
+                    : 'text-roman-muted hover:text-roman-text'
+                }`}
+              >
+                <Coins className="w-4 h-4" />
+                <span>Calculadora & Balances</span>
+              </button>
+
+              <button
+                onClick={() => setExpenseSubTab('tiquets')}
+                className={`touch-target py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition ${
+                  expenseSubTab === 'tiquets'
+                    ? 'bg-roman-terracotta text-white shadow-soft'
+                    : 'text-roman-muted hover:text-roman-text'
+                }`}
+              >
+                <Receipt className="w-4 h-4" />
+                <span>Buzón de Tiquets</span>
+              </button>
+            </div>
+
+            {expenseSubTab === 'calculadora' ? (
+              <GroupExpenseSplitter />
+            ) : (
+              <ExpenseReceiptsView
+                activeProfile={activeProfile}
+                onGoToExpenseCalculator={() => setExpenseSubTab('calculadora')}
+              />
+            )}
           </div>
         )}
 

@@ -44,6 +44,7 @@ interface TodayViewProps {
   onGoToFullMap: () => void;
   onGoToWeather?: () => void;
   onGoToExpenses?: () => void;
+  onGoToReceipts?: () => void;
   onOpenDiningGuide?: () => void;
   onOpenForumGuide?: () => void;
   onOpenTrajanGuide?: () => void;
@@ -65,6 +66,7 @@ export const TodayView: React.FC<TodayViewProps> = ({
   onGoToFullMap,
   onGoToWeather,
   onGoToExpenses,
+  onGoToReceipts,
   onOpenDiningGuide,
   onOpenForumGuide,
   onOpenTrajanGuide,
@@ -256,7 +258,7 @@ export const TodayView: React.FC<TodayViewProps> = ({
         onExpandFullMap={onGoToFullMap}
       />
 
-      {/* ACCESO RÁPIDO A LA SECCIÓN APARTE DE GASTOS Y ADELANTOS */}
+      {/* ACCESO RÁPIDO A LA SECCIÓN DE GASTOS Y FOTOS DE TIQUETS */}
       {onGoToExpenses && (
         <div className="p-4 rounded-card bg-roman-surface border border-roman-border shadow-soft flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -265,20 +267,31 @@ export const TodayView: React.FC<TodayViewProps> = ({
             </div>
             <div>
               <h4 className="font-serif font-bold text-sm text-roman-text">
-                Calculadora de Adelantos & Gastos del Viaje
+                Gastos del Viaje & Buzón de Tiquets
               </h4>
               <p className="text-[11px] text-roman-muted">
-                Registro de pagos de hotel, entradas y balance (Superávit / Déficit) en su sección propia.
+                Calculadora de Bizums, balance grupal y fotos de recibos de restaurantes y entradas.
               </p>
             </div>
           </div>
-          <button
-            type="button"
-            onClick={onGoToExpenses}
-            className="touch-target px-3.5 py-2 rounded-xl bg-roman-elevated hover:bg-roman-surface border border-roman-border text-roman-terracotta text-xs font-bold shrink-0 transition"
-          >
-            Abrir Gastos →
-          </button>
+          <div className="flex items-center gap-2 shrink-0">
+            {onGoToReceipts && (
+              <button
+                type="button"
+                onClick={onGoToReceipts}
+                className="touch-target px-3.5 py-2 rounded-xl bg-roman-surface hover:bg-roman-elevated border border-roman-border text-roman-text text-xs font-bold transition flex items-center gap-1.5"
+              >
+                <span>🧾 Tiquets</span>
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={onGoToExpenses}
+              className="touch-target px-3.5 py-2 rounded-xl bg-roman-terracotta hover:bg-roman-terracottaHover text-white text-xs font-bold transition shadow-soft"
+            >
+              Balances →
+            </button>
+          </div>
         </div>
       )}
 
