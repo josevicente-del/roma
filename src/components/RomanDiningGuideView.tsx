@@ -35,11 +35,13 @@ interface RomanDiningGuideViewProps {
   userCoords?: Coordinates | null;
   hotelCoords?: Coordinates;
   onClose?: () => void;
+  onOpenGelatoRadar?: () => void;
 }
 
 export const RomanDiningGuideView: React.FC<RomanDiningGuideViewProps> = ({
   userCoords,
-  onClose
+  onClose,
+  onOpenGelatoRadar
 }) => {
   const [activeTab, setActiveTab] = useState<'restaurantes' | 'platos'>('restaurantes');
   const [selectedZone, setSelectedZone] = useState<string>('todos');
@@ -163,6 +165,31 @@ export const RomanDiningGuideView: React.FC<RomanDiningGuideViewProps> = ({
               );
             })}
           </div>
+
+          {/* Banner de acceso directo al Radar de Gelato Auténtico */}
+          {onOpenGelatoRadar && (
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-500/15 via-rose-500/10 to-amber-500/5 border border-amber-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="flex items-start gap-3">
+                <span className="text-2xl shrink-0">🍦</span>
+                <div>
+                  <h4 className="font-serif font-bold text-sm text-roman-text">
+                    ¿Buscas el mejor helado artesano de Roma?
+                  </h4>
+                  <p className="text-xs text-roman-muted leading-relaxed">
+                    Aprende las 5 reglas para detectar fraudes químicos (pistacho, montañas de grasa) y descubre Frigidarium, Giolitti y Fatamorgana a 4′ de casa.
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={onOpenGelatoRadar}
+                className="touch-target px-4 py-2 rounded-xl bg-roman-terracotta hover:bg-roman-terracottaHover text-white font-bold text-xs shrink-0 shadow-sm transition flex items-center justify-center gap-1.5"
+              >
+                <span>Abrir Radar de Gelato</span>
+                <span>→</span>
+              </button>
+            </div>
+          )}
 
           {/* Listado de Restaurantes en Tarjetas */}
           <div className="space-y-4 pt-1">

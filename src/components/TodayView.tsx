@@ -55,6 +55,8 @@ interface TodayViewProps {
   onOpenForumGuide?: () => void;
   onOpenTrajanGuide?: () => void;
   onOpenNavonaGuide?: () => void;
+  onOpenSecretRomeGuide?: () => void;
+  onOpenGelatoRadar?: () => void;
   onOpenAlbumForPlace: (placeId: string) => void;
 }
 
@@ -77,6 +79,8 @@ export const TodayView: React.FC<TodayViewProps> = ({
   onOpenForumGuide,
   onOpenTrajanGuide,
   onOpenNavonaGuide,
+  onOpenSecretRomeGuide,
+  onOpenGelatoRadar,
   onOpenAlbumForPlace
 }) => {
   const [showUsefulGuide, setShowUsefulGuide] = useState(false);
@@ -727,6 +731,65 @@ export const TodayView: React.FC<TodayViewProps> = ({
               className="touch-target w-full py-2.5 px-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center gap-2 transition"
             >
               <span>Ver Visita Nocturna</span>
+              <span>→</span>
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* DOS NUEVAS EXPERIENCIAS: ROMA SECRETA & TRUCOS ÓPTICOS + RADAR DE GELATO */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        {/* Tarjeta Roma Secreta & Trucos Ópticos */}
+        <div className="rounded-card bg-gradient-to-br from-[#2D2118] via-[#201813] to-[#17110E] border border-roman-border text-white shadow-soft p-4 flex flex-col justify-between gap-3">
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                👁️ Matemática & Trampantojo
+              </span>
+              <span className="text-xs font-mono text-stone-300">Cerca de la Ruta</span>
+            </div>
+            <h4 className="font-serif font-bold text-base text-amber-100">
+              Roma Secreta & Trucos Ópticos
+            </h4>
+            <p className="text-xs text-stone-300 leading-relaxed">
+              La Falsa Perspectiva de Borromini (8 m que parecen 40 m), la Falsa Cúpula de San Ignacio y el Ojo de la Cerradura de Malta.
+            </p>
+          </div>
+          {onOpenSecretRomeGuide && (
+            <button
+              type="button"
+              onClick={onOpenSecretRomeGuide}
+              className="touch-target w-full py-2.5 px-3.5 rounded-xl bg-roman-terracotta hover:bg-roman-terracottaHover text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition"
+            >
+              <span>Descubrir Trucos Ópticos</span>
+              <span>→</span>
+            </button>
+          )}
+        </div>
+
+        {/* Tarjeta Radar de Gelato Auténtico */}
+        <div className="rounded-card bg-roman-surface border border-roman-border shadow-soft p-4 flex flex-col justify-between gap-3 hover:border-amber-500/40 transition">
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-800 dark:text-amber-300">
+                🍦 El Test del Gelato Real
+              </span>
+              <span className="text-xs font-mono text-roman-terracotta font-semibold">Top 7 Heladerías</span>
+            </div>
+            <h4 className="font-serif font-bold text-base text-roman-text">
+              Radar de Gelato Auténtico
+            </h4>
+            <p className="text-xs text-roman-muted leading-relaxed">
+              Aprende a esquivar el helado químico industrial (regla del pistacho y montañas) y encuentra Frigidarium, Giolitti o Fatamorgana a 4′ del hotel.
+            </p>
+          </div>
+          {onOpenGelatoRadar && (
+            <button
+              type="button"
+              onClick={onOpenGelatoRadar}
+              className="touch-target w-full py-2.5 px-3.5 rounded-xl bg-roman-elevated hover:bg-roman-surface border border-roman-border text-roman-text font-bold text-xs flex items-center justify-center gap-2 transition"
+            >
+              <span>Abrir Radar de Gelato</span>
               <span>→</span>
             </button>
           )}

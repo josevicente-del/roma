@@ -47,6 +47,8 @@ import { PlaceDetailModal } from './components/PlaceDetailModal';
 import { TrajanColumnSpecialSection } from './components/TrajanColumnSpecialSection';
 import { PiazzaNavonaNightFountainsView } from './components/PiazzaNavonaNightFountainsView';
 import { RomanForum80MinGuide } from './components/RomanForum80MinGuide';
+import { SecretRomeOpticalWondersModal } from './components/SecretRomeOpticalWondersModal';
+import { AuthenticGelatoRadarModal } from './components/AuthenticGelatoRadarModal';
 import { getDaysSinceRomeFoundation, getRomeRealTimeAndDay, TRIP_DATES_SHORT } from './utils/romanDates';
 import { Analytics } from '@vercel/analytics/next';
 
@@ -94,6 +96,8 @@ export const App: React.FC = () => {
   const [showTrajanModal, setShowTrajanModal] = useState<boolean>(false);
   const [showNavonaModal, setShowNavonaModal] = useState<boolean>(false);
   const [showForumGuideModal, setShowForumGuideModal] = useState<boolean>(false);
+  const [showSecretRomeModal, setShowSecretRomeModal] = useState<boolean>(false);
+  const [showGelatoRadarModal, setShowGelatoRadarModal] = useState<boolean>(false);
   const [expenseSubTab, setExpenseSubTab] = useState<'calculadora' | 'tiquets'>('calculadora');
 
   const [showProfileSwitcher, setShowProfileSwitcher] = useState<boolean>(false);
@@ -360,6 +364,8 @@ export const App: React.FC = () => {
             onOpenForumGuide={() => setShowForumGuideModal(true)}
             onOpenTrajanGuide={() => setActiveTab('trajano')}
             onOpenNavonaGuide={() => setShowNavonaModal(true)}
+            onOpenSecretRomeGuide={() => setShowSecretRomeModal(true)}
+            onOpenGelatoRadar={() => setShowGelatoRadarModal(true)}
             onOpenAlbumForPlace={(placeId) => {
               setPreselectedAlbumPlaceId(placeId);
               setActiveTab('album');
@@ -557,6 +563,46 @@ export const App: React.FC = () => {
               userCoords={userCoords}
               hotelCoords={itineraryData.tripMeta.accommodation.coordinates}
               onClose={() => setShowDiningGuideModal(false)}
+              onOpenGelatoRadar={() => {
+                setShowDiningGuideModal(false);
+                setShowGelatoRadarModal(true);
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* MODAL ESPECIAL: ROMA SECRETA & TRUCOS ÓPTICOS */}
+      {showSecretRomeModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/70 backdrop-blur-sm p-0 sm:p-4"
+          onClick={() => setShowSecretRomeModal(false)}
+        >
+          <div
+            className="animate-modal w-full max-w-2xl max-h-[92vh] bg-roman-bg text-roman-text rounded-t-[24px] sm:rounded-[24px] shadow-elevated border border-roman-border overflow-y-auto p-5 sm:p-7 space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <SecretRomeOpticalWondersModal
+              userCoords={userCoords}
+              onClose={() => setShowSecretRomeModal(false)}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* MODAL ESPECIAL: RADAR DE GELATO AUTÉNTICO VS TRAMPAS TURÍSTICAS */}
+      {showGelatoRadarModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/70 backdrop-blur-sm p-0 sm:p-4"
+          onClick={() => setShowGelatoRadarModal(false)}
+        >
+          <div
+            className="animate-modal w-full max-w-2xl max-h-[92vh] bg-roman-bg text-roman-text rounded-t-[24px] sm:rounded-[24px] shadow-elevated border border-roman-border overflow-y-auto p-5 sm:p-7 space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <AuthenticGelatoRadarModal
+              userCoords={userCoords}
+              onClose={() => setShowGelatoRadarModal(false)}
             />
           </div>
         </div>
